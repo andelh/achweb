@@ -1,0 +1,39 @@
+{
+    "projects" : [
+        {
+            "title" : "WhereDPump Website & App",
+            "copy" : "WhereDPump is a technology company that facilitates users through a mobile app, allowing them to see all upcoming events and take actions such as purchasing tickets and getting listed for clubs.",
+            "company" : "wdp",
+            "projectUrl" : "https://www.wheredpump.com",
+            "logoUrl" : "https://www.wheredpump.com/img/assets/logos/logo_color.png"
+        },
+        {
+            "title" : "YUP Life Website",
+            "copy" : "YUP Life is an entertainment company that throws some of the most popular events in Trinidad including Festival of Colour and Backyard Melee. They required a website that would allow patrons to see their upcoming events as well as see event photos.",
+            "company" : "yup",
+            "projectUrl" : "https://www.yuplifett.com",
+            "logoUrl" : "https://yuplifett.com/static/media/logo.67146cf6.png"
+        },
+        {
+            "title" : "Made By Mei Online Shop",
+            "copy" : "Meiling is an upcoming designer coming out of Trinidad & Tobago. She required a wesbite that would allow users to view and purchase her Monday Wear designs via Cash or Credit Card payment methods",
+            "company" : "mei",
+            "projectUrl" : "https://www.madebymei-tt.com",
+            "logoUrl" : "https://madebymei-tt.com/static/made%20by%20mei-02-70c5d3663b2b8744ac31ab29613cb9f4.png"
+        },
+        {
+            "title" : "Color Me Jouvert Website",
+            "copy" : "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. We also implemented an online registration system so that a patron can sign up in the conenience of their home.",
+            "company" : "cmj",
+            "projectUrl" : "https://www.colormejouvert.com",
+            "logoUrl" : "https://pensive-agnesi-079a44.netlify.com/static/logo-6f0ba42129ed8246738dcd9f47ab46cd.png"
+        },
+        {
+            "title" : "Foodie Buddy Web App",
+            "copy" : "Foodie Buddy is a web app that was designed to display the restaurants and menus partaking in Trinidad & Tobago Restaurant week. The web app is to be expanded to showcase menus of all restaurants all year long.",
+            "company" : "foodie",
+            "projectUrl" : "https://www.foodiebuddytt.com",
+            "logoUrl" : "https://andelhusbands.herokuapp.com/static/media/logocolor.98f2be24.png"
+        }
+    ]
+}

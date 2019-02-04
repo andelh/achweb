@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const HeadingContainer = styled.div`
     padding: 10% 15% 5% 10%;
-    font-size: 3rem;
+    font-size: 2.9rem;
     font-weight: 900;
     line-height: 130%;
 `

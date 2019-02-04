@@ -57,6 +57,19 @@ const ContentCopy = styled.p`
     font-size: 14px;
 `
 
+const ContentButton = styled.button`
+    color: white;
+    font-family: Avenir;
+    font-weight: bolder;
+    padding: 10px 15px;
+    // background-color: #Fc444e;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background-color: ${props => (props.color === 'wdp' && '#fc444e') || (props.color === 'yup' && 'black') || (props.color === 'mei' && '#170021') || (props.color === 'foodie' && '#1F0308') || (props.color === 'cmj' && '#330219')};
+
+`
+
 class PortfolioItem extends Component {
     
     render() { 
@@ -66,10 +79,11 @@ class PortfolioItem extends Component {
                 <PortfolioContent>
                     <ContentTitle>{this.props.title}</ContentTitle>
                     <ContentCopy>{this.props.copy}</ContentCopy>
+                    <a target="_blank" style={{color: 'inherit'}} href={this.props.projectUrl}><ContentButton color={this.props.color}>See Project</ContentButton></a>
                 </PortfolioContent>
             </PortfolioContainer>
         );
     }
 }
- 
+
 export default PortfolioItem;
