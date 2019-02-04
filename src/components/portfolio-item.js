@@ -39,7 +39,7 @@ const PortfolioContent = styled.div`
         align-content: center;
     position: absolute;
     background-color: black;
-
+    
     &:hover {
         display: inline-grid;
         opacity: 0.9;
