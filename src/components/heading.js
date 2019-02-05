@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { fadeUp } from '../styles/keyframes'
 
 //NPM
 import Typed from 'react-typed'
@@ -21,6 +22,8 @@ const HeadingCopy = styled.p`
     font-weight: 300;
     font-family: 'Open Sans', sans-serif;
     line-height: 200%;
+    // transform: translateY(-20px);
+    animation: ${fadeUp} 2s ease;
 `
 
 const Red = styled.span`
