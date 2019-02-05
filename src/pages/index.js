@@ -20,7 +20,7 @@ const Portfolios = styled.div`
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Andel Husbands | Online Portfolio" description="A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!" keywords={[`andel`,`husbands`,`developer`,`web`,`software`,`trinidad`,`tobago`,`wheredpump`,`yuplife`,`designer`,`react`,`javascript`,`swift`,`xcode`,`portfolio`,`projects`,`hire`]}/>
+    <SEO title="Home" description="A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!" keywords={[`andel`,`husbands`,`developer`,`web`,`software`,`trinidad`,`tobago`,`wheredpump`,`yuplife`,`designer`,`react`,`javascript`,`swift`,`xcode`,`portfolio`,`projects`,`hire`]}/>
     <Heading />
     <Portfolios>
       {
