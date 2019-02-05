@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const HeadingContainer = styled.div`
     padding: 100px 15% 5% 10%;
-    font-size: 2.9rem;
+    font-size: 2.7rem;
     font-weight: 900;
     line-height: 130%;
 `
@@ -51,7 +51,7 @@ class Heading extends Component {
 
                     />
                 </TypedContainer>
-                <HeadingCopy>I am a web and software developer based in <Red>Trinidad</Red> & <Red>Tobago</Red>. My goal is to deliver “higher than expected” quality apps & websites. Take a look at my portfolio below</HeadingCopy>
+                <HeadingCopy>I am a web and software developer based in <Red>Trinidad</Red> & <Red>Tobago</Red>🇹🇹. My goal is to deliver “higher than expected” quality websites & apps. See for yourself below!</HeadingCopy>
             </HeadingContainer>
         );
     }

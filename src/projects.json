@@ -23,7 +23,7 @@
         },
         {
             "title" : "Color Me Jouvert Website",
-            "copy" : "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. We also implemented an online registration system so that a patron can sign up in the conenience of their home.",
+            "copy" : "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. An online registration system was also implemented so that a patron can sign up in the conenience of their home.",
             "company" : "cmj",
             "projectUrl" : "https://www.colormejouvert.com",
             "logoUrl" : "https://pensive-agnesi-079a44.netlify.com/static/logo-6f0ba42129ed8246738dcd9f47ab46cd.png"
@@ -34,6 +34,14 @@
             "company" : "foodie",
             "projectUrl" : "https://www.foodiebuddytt.com",
             "logoUrl" : "https://andelhusbands.herokuapp.com/static/media/logocolor.98f2be24.png"
+        },
+        {
+            "title" : "51 Degrees Website",
+            "copy" : "Though it was not officially launched, this wesbite gave us insight into exactly what the patrons of the club need. I am currently working on a mobile app for the club. Be on the lookout ;)",
+            "company" : "51",
+            "projectUrl" : "http://fifyonedegrees.herokuapp.com",
+            "logoUrl" : "https://andelhusbands.herokuapp.com/static/media/fiftyone.a2c649a4.png"
         }
+        
     ]
 }
