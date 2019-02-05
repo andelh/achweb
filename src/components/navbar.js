@@ -17,7 +17,7 @@ const NavContainer = styled.div`
 const NavLogo = styled.img`
     margin: 0 auto;
     display: block;
-    width: 250px;
+    width: 200px;
 `
 
 
