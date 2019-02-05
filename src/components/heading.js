@@ -5,13 +5,13 @@ import Typed from 'react-typed'
 import styled from 'styled-components'
 
 const HeadingContainer = styled.div`
-    padding: 10% 15% 5% 10%;
+    padding: 100px 15% 5% 10%;
     font-size: 2.9rem;
     font-weight: 900;
     line-height: 130%;
 `
 const TypedContainer = styled.div`
-    min-height: 150px;
+    min-height: 250px;
 `
 
 const HeadingCopy = styled.p`
@@ -34,9 +34,11 @@ class Heading extends Component {
                 <TypedContainer>
                     <Typed
                         strings={[
-                            'i can design your next web app.',
-                            'i can design your next mobile app.',
-                            'i can build your next web app.',
+                            'hey there!',
+                            'pleased to meet you :)',
+                            'in case youre wondering..',
+                            'i can build your next website.',
+                            'i can build your next online store.',
                             'i can build your next mobile app.',
                             'together...',
                             'together...we can design',

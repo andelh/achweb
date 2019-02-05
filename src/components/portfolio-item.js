@@ -8,6 +8,12 @@ const PortfolioContainer = styled.div`
     padding: 20%;
     position: relative;
     background-color: ${props => (props.color === 'wdp' && 'white') || (props.color === 'yup' && 'black') || (props.color === 'mei' && '#170021') || (props.color === 'foodie' && '#1F0308') || (props.color === 'cmj' && '#330219')};
+    flex-basis: 100%;
+
+    @media (min-width: 700px){
+        flex-basis: 50%;
+    }
+    
 `
 
 const PortfolioImg = styled.img`
@@ -32,7 +38,7 @@ const PortfolioContent = styled.div`
     color: white;
     top: 0;
     opacity: 0;
-    transition: 1s ease;
+    transition: 0.8s ease;
     left: 0;
     // display: none;
         display: inline-grid;
@@ -43,7 +49,6 @@ const PortfolioContent = styled.div`
     &:hover {
         display: inline-grid;
         opacity: 0.9;
-
     }
     
 `
