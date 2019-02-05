@@ -66,7 +66,7 @@ const ContentButton = styled.button`
     border: none;
     border-radius: 5px;
     text-transform: uppercase;
-    background-color: ${props => (props.color === 'wdp' && '#fc444e') || (props.color === 'yup' && 'black') || (props.color === 'mei' && '#170021') || (props.color === 'foodie' && '#1F0308') || (props.color === 'cmj' && '#330219')};
+    background-color: ${props => (props.color === 'wdp' && '#fc444e') || (props.color === 'yup' && '#D71681') || (props.color === 'mei' && '#CDA7FF') || (props.color === 'foodie' && '#9C1028') || (props.color === 'cmj' && '#ED0A75')};
 
 `
 
@@ -79,7 +79,7 @@ class PortfolioItem extends Component {
                 <PortfolioContent>
                     <ContentTitle>{this.props.title}</ContentTitle>
                     <ContentCopy>{this.props.copy}</ContentCopy>
-                    <a target="_blank" style={{color: 'inherit'}} href={this.props.projectUrl}><ContentButton color={this.props.color}>See Project</ContentButton></a>
+                    <ContentButton color={this.props.color}><a target="_blank" style={{color: 'inherit'}} href={this.props.projectUrl}>See Project</a></ContentButton>
                 </PortfolioContent>
             </PortfolioContainer>
         );
