@@ -21,13 +21,13 @@ const FooterGroup = styled.div`
 const SocialsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    max-width: 250px;
+    max-width: 300px;
     margin: 20px auto;
 
 `
 
 const SocialIcon = styled.div`
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     display: inline;
     transition: 0.5s ease;
     
@@ -35,6 +35,17 @@ const SocialIcon = styled.div`
         color: #650000;
     }
 
+`
+
+const AvailableCopy = styled.p`
+    color: white;
+    font-size: 30px;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Avenir;
+    font-weight: 900;
+    line-height: 150%;
 `
 
 const ios = "https://itunes.apple.com/tt/app/wheredpump/id1125892248?mt=8"
@@ -45,7 +56,7 @@ class Footer extends React.Component {
         return(
             <FooterWrapper>
                 <FooterGroup>
-                <p style={{color: 'white', fontSize: '15px'}}>I am available to work on projects 😊 Shoot me <a style={{color: '#930000'}} href="mailto:andelhusbands@gmail.com">an email</a>. Find me on socials as well. 👇</p>
+                <AvailableCopy>I am available to work on projects 😊 Shoot me <a style={{color: '#930000'}} href="mailto:andelhusbands@gmail.com">an email</a> or find me on socials as well. 👇</AvailableCopy>
 
                 <SocialsContainer>
                         <SocialIcon><a style={{color: 'inherit'}} rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/andel.husbands"><FaFacebookF /></a></SocialIcon>
