@@ -38,19 +38,20 @@ class Heading extends Component {
                     <Typed
                         strings={[
                             'hey there!',
-                            'pleased to meet you :)',
-                            'in case youre wondering..',
+                            // 'pleased to meet you :)',
+                            // 'in case youre wondering..',
                             'i can build your next website.',
                             'i can build your next online store.',
+                            'i can build your next web app.',
                             'i can build your next mobile app.',
-                            'together...',
-                            'together...we can design',
-                            'together...we can build',
-                            'together...we can do..',
-                            'together...we can do..anything!'
+                            // 'together...',
+                            // 'together...we can design',
+                            // 'together...we can build',
+                            // 'together...we can do..',
+                            // 'together...we can do..anything!'
                         ]}
-                        typeSpeed={50}
-                        backSpeed={50}
+                        typeSpeed={60}
+                        backSpeed={60}
 
                     />
                 </TypedContainer>
