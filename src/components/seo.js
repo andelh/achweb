@@ -47,8 +47,20 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: title,
               },
               {
+                name: `twitter:image`,
+                content: `https://res.cloudinary.com/dzzu1iq6s/image/upload/v1549411333/samples/favico.png`
+              },
+              {
+                name: `twitter:card`,
+                content: `summary`
+              },
+              {
+                name: `twitter:site`,
+                content: `@AndelHusbands`
+              },
+              {
                 name: `twitter:description`,
-                content: metaDescription,
+                content: `Web & Mobile Developer based in Trinidad & Tobago. Delivering “higher than expected” quality websites & apps.`,
               },
             ]
               .concat(
