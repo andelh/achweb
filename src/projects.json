@@ -12,7 +12,7 @@
             "copy" : "YUP Life is an entertainment company that throws some of the most popular events in Trinidad including Festival of Colour and Backyard Melee. They required a website that would allow patrons to see their upcoming events as well as see event photos.",
             "company" : "yup",
             "projectUrl" : "https://www.yuplifett.com",
-            "logoUrl" : "https://yuplifett.com/static/media/logo.67146cf6.png"
+            "logoUrl" : "https://www.yuplifett.com/static/logo-67146cf6e423df0d2a76ecfd49de0b5d.png"
         },
         {
             "title" : "Made By Mei Online Shop",
@@ -23,7 +23,7 @@
         },
         {
             "title" : "Color Me Jouvert Website",
-            "copy" : "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. An online registration system was also implemented so that a patron can sign up in the conenience of their home.",
+            "copy" : "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. An online registration system was also implemented so that a patron can sign up at their own convenience.",
             "company" : "cmj",
             "projectUrl" : "https://www.colormejouvert.com",
             "logoUrl" : "https://pensive-agnesi-079a44.netlify.com/static/logo-6f0ba42129ed8246738dcd9f47ab46cd.png"
@@ -37,7 +37,7 @@
         },
         {
             "title" : "51 Degrees Website",
-            "copy" : "Though it was not officially launched, this wesbite gave us insight into exactly what the patrons of the club need. I am currently working on a mobile app for the club. Be on the lookout ;)",
+            "copy" : "Though it was not officially launched, this wesbite gave me a lot of insight into exactly what the patrons of the club need. I am currently working on a mobile app for the club. Be on the lookout ;)",
             "company" : "51",
             "projectUrl" : "http://fifyonedegrees.herokuapp.com",
             "logoUrl" : "https://andelhusbands.herokuapp.com/static/media/fiftyone.a2c649a4.png"
