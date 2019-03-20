@@ -15,6 +15,13 @@ const TypedContainer = styled.div`
     min-height: 250px;
 `
 
+const HeadingTitle = styled.h1`
+    text-transform: uppercase;
+    font-size: 18px;
+    animation: ${fadeUp} 2s ease;
+    text-decoration: underline;
+`
+
 const HeadingCopy = styled.p`
     margin: 20px 0;
     @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -55,7 +62,9 @@ class Heading extends Component {
 
                     />
                 </TypedContainer>
+                {/* <HeadingTitle>Who am i?</HeadingTitle> */}
                 <HeadingCopy>I am a freelance web and software developer based in <Red>Trinidad</Red> & <Red>Tobago</Red>🇹🇹. My goal is to deliver “higher than expected” quality websites & apps.</HeadingCopy>
+                <HeadingCopy>I've worked with large corporations on industry standard apps and hobbyists on side projects they'd been dying to bring to life</HeadingCopy>
                 <HeadingCopy>I'm able to work with you to make your ideas a reality or solve your problems seamlessly and without the hassle. <a style={{color: 'inherit'}} rel="noopener noreferrer" target="_blank" href="mailto:andelhusbands@gmail.com">Reach out</a> and let's get started!</HeadingCopy>
                 <HeadingCopy>Below are a few projects I've worked on recently. Hover or tap on each one to learn a bit more about them.</HeadingCopy>
             </HeadingContainer>
