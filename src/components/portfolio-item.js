@@ -7,7 +7,7 @@ const PortfolioContainer = styled.div`
     width: 100%;
     padding: 20%;
     position: relative;
-    background-color: ${props => (props.color === 'wdp' && 'white') || (props.color === 'yup' && 'black') || (props.color === 'mei' && '#170021') || (props.color === 'foodie' && '#1F0308') || (props.color === 'cmj' && '#330219') || (props.color === '51' && '#27220F')};
+    background-color: ${props => (props.color === 'gzE' && 'black') || (props.color === 'wdp' && 'white') || (props.color === 'yup' && 'black') || (props.color === 'mei' && '#170021') || (props.color === 'foodie' && '#1F0308') || (props.color === 'cmj' && '#330219') || (props.color === '51' && '#27220F')};
     flex-basis: 100%;
 
     @media (min-width: 700px){
@@ -70,8 +70,11 @@ const ContentButton = styled.button`
     // background-color: #Fc444e;
     border: none;
     border-radius: 5px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
     text-transform: uppercase;
-    background-color: ${props => (props.color === 'wdp' && '#fc444e') || (props.color === 'yup' && '#D71681') || (props.color === 'mei' && '#CDA7FF') || (props.color === 'foodie' && '#9C1028') || (props.color === 'cmj' && '#ED0A75')|| (props.color === '51' && '#B59721')};
+    background-color: ${props => (props.color === 'gzE' && '#D3031E') || (props.color === 'wdp' && '#fc444e') || (props.color === 'yup' && '#D71681') || (props.color === 'mei' && '#CDA7FF') || (props.color === 'foodie' && '#9C1028') || (props.color === 'cmj' && '#ED0A75')|| (props.color === '51' && '#B59721')};
 
     &:focus {
         outline: none;
@@ -87,7 +90,7 @@ class PortfolioItem extends Component {
                 <PortfolioContent>
                     <ContentTitle>{this.props.title}</ContentTitle>
                     <ContentCopy>{this.props.copy}</ContentCopy>
-                    <ContentButton color={this.props.color}><a target="_blank" style={{color: 'inherit'}} href={this.props.projectUrl}>See Project</a></ContentButton>
+                    <a target="_blank" style={{color: 'inherit', textDecoration: 'none'}} href={this.props.projectUrl}><ContentButton color={this.props.color}>See Project</ContentButton></a>
                 </PortfolioContent>
             </PortfolioContainer>
         );

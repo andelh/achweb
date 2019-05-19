@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+import { FaArrowDown } from 'react-icons/fa'
+
+const upDown = keyframes`
+    from {
+        transform: translateY(-20px)
+    }
+
+    to {
+        transform: translateY(0px)
+    }
+`
 
 const FreelanceContainer = styled.div`
     background-color: white;
@@ -26,13 +37,22 @@ const HeadingCopy = styled.p`
     color: black;
 `
 
+const IconHolder = styled.div`
+    animation: ${upDown} 2s ease-in-out infinite;
+
+`
+
 class Freelance extends Component {
     state = {}
     render() {
         return (
             <FreelanceContainer>
                 <HeadingTitle>What does freelance mean?</HeadingTitle>
-                <HeadingCopy>For you, this means unbeatable pricing and more involvement in the overall design and development process. Being freelance means that I am not tied to any agency or company and we can work together to find a deal that works for you!</HeadingCopy>
+                <HeadingCopy>For you, this means <b><u>unbeatable pricing</u></b> and more <b><u>involvement</u></b> in the overall design and development process. Being freelance means that I am not tied to any agency or company and we can work together to find a deal that works for you!</HeadingCopy>
+                <HeadingCopy>Here are a few projects I've worked on recently. Hover or tap on each one to learn a bit more about them.</HeadingCopy>
+                <IconHolder>
+                    <FaArrowDown size={25} style={{color: 'black', margin: '20px auto', display: 'block'}} />
+                </IconHolder>
             </FreelanceContainer>
         );
     }

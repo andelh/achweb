@@ -1,6 +1,13 @@
 {
     "projects" : [
         {
+            "title" : "gazettE - Local News",
+            "copy" : "gazettE is a web app that allows users to see all headlines from our major news outlets. The aim of the site is to offer a fresh and beautiful look of local news, so that we can have a more informed nation.",
+            "company" : "gzE",
+            "projectUrl" : "https://www.ttgazette.com",
+            "logoUrl" : "https://res.cloudinary.com/dymq4ddoz/image/upload/v1558225437/gazette_white.png"
+        },
+        {
             "title" : "WhereDPump Website & App",
             "copy" : "WhereDPump is a technology company that facilitates users through a mobile app, allowing them to see all upcoming events and take actions such as purchasing tickets and getting listed for clubs.",
             "company" : "wdp",
