@@ -3,6 +3,7 @@ import logo from '../images/AH.png'
 
 //NPM
 import styled from 'styled-components'
+import { Link } from 'gatsby';
 
 const NavContainer = styled.div`
     background-color: #030405;
@@ -25,7 +26,9 @@ class Navbar extends Component {
     render() { 
         return (
             <NavContainer>
-                <NavLogo src={logo} />
+                <Link to="/">
+                    <NavLogo src={logo} />
+                </Link>
             </NavContainer>
         );
     }

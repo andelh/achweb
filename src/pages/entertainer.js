@@ -6,6 +6,8 @@ import BrandingBlock from '../components/branding-block';
 import WhatsIncluded from '../components/whats-included';
 import HowItWorks from '../components/how-it-works';
 import EntertainmentCarousel from '../components/entertainment-carousel';
+import SEO from '../components/seo';
+import Footer from "../components/footer";
 
 const Container = styled.div`
     padding: 0 10%;
@@ -16,6 +18,7 @@ class EntertainerPage extends Component {
     render() { 
         return (
             <Layout>
+                <SEO title="Entertainer Package" description="A website package aimed at DJ's, MC's, Producers and Entertainers alike! All for the low price of TTT$5999.00." keywords={[`entertainer`,`entertainment`,`DJ`,`andel`,`husbands`,`developer`,`web`,`software`,`trinidad`,`tobago`,`wheredpump`,`yuplife`,`designer`,`react`,`javascript`,`swift`,`xcode`,`portfolio`,`projects`,`hire`]}/>
                 <EntertainmentCarousel />
                 <Container>
                     <OfferBlock />
@@ -27,6 +30,7 @@ class EntertainerPage extends Component {
                     <HowItWorks />
                     <hr style={{opacity: 0.2, backgroundColor: 'white'}} />
                 </Container>
+                <Footer />
             </Layout>
         );
     }
