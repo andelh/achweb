@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade'
 
 const Block = styled.div`
     display: flex;
@@ -11,7 +12,9 @@ const Block = styled.div`
 `
 const Dot = styled.div`
     width: 0.4rem;
+    min-width: 0.4rem;
     height: 0.4rem;
+    min-height: 0.4rem;
     background-color: #FE9C05;
     border-radius: 0.4rem;
 `
@@ -26,9 +29,11 @@ class ListItem extends Component {
     render() { 
         return (
             <Block>
-                <Dot />
-                <Text>{this.props.children}</Text>
-            </Block>
+                <Fade delay={500} cascade bottom distance='10px'>
+                    <Dot />
+                    <Text>{this.props.children}</Text>
+                    </Fade>
+                </Block>
         );
     }
 }

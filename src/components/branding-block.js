@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
+import Zoom from 'react-reveal/Zoom'
+
 import SectionTitle from './section-title';
 
 import djWorld from '../images/DJWorld.png'
 import ClaimButton from './claim-button';
+
+
 
 const Block = styled.div`
     padding: 50px 0;
@@ -15,6 +20,7 @@ const Block = styled.div`
 
 const Copy = styled.p`
     text-align: center;
+    line-height: 150%;
 `
 
 const Image = styled.img`
@@ -25,18 +31,21 @@ const Image = styled.img`
 `
 
 class BrandingBlock extends Component {
-    state = {  }
-    render() { 
+    state = {}
+    render() {
         return (
-            <Block>
-                <SectionTitle>Powerful Branding</SectionTitle>
-                <Copy>You already know the importance of a <b>STRONG</b> brand for your craft. We can help you elevate your brand and make it a global one by bringing it to the web.</Copy>
-                <Image src={djWorld} />
-                <ClaimButton />
-                <hr style={{opacity: 0.2, backgroundColor: 'white'}} />
-            </Block>
+            <Fade delay={500}>
+                <Block>
+                    <SectionTitle>Powerful Branding</SectionTitle>
+                    <Copy>You already know the importance of a <b>STRONG</b> brand for your craft. We can help you elevate your brand and make it a global one by bringing it to the web.</Copy>
+                    <Zoom delay={300}>
+                        <Image src={djWorld} />
+                    </Zoom>
+                    <ClaimButton />
+                </Block>
+            </Fade>
         );
     }
 }
- 
+
 export default BrandingBlock;

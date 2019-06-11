@@ -5,14 +5,15 @@ const Button = styled.button`
     z-index: 1;
     position: relative;
     color: white;
-    padding: 0.5em 1em;
+    text-transform: uppercase;
+    padding: 1em 1em;
     outline: none;
     margin: 40px auto;
     text-align: center;
     border: none;
-    border-radius: 20px;
+    font-size: 0.9rem;
     font-family: 'Nunito', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     background-color: #FE9C05;
 
     ::before {
@@ -26,19 +27,16 @@ const Button = styled.button`
         background-color: #953904;
         transform-origin: center left;
         transform: scaleX(0);
-        border-radius: 20px;
         transition: transform 0.25s ease-in-out;
         
     }
 
     :hover {
-        border-radius: 20px;
         cursor: pointer;
     }
 
     :hover::before {
         transform-origin: center right;
-        border-radius: 20px;
         transform: scaleX(1);
     }
 }

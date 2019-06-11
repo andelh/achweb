@@ -12,20 +12,33 @@ import aswaad from '../images/aswaad.jpg'
 
 const SlideContainer = styled.div`
     width: 100%; 
-    max-height: 650px;
+    max-height: 600px;
     min-height: 290px;
 `
 const SlideInfo = styled.div`
-
+    display: flex;
+    flex-direction: column;
+`
+const SlideIntro = styled.h1`
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 0 0 25px rgba(0,0,0,0.45);
+    font-weight: bolder;
+    width: 80%;
+    padding: 20px 20px;
+    
 `
 const SlideCallout = styled.h1`
     color: black;
     background-color: white;
-    font-size: 23px;
-    
-    /* justify-self: flex-end; */
-    /* align-self: flex-end; */
-    /* position: relative; */
+    font-size: 16px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,7 +48,7 @@ const SlideCallout = styled.h1`
     font-family: "Helvetica";
     font-weight: bolder;
     width: 80%;
-    padding: 20px 20px;
+    padding: 20px 10px;
 
     @media (min-width: 375px) {
         font-size: 25px;
@@ -50,12 +63,13 @@ const SlideCallout = styled.h1`
     }
 
     @media (min-width: 900px) {
-        font-size: 50px;
+        font-size: 40px;
     }
 `  
 
 const Container = styled.div`
     padding: 0 0 0 0;
+    padding-top: 50px;
 `
 
 class EntertainmentCarousel extends Component {
@@ -75,7 +89,7 @@ class EntertainmentCarousel extends Component {
 
     galleryItems() {
         return (
-            [{key: 1, img: penny, text: "THE ENTERTAINER PACKAGE"},{key: 2, img: charlotte, text: "THE ENTERTAINER PACKAGE"}, {key: 3, img: chucky, text: "THE ENTERTAINER PACKAGE"} ].map((item, i) => (
+            [{key: 1, img: penny, text: "THE ENTERTAINER PACKAGE"},{key: 2, img: charlotte, text: "THE ENTERTAINER PACKAGE"}, {key: 3, img: chucky, text: "THE ENTERTAINER PACKAGE"}, {key: 4, img: aswaad, text: "THE ENTERTAINER PACKAGE"} ].map((item, i) => (
                 <SlideContainer key={`key-${item.key}`}>
                     <img style={{width: '100%'}} src={item.img} />
                     <SlideInfo>

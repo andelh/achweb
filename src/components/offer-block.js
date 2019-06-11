@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import SectionTitle from './section-title';
-
+import CountUp from 'react-countup';
+import Fade from 'react-reveal/Fade'
 
 const Block = styled.div`
     padding: 50px 0;
@@ -16,6 +17,7 @@ const Copy = styled.p`
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
     font-size: 1.9rem;
+    line-height: 110%;
 `
 const MiniCopy = styled.p`
     text-align: center;
@@ -32,19 +34,37 @@ const Price = styled.p`
 `
 
 class OfferBlock extends Component {
-    state = {  }
-    render() { 
+    state = {}
+    render() {
         return (
             <Block>
-                <SectionTitle>Limited time offer</SectionTitle>
-                <Copy>Get your very own website for just</Copy>
-                <Price>TTD$5999.00</Price>
-                {/* <Copy>in just 20 days</Copy> */}
-                <MiniCopy>*Requires 40% downpayment</MiniCopy>
-                <hr style={{opacity: 0.2, backgroundColor: 'white'}} />
+                <Fade bottom delay={500}>
+                    <SectionTitle>Limited time offer</SectionTitle>
+                </Fade>
+                <Fade delay={500} cascade>
+                    <Copy>Get your very own website for just</Copy>
+                    <CountUp
+                        start={0}
+                        end={5999.00} 
+                        prefix="TTD$"
+                        decimals={2}
+                        delay={0}>
+                        {({ countUpRef }) => (
+                            <div>
+                                <Price ref={countUpRef} />
+                            </div>
+                        )}
+                    </CountUp>
+                    {/* <CountUp start={0} end={5999.00} delay={0}>
+                        {({ countUpRef }) => (
+                            <Price>TTD${countUpRef}</Price>
+                        )}
+                    </CountUp> */}
+                    <MiniCopy>*Requires 40% downpayment</MiniCopy>
+                </Fade>
             </Block>
         );
     }
 }
- 
+
 export default OfferBlock;

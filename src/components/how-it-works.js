@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import SectionTitle from './section-title';
+import Fade from 'react-reveal/Fade'
+import Zoom from 'react-reveal/Zoom'
 
 //Images
 import payment from '../images/payment.png'
@@ -30,7 +32,12 @@ const PhaseCopy = styled.p`
 `
 const Phases = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+    @media (min-width: 650px) {
+        flex-direction: row;
+
+    }
 `
 const PhaseContainer = styled.div`
     display: flex;
@@ -47,10 +54,11 @@ class HowItWorks extends Component {
         return (
             <Block>
                 <SectionTitle>How it works</SectionTitle>
+                
                 <Phases>
                     {
                         phases.map(phase=>(
-                            <PhaseBlock src={phase.src} id={phase.id} copy={phase.copy} />
+                            <PhaseBlock key={phase.id} src={phase.src} id={phase.id} copy={phase.copy} />
                         ))
                     }
                 </Phases>
@@ -64,9 +72,9 @@ class PhaseBlock extends Component {
     render() {
         return (
             <PhaseContainer>
-                <Image src={this.props.src} />
-                <PhaseTitle>Phase {this.props.id}</PhaseTitle>
-                <PhaseCopy>{this.props.copy}</PhaseCopy>
+                <Zoom><Image src={this.props.src} /></Zoom>
+                <Fade><PhaseTitle>Phase {this.props.id}</PhaseTitle></Fade>
+                <Fade bottom delay={800}><PhaseCopy>{this.props.copy}</PhaseCopy></Fade>
             </PhaseContainer>
         );
     }
