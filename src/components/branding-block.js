@@ -41,7 +41,7 @@ class BrandingBlock extends Component {
                     <Zoom delay={300}>
                         <Image src={djWorld} />
                     </Zoom>
-                    <ClaimButton />
+                    <ClaimButton message="I'm ready to build my brand" />
                 </Block>
             </Fade>
         );

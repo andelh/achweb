@@ -62,7 +62,7 @@ class HowItWorks extends Component {
                         ))
                     }
                 </Phases>
-                <ClaimButton />
+                <ClaimButton message="Get started"/>
             </Block>
         );
     }

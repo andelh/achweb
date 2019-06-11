@@ -39,7 +39,6 @@ const Button = styled.button`
         transform-origin: center right;
         transform: scaleX(1);
     }
-}
 `
 
 class ClaimButton extends Component {
@@ -47,9 +46,7 @@ class ClaimButton extends Component {
     render() { 
         return (
             <>
-                <Button><a style={{color: 'inherit', textDecoration: 'none'}} rel="noopener noreferrer" target="_blank" href="https://wa.me/18687188625?text=I'm%20interested%20in%20your%20Entertainer%20Package!
-
-">Claim this offer now</a></Button>
+                <Button><a style={{color: 'inherit', textDecoration: 'none'}} rel="noopener noreferrer" target="_blank" href="https://wa.me/18687188625?text=I'm%20interested%20in%20your%20Entertainer%20Package!">{this.props.message}</a></Button>
             </>
         );
     }

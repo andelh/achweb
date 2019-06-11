@@ -109,7 +109,7 @@ class EntertainmentCarousel extends Component {
                     duration={3000}
                     autoPlay={true}
                     startIndex={0}
-                    dotsDisabled={false}
+                    dotsDisabled={true}
                     stopAutoPlayOnHover={false}
                     buttonsDisabled={true}
                     fadeOutAnimation={true}

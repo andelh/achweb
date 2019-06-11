@@ -37,7 +37,7 @@ class WhatsIncluded extends Component {
                     <ListItem>Booking and contact information readily available to <b>and you more clients</b></ListItem>
                     <ListItem>Links to your social media to further <b>grow your online presence</b></ListItem>
 
-                <ClaimButton />
+                <ClaimButton message="Claim this offer now"/>
             </Block>
         );
     }

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SectionTitle from './section-title';
 import CountUp from 'react-countup';
 import Fade from 'react-reveal/Fade'
+import ClaimButton from './claim-button';
 
 const Block = styled.div`
     padding: 50px 0;
@@ -15,9 +16,9 @@ const Block = styled.div`
 const Copy = styled.p`
     text-align: center;
     font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 1.9rem;
-    line-height: 110%;
+    font-weight: ${props=> props.message ? 300 : 700};
+    font-size: ${props=> props.message ? '1rem' : '1.9rem'};
+    line-height: ${props=> props.message ? '150%' : '110%'};
 `
 const MiniCopy = styled.p`
     text-align: center;
@@ -55,12 +56,8 @@ class OfferBlock extends Component {
                             </div>
                         )}
                     </CountUp>
-                    {/* <CountUp start={0} end={5999.00} delay={0}>
-                        {({ countUpRef }) => (
-                            <Price>TTD${countUpRef}</Price>
-                        )}
-                    </CountUp> */}
                     <MiniCopy>*Requires 40% downpayment</MiniCopy>
+                    <Copy message>This package is intended for DJs, MCs, Radio Personalities & anyone in the creative entertainment space. Those who serious about their personal and professional brand.</Copy>
                 </Fade>
             </Block>
         );
