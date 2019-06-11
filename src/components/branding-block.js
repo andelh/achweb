@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import SectionTitle from './section-title';
 
-import djWorld from '../images/djWorld.png'
+import djWorld from '../images/DJWorld.png'
 import ClaimButton from './claim-button';
 
 const Block = styled.div`
