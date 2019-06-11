@@ -57,7 +57,7 @@ class OfferBlock extends Component {
                         )}
                     </CountUp>
                     <MiniCopy>*Requires 40% downpayment</MiniCopy>
-                    <Copy message>This package is intended for DJs, MCs, Radio Personalities & anyone in the creative entertainment space. Those who serious about their personal and professional brand.</Copy>
+                    <Copy message>This package is intended for DJs, MCs, Radio Personalities & anyone in the creative entertainment space. Those who are serious about their personal and professional brand.</Copy>
                 </Fade>
             </Block>
         );
