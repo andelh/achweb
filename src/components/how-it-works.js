@@ -89,7 +89,7 @@ const phases = [
     {
         src: design,
         id: 2,
-        copy: "We go through the design and tweak it to your liking."
+        copy: "We go through the design and tweak it to your liking"
     },
     {
         src: web,
