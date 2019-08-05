@@ -1,54 +1,60 @@
 {
-    "projects" : [
-        {
-            "title" : "gazettE - Local News",
-            "copy" : "gazettE is a web app that allows users to see all headlines from our major news outlets. The aim of the site is to offer a fresh and beautiful look of local news, so that we can have a more informed nation.",
-            "company" : "gzE",
-            "projectUrl" : "https://www.ttgazette.com",
-            "logoUrl" : "https://res.cloudinary.com/dymq4ddoz/image/upload/v1558225437/gazette_white.png"
-        },
-        {
-            "title" : "WhereDPump Website & App",
-            "copy" : "WhereDPump is a technology company that facilitates users through a mobile app, allowing them to see all upcoming events and take actions such as purchasing tickets and getting listed for clubs.",
-            "company" : "wdp",
-            "projectUrl" : "https://www.wheredpump.com",
-            "logoUrl" : "https://www.wheredpump.com/img/assets/logos/logo_color.png"
-        },
-        {
-            "title" : "YUP Life Website",
-            "copy" : "YUP Life is an entertainment company that throws some of the most popular events in Trinidad including Festival of Colour and Backyard Melee. They required a website that would allow patrons to see their upcoming events as well as see event photos.",
-            "company" : "yup",
-            "projectUrl" : "https://www.yuplifett.com",
-            "logoUrl" : "https://www.yuplifett.com/static/logo-67146cf6e423df0d2a76ecfd49de0b5d.png"
-        },
-        {
-            "title" : "Made By Mei Online Shop",
-            "copy" : "Meiling is an upcoming designer coming out of Trinidad & Tobago. She required a wesbite that would allow users to view and purchase her Monday Wear designs via Cash or Credit Card payment methods",
-            "company" : "mei",
-            "projectUrl" : "https://www.madebymei-tt.com",
-            "logoUrl" : "https://madebymei-tt.com/static/made%20by%20mei-02-70c5d3663b2b8744ac31ab29613cb9f4.png"
-        },
-        {
-            "title" : "Color Me Jouvert Website",
-            "copy" : "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. An online registration system was also implemented so that a patron can sign up at their own convenience.",
-            "company" : "cmj",
-            "projectUrl" : "https://www.colormejouvert.com",
-            "logoUrl" : "https://pensive-agnesi-079a44.netlify.com/static/logo-6f0ba42129ed8246738dcd9f47ab46cd.png"
-        },
-        {
-            "title" : "Foodie Buddy Web App",
-            "copy" : "Foodie Buddy is a web app that was designed to display the restaurants and menus partaking in Trinidad & Tobago Restaurant week. The web app is to be expanded to showcase menus of all restaurants all year long.",
-            "company" : "foodie",
-            "projectUrl" : "https://www.foodiebuddytt.com",
-            "logoUrl" : "https://andelhusbands.herokuapp.com/static/media/logocolor.98f2be24.png"
-        },
-        {
-            "title" : "51 Degrees Website",
-            "copy" : "Though it was not officially launched, this wesbite gave me a lot of insight into exactly what the patrons of the club need. I am currently working on a mobile app for the club. Be on the lookout ;)",
-            "company" : "51",
-            "projectUrl" : "http://fifyonedegrees.herokuapp.com",
-            "logoUrl" : "https://andelhusbands.herokuapp.com/static/media/fiftyone.a2c649a4.png"
-        }
-        
-    ]
+	"projects": [
+		{
+			"title": "YUMA Vibe",
+			"copy": "YUMA, celebrating their 10 year anniversary, needed a major site upgrade. They needed a site that was responsive, blazing fast and most of all beautiful. My favourite part of this project was the amazing support their team provided along the way.",
+			"company": "yuma",
+			"projectUrl": "https://www.yumavibe.com",
+			"logoUrl": "https://res.cloudinary.com/dpa2qahp7/image/upload/v1565030349/logo_alt_nkv7s8.png"
+		},
+		{
+			"title": "gazettE - Local News",
+			"copy": "gazettE is a web app that allows users to see all headlines from our major news outlets. The aim of the site is to offer a fresh and beautiful look of local news, so that we can have a more informed nation.",
+			"company": "gzE",
+			"projectUrl": "https://www.ttgazette.com",
+			"logoUrl": "https://res.cloudinary.com/dymq4ddoz/image/upload/v1558225437/gazette_white.png"
+		},
+		{
+			"title": "WhereDPump Website & App",
+			"copy": "WhereDPump is a technology company that facilitates users through a mobile app, allowing them to see all upcoming events and take actions such as purchasing tickets and getting listed for clubs.",
+			"company": "wdp",
+			"projectUrl": "https://www.wheredpump.com",
+			"logoUrl": "https://www.wheredpump.com/img/assets/logos/logo_color.png"
+		},
+		{
+			"title": "YUP Life Website",
+			"copy": "YUP Life is an entertainment company that throws some of the most popular events in Trinidad including Festival of Colour and Backyard Melee. They required a website that would allow patrons to see their upcoming events as well as see event photos.",
+			"company": "yup",
+			"projectUrl": "https://www.yuplifett.com",
+			"logoUrl": "https://www.yuplifett.com/static/logo-67146cf6e423df0d2a76ecfd49de0b5d.png"
+		},
+		{
+			"title": "Made By Mei Online Shop",
+			"copy": "Meiling is an upcoming designer coming out of Trinidad & Tobago. She required a wesbite that would allow users to view and purchase her Monday Wear designs via Cash or Credit Card payment methods",
+			"company": "mei",
+			"projectUrl": "https://www.madebymei-tt.com",
+			"logoUrl": "https://madebymei-tt.com/static/made%20by%20mei-02-70c5d3663b2b8744ac31ab29613cb9f4.png"
+		},
+		{
+			"title": "Color Me Jouvert Website",
+			"copy": "Color Me Jouvert required an online web presence that allowed users to see their band's media, info and packages. An online registration system was also implemented so that a patron can sign up at their own convenience.",
+			"company": "cmj",
+			"projectUrl": "https://www.colormejouvert.com",
+			"logoUrl": "https://pensive-agnesi-079a44.netlify.com/static/logo-6f0ba42129ed8246738dcd9f47ab46cd.png"
+		},
+		{
+			"title": "Foodie Buddy Web App",
+			"copy": "Foodie Buddy is a web app that was designed to display the restaurants and menus partaking in Trinidad & Tobago Restaurant week. The web app is to be expanded to showcase menus of all restaurants all year long.",
+			"company": "foodie",
+			"projectUrl": "https://www.foodiebuddytt.com",
+			"logoUrl": "https://andelhusbands.herokuapp.com/static/media/logocolor.98f2be24.png"
+		},
+		{
+			"title": "51 Degrees Website",
+			"copy": "Though it was not officially launched, this wesbite gave me a lot of insight into exactly what the patrons of the club need. I am currently working on a mobile app for the club. Be on the lookout ;)",
+			"company": "51",
+			"projectUrl": "http://fifyonedegrees.herokuapp.com",
+			"logoUrl": "https://andelhusbands.herokuapp.com/static/media/fiftyone.a2c649a4.png"
+		}
+	]
 }
