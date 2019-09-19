@@ -86,6 +86,7 @@ const ContentButton = styled.button`
 		(props.color === 'yup' && '#D71681') ||
 		(props.color === 'mei' && '#CDA7FF') ||
 		(props.color === 'foodie' && '#9C1028') ||
+		(props.color === 'ea' && '#C81313') ||
 		(props.color === 'cmj' && '#ED0A75') ||
 		(props.color === '51' && '#B59721')};
 

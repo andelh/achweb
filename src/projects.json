@@ -1,6 +1,13 @@
 {
 	"projects": [
 		{
+			"title": "Erphaan Alves",
+			"copy": "On his mission of taking soca global, Erphaan needed to first put himself on the global platform that is the internet. The goal here was to be different but still feel at home with the key feature being an interactive music player",
+			"company": "ea",
+			"projectUrl": "https://www.erphaanalves.com",
+			"logoUrl": "https://res.cloudinary.com/dqjpcx6gs/image/upload/v1568927139/logo_square_ddnkzt.png"
+		},
+		{
 			"title": "YUMA Vibe",
 			"copy": "YUMA, celebrating their 10 year anniversary, needed a major site upgrade. They needed a site that was responsive, blazing fast and most of all beautiful. My favourite part of this project was the amazing support their team provided along the way.",
 			"company": "yuma",
