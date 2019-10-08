@@ -1,8 +1,15 @@
 {
 	"projects": [
 		{
+			"title": "Jasmine Thomas-Girvan",
+			"copy": "Working alongside the seasoned designer Agyei Archer, we were produce a site which gives you an experience that matches the fun and elegant nature of the artist. Jasmine Thomas-Girvan is a Jamaican artist based in Trinidad & Tobago.",
+			"company": "jtg",
+			"projectUrl": "https://www.jasminethomasgirvan.com",
+			"logoUrl": "https://res.cloudinary.com/dqjpcx6gs/image/upload/v1570508949/favicon_shx5da.png"
+		},
+		{
 			"title": "Erphaan Alves",
-			"copy": "On his mission of taking soca global, Erphaan needed to first put himself on the global platform that is the internet. The goal here was to be different but still feel at home with the key feature being an interactive music player",
+			"copy": "On his mission of taking soca global, Erphaan needed to first put himself on the global platform that is the internet. The goal here was to be different but still feel at home with the key feature being an interactive music player.",
 			"company": "ea",
 			"projectUrl": "https://www.erphaanalves.com",
 			"logoUrl": "https://res.cloudinary.com/dqjpcx6gs/image/upload/v1568927139/logo_square_ddnkzt.png"

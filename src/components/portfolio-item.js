@@ -8,6 +8,7 @@ const PortfolioContainer = styled.div`
 	padding: 20%;
 	position: relative;
 	background-color: ${props =>
+		(props.color === 'jtg' && '#FFFFFF') ||
 		(props.color === 'yuma' && '#152B52') ||
 		(props.color === 'gzE' && 'black') ||
 		(props.color === 'wdp' && 'white') ||
@@ -80,6 +81,7 @@ const ContentButton = styled.button`
 	cursor: pointer;
 	text-transform: uppercase;
 	background-color: ${props =>
+		(props.color === 'jtg' && '#C81313') ||
 		(props.color === 'yuma' && '#FBC901') ||
 		(props.color === 'gzE' && '#D3031E') ||
 		(props.color === 'wdp' && '#fc444e') ||
