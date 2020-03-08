@@ -1,75 +1,91 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { fadeUp } from '../styles/keyframes'
 
 //NPM
 import Typed from 'react-typed'
 import styled from 'styled-components'
+import TextLoop from 'react-text-loop'
+import { Link } from 'gatsby'
 
 const HeadingContainer = styled.div`
-    padding: 100px 15% 5% 10%;
-    font-size: 2.7rem;
-    font-weight: 900;
-    line-height: 130%;
+	padding: 100px 15% 5% 10%;
+	font-size: 7vw;
+	font-weight: 900;
+	line-height: 130%;
+	/* min-height: 50vh; */
 `
-const TypedContainer = styled.div`
-    min-height: 250px;
+const Title = styled.h1`
+	font-size: 48px;
+	font-weight: 900;
+	/* max-width: 70%; */
 `
-
-const HeadingTitle = styled.h1`
-    text-transform: uppercase;
-    font-size: 18px;
-    animation: ${fadeUp} 2s ease;
-    text-decoration: underline;
+const Caption = styled.div``
+const IntervalText = styled.span`
+	::after {
+		content: '';
+		width: 105%;
+		height: 14px;
+		margin: 0 auto;
+		margin-top: -13px;
+		display: block;
+		background: rgb(14, 153, 238);
+		background: linear-gradient(
+			63deg,
+			rgba(14, 153, 238, 1) 0%,
+			rgba(2, 105, 226, 1) 100%
+		);
+	}
 `
-
-const HeadingCopy = styled.p`
-    margin: 20px 0;
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-    font-size: 1rem;
-    font-weight: 300;
-    font-family: 'Open Sans', sans-serif;
-    line-height: 200%;
-    // transform: translateY(-20px);
-    animation: ${fadeUp} 2s ease;
-`
-
-const Red = styled.span`
-    color: #A20303;
+const IntervalTextCaption = styled.span`
+	color: white;
+	opacity: 0.8;
+	font-size: 18px;
+	line-height: 1.2;
+	font-weight: 500;
 `
 
 class Heading extends Component {
-    render() {
-        return (
-            <HeadingContainer>
-                <TypedContainer>
-                    <Typed
-                        strings={[
-                            'hey there!',
-                            // 'pleased to meet you :)',
-                            // 'in case youre wondering..',
-                            'i can build your next website.',
-                            'i can build your next online store.',
-                            'i can build your next web app.',
-                            'i can build your next mobile app.',
-                            // 'together...',
-                            // 'together...we can design',
-                            // 'together...we can build',
-                            // 'together...we can do..',
-                            // 'together...we can do..anything!'
-                        ]}
-                        typeSpeed={60}
-                        backSpeed={60}
+	render() {
+		return (
+			<HeadingContainer>
+				<Title>
+					i can build your next
+					<br />
+					<TextLoop
+						interval={1500}
+						springConfig={{ stiffness: 140, damping: 10 }}
+					>
+						<IntervalText>website</IntervalText>
+						<IntervalText>online store</IntervalText>
+						<IntervalText>mobile app</IntervalText>
+						<IntervalText>web app</IntervalText>
+					</TextLoop>
+				</Title>
 
-                    />
-                </TypedContainer>
-                <HeadingTitle>Who am i?</HeadingTitle>
-                <HeadingCopy>I am a freelance web and software developer based in <Red>Trinidad</Red> & <Red>Tobago</Red>🇹🇹. My goal is to deliver “higher than expected” quality websites & apps.</HeadingCopy>
-                <HeadingCopy>I've worked with large corporations on industry standard apps and hobbyists on side projects they'd been dying to bring to life</HeadingCopy>
-                {/* <HeadingCopy>I'm able to work with you to make your ideas a reality or solve your problems seamlessly and without the hassle. <a style={{color: 'inherit'}} rel="noopener noreferrer" target="_blank" href="mailto:andelhusbands@gmail.com">Reach out</a> and let's get started!</HeadingCopy> */}
-                {/* <HeadingCopy>Below are a few projects I've worked on recently. Hover or tap on each one to learn a bit more about them.</HeadingCopy> */}
-            </HeadingContainer>
-        );
-    }
+				<Caption>
+					<TextLoop
+						interval={1500}
+						springConfig={{ stiffness: 140, damping: 14 }}
+						noWrap={false}
+					>
+						<IntervalTextCaption>
+							To help you reach more customers
+						</IntervalTextCaption>
+						<IntervalTextCaption>
+							To help you make more sales
+						</IntervalTextCaption>
+						<IntervalTextCaption>
+							To help you increase customer loyalty
+						</IntervalTextCaption>
+						<IntervalTextCaption>
+							To help you streamline your operations
+						</IntervalTextCaption>
+					</TextLoop>
+				</Caption>
+				{/* <button>Get a free quote</button> */}
+			</HeadingContainer>
+		)
+	}
 }
 
-export default Heading;
+export default Heading
