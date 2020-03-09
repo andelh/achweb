@@ -8,7 +8,7 @@ import MainButton from '../main-button'
 import { navigate } from 'gatsby'
 
 const HeadingContainer = styled.div`
-	/* min-height: 50vh; */
+	min-height: 50vh;
 	margin-bottom: 40px;
 
 	@media (min-width: 550px) {
