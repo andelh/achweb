@@ -36,6 +36,7 @@ const Caption = styled.div`
 	}
 `
 const TitleIntervalText = styled.span`
+	display: block;
 	::after {
 		content: '';
 		width: 105%;
@@ -58,6 +59,7 @@ const IntervalTextCaption = styled.span`
 	line-height: 1.2;
 	font-family: 'Inter', sans-serif;
 	font-weight: 500;
+	display: block;
 
 	@media (min-width: 550px) {
 		font-size: 22px;
