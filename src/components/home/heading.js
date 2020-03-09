@@ -37,7 +37,7 @@ const Caption = styled.div`
 `
 const TitleIntervalText = styled.div`
 	display: block;
-
+	width: 100%;
 	::after {
 		content: '';
 		width: 105%;
@@ -54,6 +54,7 @@ const TitleIntervalText = styled.div`
 	}
 `
 const IntervalTextCaption = styled.div`
+	width: 100%;
 	color: white;
 	opacity: 0.7;
 	font-size: 16px;
