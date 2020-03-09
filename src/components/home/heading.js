@@ -8,10 +8,10 @@ import MainButton from '../main-button'
 import { navigate } from 'gatsby'
 
 const HeadingContainer = styled.div`
-	min-height: 50vh;
+	/* min-height: 50vh; */
+	margin-bottom: 40px;
 
 	@media (min-width: 550px) {
-		margin-bottom: 40px;
 	}
 `
 const Title = styled.h1`
@@ -28,7 +28,8 @@ const Title = styled.h1`
 `
 const Caption = styled.div`
 	font-family: 'Inter';
-	height: 95px;
+	margin-bottom: 50px;
+	/* height: 95px; */
 
 	@media (min-width: 550px) {
 		width: 100%;
@@ -90,7 +91,7 @@ class Heading extends Component {
 				<Caption>
 					<TextLoop
 						interval={1500}
-						springConfig={{ stiffness: 140, damping: 14 }}
+						// springConfig={{ stiffness: 140, damping: 14 }}
 						// noWrap={false}
 					>
 						<IntervalTextCaption>

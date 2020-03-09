@@ -13,19 +13,10 @@ import FeaturedWork from '../components/home/featured-work'
 import ContactFlyout from '../components/contact-flyout'
 
 class IndexPage extends React.Component {
-	state = {
-		isShowingFlyout: false
-	}
-
-	handleShowMenu = () => {
-		console.log('IN SHOW MENU FUNCTION')
-		this.setState({ isShowingFlyout: true })
-	}
+	state = {}
 
 	render() {
 		const data = this.props.data.allWordpressPost.edges
-		console.log(data)
-		const { isShowingFlyout } = this.state
 		return (
 			<Layout>
 				<SEO
@@ -51,7 +42,6 @@ class IndexPage extends React.Component {
 						`hire`
 					]}
 				/>
-				{isShowingFlyout && <ContactFlyout />}
 				<Heading showMenu={this.handleShowMenu} />
 				<FeaturedWork portfolio={data} />
 				<Freelance />

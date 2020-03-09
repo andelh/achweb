@@ -12,6 +12,7 @@ import {
 //NPM
 import styled from 'styled-components'
 import MainButton from './main-button'
+import { navigate } from 'gatsby'
 
 const FooterWrapper = styled.div`
 	width: 100%;
@@ -53,7 +54,10 @@ class Footer extends React.Component {
 			<FooterWrapper>
 				<FooterGroup>
 					<Title>Ready to work?</Title>
-					<MainButton title="Let's Talk" />
+					<MainButton
+						clickHandler={() => navigate('/contact')}
+						title="Let's Talk"
+					/>
 					<SocialsContainer>
 						<SocialIcon>
 							<a
