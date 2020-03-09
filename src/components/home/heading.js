@@ -53,10 +53,14 @@ const TitleIntervalText = styled.span`
 const IntervalTextCaption = styled.span`
 	color: white;
 	opacity: 0.7;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.2;
 	font-family: 'Inter', sans-serif;
 	font-weight: 500;
+
+	@media (min-width: 550px) {
+		font-size: 22px;
+	}
 `
 const Break = styled.hr`
 	background: white;
@@ -74,6 +78,7 @@ class Heading extends Component {
 					<TextLoop
 						interval={1500}
 						springConfig={{ stiffness: 140, damping: 10 }}
+						mask
 					>
 						<TitleIntervalText>website</TitleIntervalText>
 						<TitleIntervalText>online store</TitleIntervalText>
@@ -86,7 +91,7 @@ class Heading extends Component {
 					<TextLoop
 						interval={1500}
 						springConfig={{ stiffness: 140, damping: 14 }}
-						noWrap={false}
+						// noWrap={false}
 					>
 						<IntervalTextCaption>
 							To help you reach more customers
