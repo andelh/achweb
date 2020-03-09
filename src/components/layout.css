@@ -10,6 +10,13 @@ body {
 	background-color: #080808;
 	color: white;
 }
+
+button {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
+}
+
 article,
 aside,
 details,
@@ -107,7 +114,6 @@ hr {
 	height: 0;
 	overflow: visible;
 }
-button,
 input,
 optgroup,
 select,
@@ -249,7 +255,7 @@ h2 {
 	padding-right: 0;
 	padding-top: 0;
 	margin-bottom: 1.45rem;
-	color: inherit;
+	color: white;
 	font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
 		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
 		sans-serif;

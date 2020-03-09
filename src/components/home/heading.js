@@ -27,7 +27,7 @@ const Title = styled.h1`
 `
 const Caption = styled.div`
 	font-family: 'Inter';
-	height: 90px;
+	height: 95px;
 
 	@media (min-width: 550px) {
 		width: 100%;
