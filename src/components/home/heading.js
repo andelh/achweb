@@ -78,7 +78,7 @@ class Heading extends Component {
 					<br />
 					<TextLoop
 						interval={1500}
-						springConfig={{ stiffness: 140, damping: 10 }}
+						// springConfig={{ stiffness: 140, damping: 10 }}
 						mask
 					>
 						<TitleIntervalText>website</TitleIntervalText>
