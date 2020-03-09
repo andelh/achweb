@@ -35,8 +35,9 @@ const Caption = styled.div`
 		width: 100%;
 	}
 `
-const TitleIntervalText = styled.span`
+const TitleIntervalText = styled.div`
 	display: block;
+
 	::after {
 		content: '';
 		width: 105%;
@@ -52,7 +53,7 @@ const TitleIntervalText = styled.span`
 		);
 	}
 `
-const IntervalTextCaption = styled.span`
+const IntervalTextCaption = styled.div`
 	color: white;
 	opacity: 0.7;
 	font-size: 16px;
@@ -80,6 +81,7 @@ class Heading extends Component {
 					<br />
 					<TextLoop
 						interval={1500}
+						adjustingSpeed={0}
 						// springConfig={{ stiffness: 140, damping: 10 }}
 						mask
 					>
@@ -93,6 +95,7 @@ class Heading extends Component {
 				<Caption>
 					<TextLoop
 						interval={1500}
+						adjustingSpeed={0}
 						// springConfig={{ stiffness: 140, damping: 14 }}
 						// noWrap={false}
 					>
