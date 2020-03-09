@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import Layout from '../components/layout'
+
 import Select from 'react-select'
-import MainButton from './main-button'
 import { motion } from 'framer-motion'
+import MainButton from '../components/main-button'
 
 const services = [
 	{ value: 'Website', label: 'Website' },
@@ -121,48 +123,53 @@ const Input = styled.input`
 	}
 `
 
-const ContactFlyout = props => {
-	return (
-		<Container>
-			<Header>
-				<Title>Let's Talk</Title>
-				<Caption>
-					Tell me a bit about your project so we can get the ball
-					rolling
-				</Caption>
-			</Header>
-			<FormContainer>
-				<FormItem>
-					<Label>I'm looking for a:</Label>
-					<Select
-						placeholder="Please select"
-						styles={customStyles}
-						options={services}
-					/>
-				</FormItem>
+class ContactPage extends Component {
+	state = {}
+	render() {
+		return (
+			<Layout>
+				<Header>
+					<Title>Let's Talk</Title>
+					<Caption>
+						Tell me a bit about your project so we can get the ball
+						rolling
+					</Caption>
+				</Header>
+				<FormContainer>
+					<FormItem>
+						<Label>I'm looking for a:</Label>
+						<Select
+							placeholder="Please select"
+							styles={customStyles}
+							options={services}
+						/>
+					</FormItem>
 
-				<FormItem>
-					<Label>My budget is in the range of:</Label>
-					<Select
-						placeholder="Please select"
-						styles={customStyles}
-						options={services}
-					/>
-				</FormItem>
+					<FormItem>
+						<Label>My budget is in the range of:</Label>
+						<Select
+							placeholder="Please select"
+							styles={customStyles}
+							options={budget}
+						/>
+					</FormItem>
 
-				<FormItem>
-					<Label>Describe your project as simply as possible:</Label>
-					<Textarea placeholder="Start typing here..." rows={8} />
-				</FormItem>
+					<FormItem>
+						<Label>
+							Describe your project as simply as possible:
+						</Label>
+						<Textarea placeholder="Start typing here..." rows={8} />
+					</FormItem>
 
-				<FormItem>
-					<Label>Your Email:</Label>
-					<Input required placeholder="john@example.com" />
-				</FormItem>
-				<MainButton title="Submit" />
-			</FormContainer>
-		</Container>
-	)
+					<FormItem>
+						<Label>Your Email:</Label>
+						<Input required placeholder="john@example.com" />
+					</FormItem>
+					<MainButton full title="Submit" />
+				</FormContainer>
+			</Layout>
+		)
+	}
 }
 
-export default ContactFlyout
+export default ContactPage

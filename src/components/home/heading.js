@@ -5,6 +5,7 @@ import Typed from 'react-typed'
 import styled from 'styled-components'
 import TextLoop from 'react-text-loop'
 import MainButton from '../main-button'
+import { navigate } from 'gatsby'
 
 const HeadingContainer = styled.div`
 	min-height: 50vh;
@@ -101,7 +102,10 @@ class Heading extends Component {
 						</IntervalTextCaption>
 					</TextLoop>
 				</Caption>
-				<MainButton title="Let's Talk" />
+				<MainButton
+					clickHandler={() => navigate('/contact')}
+					title="Let's Talk"
+				/>
 				<Break />
 			</HeadingContainer>
 		)

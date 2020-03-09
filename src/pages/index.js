@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -7,52 +7,57 @@ import Heading from '../components/home/heading'
 import PortfolioItem from '../components/portfolio-item'
 
 //NPM
-import styled from 'styled-components'
 
-import projects from '../projects.json'
-import Footer from '../components/footer'
 import Freelance from '../components/freelance'
 import FeaturedWork from '../components/home/featured-work'
+import ContactFlyout from '../components/contact-flyout'
 
-const Portfolios = styled.div`
-	display: flex;
-	justify-content: flex-start;
-	flex-flow: row wrap;
-`
+class IndexPage extends React.Component {
+	state = {
+		isShowingFlyout: false
+	}
 
-const IndexPage = props => {
-	const data = props.data.allWordpressPost.edges
-	console.log(data)
-	return (
-		<Layout>
-			<SEO
-				title="Home"
-				description="A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!"
-				keywords={[
-					`andel`,
-					`husbands`,
-					`developer`,
-					`web`,
-					`software`,
-					`trinidad`,
-					`tobago`,
-					`wheredpump`,
-					`yuplife`,
-					`designer`,
-					`react`,
-					`javascript`,
-					`swift`,
-					`xcode`,
-					`portfolio`,
-					`projects`,
-					`hire`
-				]}
-			/>
-			<Heading />
-			<FeaturedWork portfolio={data} />
-			<Freelance />
-		</Layout>
-	)
+	handleShowMenu = () => {
+		console.log('IN SHOW MENU FUNCTION')
+		this.setState({ isShowingFlyout: true })
+	}
+
+	render() {
+		const data = this.props.data.allWordpressPost.edges
+		console.log(data)
+		const { isShowingFlyout } = this.state
+		return (
+			<Layout>
+				<SEO
+					title="Home"
+					description="A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!"
+					keywords={[
+						`andel`,
+						`husbands`,
+						`developer`,
+						`web`,
+						`software`,
+						`trinidad`,
+						`tobago`,
+						`wheredpump`,
+						`yuplife`,
+						`designer`,
+						`react`,
+						`javascript`,
+						`swift`,
+						`xcode`,
+						`portfolio`,
+						`projects`,
+						`hire`
+					]}
+				/>
+				{isShowingFlyout && <ContactFlyout />}
+				<Heading showMenu={this.handleShowMenu} />
+				<FeaturedWork portfolio={data} />
+				<Freelance />
+			</Layout>
+		)
+	}
 }
 
 export default IndexPage

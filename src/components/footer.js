@@ -117,7 +117,14 @@ class Footer extends React.Component {
 						</SocialIcon>
 						{/* <SocialIcon><a style={{color: 'inherit'}} rel="noopener noreferrer" target="_blank" href="mailto:andelhusbands@gmail.com"><FaRegEnvelope /></a></SocialIcon> */}
 					</SocialsContainer>
-					<p style={{ color: 'white', margin: '5px 0' }}>
+					<p
+						style={{
+							fontSize: '14px',
+							opacity: 0.7,
+							color: 'white',
+							margin: '5px 0'
+						}}
+					>
 						© 2019 Andel Husbands. All Rights Reserved.
 					</p>
 				</FooterGroup>
