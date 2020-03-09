@@ -1,26 +1,39 @@
 import React, { Component } from 'react'
-import { fadeUp } from '../styles/keyframes'
 
 //NPM
 import Typed from 'react-typed'
 import styled from 'styled-components'
 import TextLoop from 'react-text-loop'
-import { Link } from 'gatsby'
+import MainButton from '../main-button'
 
 const HeadingContainer = styled.div`
-	padding: 100px 15% 5% 10%;
-	font-size: 7vw;
-	font-weight: 900;
-	line-height: 130%;
-	/* min-height: 50vh; */
+	min-height: 50vh;
+
+	@media (min-width: 550px) {
+		margin-bottom: 40px;
+	}
 `
 const Title = styled.h1`
 	font-size: 48px;
 	font-weight: 900;
-	/* max-width: 70%; */
+
+	@media (min-width: 550px) {
+		font-size: 9vmax;
+	}
+
+	@media (min-width: 1000px) {
+		font-size: 10.5vmin;
+	}
 `
-const Caption = styled.div``
-const IntervalText = styled.span`
+const Caption = styled.div`
+	font-family: 'Inter';
+	height: 90px;
+
+	@media (min-width: 550px) {
+		width: 100%;
+	}
+`
+const TitleIntervalText = styled.span`
 	::after {
 		content: '';
 		width: 105%;
@@ -38,10 +51,16 @@ const IntervalText = styled.span`
 `
 const IntervalTextCaption = styled.span`
 	color: white;
-	opacity: 0.8;
+	opacity: 0.7;
 	font-size: 18px;
 	line-height: 1.2;
+	font-family: 'Inter', sans-serif;
 	font-weight: 500;
+`
+const Break = styled.hr`
+	background: white;
+	opacity: 0.15;
+	width: 100%;
 `
 
 class Heading extends Component {
@@ -49,16 +68,16 @@ class Heading extends Component {
 		return (
 			<HeadingContainer>
 				<Title>
-					i can build your next
+					I can build your next
 					<br />
 					<TextLoop
 						interval={1500}
 						springConfig={{ stiffness: 140, damping: 10 }}
 					>
-						<IntervalText>website</IntervalText>
-						<IntervalText>online store</IntervalText>
-						<IntervalText>mobile app</IntervalText>
-						<IntervalText>web app</IntervalText>
+						<TitleIntervalText>website</TitleIntervalText>
+						<TitleIntervalText>online store</TitleIntervalText>
+						<TitleIntervalText>mobile app</TitleIntervalText>
+						<TitleIntervalText>web app</TitleIntervalText>
 					</TextLoop>
 				</Title>
 
@@ -82,7 +101,8 @@ class Heading extends Component {
 						</IntervalTextCaption>
 					</TextLoop>
 				</Caption>
-				{/* <button>Get a free quote</button> */}
+				<MainButton title="Let's Talk" />
+				<Break />
 			</HeadingContainer>
 		)
 	}
