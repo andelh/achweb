@@ -13,7 +13,7 @@ const Main = styled.main`
 	margin: 0 auto;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, noFooter }) => (
 	<StaticQuery
 		query={graphql`
 			query SiteTitleQuery {
@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
 			<>
 				<Navbar />
 				<Main>{children}</Main>
-				<Footer />
+				{!noFooter && <Footer />}
 			</>
 		)}
 	/>

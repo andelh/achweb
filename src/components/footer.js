@@ -55,7 +55,7 @@ class Footer extends React.Component {
 				<FooterGroup>
 					<Title>Ready to work?</Title>
 					<MainButton
-						clickHandler={() => navigate('/contact')}
+						clickHandler={() => navigate('/lets-talk')}
 						title="Let's Talk"
 					/>
 					<SocialsContainer>

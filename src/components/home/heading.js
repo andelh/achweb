@@ -6,8 +6,9 @@ import styled from 'styled-components'
 import TextLoop from 'react-text-loop'
 import MainButton from '../main-button'
 import { navigate } from 'gatsby'
+import { motion } from 'framer-motion'
 
-const HeadingContainer = styled.div`
+const HeadingContainer = styled(motion.div)`
 	min-height: 50vh;
 	margin-bottom: 40px;
 
@@ -76,9 +77,13 @@ const Break = styled.hr`
 class Heading extends Component {
 	render() {
 		return (
-			<HeadingContainer>
+			<HeadingContainer
+				initial={{ opacity: 0, y: 40 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6, stiffness: 10 }}
+			>
 				<Title>
-					I can build your next
+					I'm a freelance web developer & I can build your next
 					<br />
 					<TextLoop
 						interval={1500}
@@ -115,7 +120,7 @@ class Heading extends Component {
 					</TextLoop>
 				</Caption>
 				<MainButton
-					clickHandler={() => navigate('/contact')}
+					clickHandler={() => navigate('/lets-talk')}
 					title="Let's Talk"
 				/>
 				<Break />

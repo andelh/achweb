@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -42,7 +42,7 @@ class IndexPage extends React.Component {
 						`hire`
 					]}
 				/>
-				<Heading showMenu={this.handleShowMenu} />
+				<Heading />
 				<FeaturedWork portfolio={data} />
 				<Freelance />
 			</Layout>

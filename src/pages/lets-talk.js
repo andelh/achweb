@@ -5,11 +5,13 @@ import Layout from '../components/layout'
 import Select from 'react-select'
 import { motion } from 'framer-motion'
 import MainButton from '../components/main-button'
+import SEO from '../components/seo'
 
 const services = [
 	{ value: 'Website', label: 'Website' },
 	{ value: 'Mobile App', label: 'Mobile App' },
-	{ value: 'UI/UX Design', label: 'UI/UX Design' }
+	{ value: 'E-Commerce Store', label: 'Online Store' },
+	{ value: 'Custom', label: 'Something custom' }
 ]
 
 const budget = [
@@ -20,19 +22,25 @@ const budget = [
 const customStyles = {
 	control: provided => ({
 		...provided,
-		background: '#131313',
+		background: '#1f1f1f',
 		border: 'none',
 		borderRadius: 4,
-		color: 'white'
+		color: 'white',
+		padding: '10px'
 	}),
 	option: (provided, state) => ({
 		...provided,
-		background: '#131313',
+		background: '#1f1f1f',
+		fontFamily: 'Inter',
+		fontSize: 16,
+		fontWeight: 500,
 		color: state.isSelected ? '#036CE3' : 'white'
 	}),
 	menuList: (provided, state) => ({
 		...provided,
-		background: '#131313'
+		background: '#1f1f1f',
+		border: '1px solid #131313',
+		borderRadius: 3
 	}),
 	input: (provided, state) => ({
 		...provided,
@@ -123,11 +131,12 @@ const Input = styled.input`
 	}
 `
 
-class ContactPage extends Component {
+class LetsTalkPage extends Component {
 	state = {}
 	render() {
 		return (
-			<Layout>
+			<Layout noFooter>
+				<SEO title="Let's talk - Get a free quote" />
 				<Header>
 					<Title>Let's Talk</Title>
 					<Caption>
@@ -137,6 +146,10 @@ class ContactPage extends Component {
 				</Header>
 				<FormContainer>
 					<FormItem>
+						<Label>Your Email:</Label>
+						<Input required placeholder="john@example.com" />
+					</FormItem>
+					<FormItem>
 						<Label>I'm looking for a:</Label>
 						<Select
 							placeholder="Please select"
@@ -145,14 +158,14 @@ class ContactPage extends Component {
 						/>
 					</FormItem>
 
-					<FormItem>
+					{/* <FormItem>
 						<Label>My budget is in the range of:</Label>
 						<Select
 							placeholder="Please select"
 							styles={customStyles}
 							options={budget}
 						/>
-					</FormItem>
+					</FormItem> */}
 
 					<FormItem>
 						<Label>
@@ -161,10 +174,6 @@ class ContactPage extends Component {
 						<Textarea placeholder="Start typing here..." rows={8} />
 					</FormItem>
 
-					<FormItem>
-						<Label>Your Email:</Label>
-						<Input required placeholder="john@example.com" />
-					</FormItem>
 					<MainButton full title="Submit" />
 				</FormContainer>
 			</Layout>
@@ -172,4 +181,4 @@ class ContactPage extends Component {
 	}
 }
 
-export default ContactPage
+export default LetsTalkPage

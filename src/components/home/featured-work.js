@@ -11,7 +11,7 @@ const Categories = styled.div``
 const FeaturedWork = ({ portfolio }) => {
 	return (
 		<Container>
-			<Title>Selected Work</Title>
+			<Title>See My Work</Title>
 			<Categories></Categories>
 			<FeaturedWorkList portfolio={portfolio} />
 		</Container>
