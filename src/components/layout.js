@@ -6,6 +6,10 @@ import styled from 'styled-components'
 import './layout.css'
 import Navbar from './navbar'
 import Footer from './footer'
+if (typeof window !== 'undefined') {
+	require('pace-progressbar')
+	require('pace-progressbar/themes/blue/pace-theme-minimal.css')
+}
 
 const Main = styled.main`
 	padding: 100px 10% 5% 10%;
