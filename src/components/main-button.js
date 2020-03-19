@@ -9,6 +9,7 @@ const Button = styled.button`
 	font-weight: 800;
 	min-width: 160px;
 	width: ${props => props.full && '100%'};
+	cursor: pointer;
 
 	background: rgb(1, 95, 208);
 	background: linear-gradient(

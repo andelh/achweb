@@ -6,11 +6,12 @@ import Select from 'react-select'
 import { motion } from 'framer-motion'
 import MainButton from '../components/main-button'
 import SEO from '../components/seo'
+import Loader from 'react-loader-spinner'
 
 const services = [
 	{ value: 'Website', label: 'Website' },
 	{ value: 'Mobile App', label: 'Mobile App' },
-	{ value: 'E-Commerce Store', label: 'Online Store' },
+	{ value: 'E-Commerce Store', label: 'E-Commerce Store' },
 	{ value: 'Custom', label: 'Something custom' }
 ]
 
@@ -130,10 +131,40 @@ const Input = styled.input`
 		outline: 2px solid #036ce3;
 	}
 `
+const ButtonContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+	width: 100%;
+	position: relative;
+`
 
 class LetsTalkPage extends Component {
-	state = {}
+	constructor(props) {
+		super(props)
+
+		this.contactForm = React.createRef()
+
+		this.state = {
+			email: '',
+			projectType: '',
+			projectDescription: '',
+			isLoading: false
+		}
+	}
+
+	updateInput = e => {
+		this.setState({ [e.target.name]: e.target.value })
+	}
+
+	handleSubmit = () => {
+		this.setState({ isLoading: true })
+		this.contactForm.current.submit()
+	}
+
 	render() {
+		const { email, projectType, projectDescription, isLoading } = this.state
 		return (
 			<Layout noFooter>
 				<SEO title="Let's talk - Get a free quote" />
@@ -144,10 +175,20 @@ class LetsTalkPage extends Component {
 						rolling
 					</Caption>
 				</Header>
-				<FormContainer>
+				<FormContainer
+				// action="https://formsubmit.io/send/andelhusbands@gmail.com"
+				// method="post"
+				// ref={this.contactForm}
+				>
 					<FormItem>
 						<Label>Your Email:</Label>
-						<Input required placeholder="john@example.com" />
+						<Input
+							value={email}
+							name="email"
+							onChange={this.updateInput}
+							required
+							placeholder="john@example.com"
+						/>
 					</FormItem>
 					<FormItem>
 						<Label>I'm looking for a:</Label>
@@ -155,9 +196,11 @@ class LetsTalkPage extends Component {
 							placeholder="Please select"
 							styles={customStyles}
 							options={services}
+							onChange={val =>
+								this.setState({ projectType: val.value })
+							}
 						/>
 					</FormItem>
-
 					{/* <FormItem>
 						<Label>My budget is in the range of:</Label>
 						<Select
@@ -166,16 +209,61 @@ class LetsTalkPage extends Component {
 							options={budget}
 						/>
 					</FormItem> */}
-
 					<FormItem>
 						<Label>
 							Describe your project as simply as possible:
 						</Label>
-						<Textarea placeholder="Start typing here..." rows={8} />
+						<Textarea
+							value={projectDescription}
+							name="projectDescription"
+							onChange={this.updateInput}
+							placeholder="Start typing here..."
+							rows={8}
+						/>
 					</FormItem>
-
-					<MainButton full title="Submit" />
+					<MainButton
+						full
+						title="Submit"
+						clickHandler={() => this.handleSubmit()}
+					/>
 				</FormContainer>
+				{isLoading && (
+					<ButtonContainer>
+						<Loader
+							type="Oval"
+							color="white"
+							height={40}
+							width={40}
+						/>
+					</ButtonContainer>
+				)}
+
+				{/* <HiddenForm> */}
+				<form
+					action="https://formsubmit.io/send/andelhusbands@gmail.com"
+					method="post"
+					ref={this.contactForm}
+				>
+					<input hidden name="email" value={email} type="email" />
+					<input
+						hidden
+						name="projectType"
+						value={projectType}
+						type="text"
+					/>
+					<input
+						hidden
+						name="projectDescription"
+						value={projectDescription}
+						type="text"
+					/>
+					<input
+						type="hidden"
+						name="_next"
+						value="https://andelhusbands.xyz/thank-you/"
+					/>
+				</form>
+				{/* </HiddenForm> */}
 			</Layout>
 		)
 	}
