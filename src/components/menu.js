@@ -100,7 +100,7 @@ const Menu = ({ isOpen }) => (
 			{menuList.map((item, index) => (
 				<Link key={index} to={item.link}>
 					<MenuItem
-						initial="hidden"
+						initial="closed"
 						variants={listItem}
 						to={item.link}
 					>
