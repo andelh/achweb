@@ -26,6 +26,8 @@ const ThanksCopy = styled.p`
 	p {
 		font-size: 1.3rem;
 		line-height: 150%;
+		font-family: 'Inter';
+		opacity: 0.9;
 	}
 `
 class ThankYouPage extends Component {
@@ -37,8 +39,8 @@ class ThankYouPage extends Component {
 				<MainContainer>
 					<Title>Thanks for getting in touch!</Title>
 					<ThanksCopy>
-						I will be reviewing your project and getting in touch
-						with you very soon!
+						I will be reviewing your project details and getting in
+						touch with you very soon!
 					</ThanksCopy>
 					<MainButton
 						title="Go Home"

@@ -7,6 +7,9 @@ import { motion } from 'framer-motion'
 import MainButton from '../components/main-button'
 import SEO from '../components/seo'
 import Loader from 'react-loader-spinner'
+import emailjs from 'emailjs-com'
+import { navigate } from 'gatsby'
+import { colors } from '../styles/colors'
 
 const services = [
 	{ value: 'Website', label: 'Website' },
@@ -147,6 +150,7 @@ class LetsTalkPage extends Component {
 		this.contactForm = React.createRef()
 
 		this.state = {
+			name: '',
 			email: '',
 			projectType: '',
 			projectDescription: '',
@@ -158,13 +162,54 @@ class LetsTalkPage extends Component {
 		this.setState({ [e.target.name]: e.target.value })
 	}
 
+	sendEmail = () => {
+		//Start loading
+		this.setState({ isLoading: true })
+
+		//Get input from state
+		const { name, email, projectType, projectDescription } = this.state
+
+		const template_params = {
+			name: name,
+			email: email,
+			projectType: projectType,
+			projectDescription: projectDescription
+		}
+
+		emailjs
+			.send(
+				'gmail',
+				'lets_talk',
+				template_params,
+				'user_K3Y9NbzoiCnQIQeAvAs96'
+			)
+			.then(
+				response => {
+					navigate('/thank-you')
+				},
+				err => {
+					alert(
+						"There was an error submitting you request. Please try again or don't hesitate to contact me directly!"
+					)
+					this.setState({ isLoading: false })
+					console.log('FAILED...', err)
+				}
+			)
+	}
+
 	handleSubmit = () => {
 		this.setState({ isLoading: true })
-		this.contactForm.current.submit()
+		this.sendEmail()
 	}
 
 	render() {
-		const { email, projectType, projectDescription, isLoading } = this.state
+		const {
+			name,
+			email,
+			projectType,
+			projectDescription,
+			isLoading
+		} = this.state
 		return (
 			<Layout noFooter>
 				<SEO title="Let's talk - Get a free quote" />
@@ -172,14 +217,20 @@ class LetsTalkPage extends Component {
 					<Title>Let's Talk</Title>
 					<Caption>
 						Tell me a bit about your project so we can get the ball
-						rolling
+						rolling and build something great together!
 					</Caption>
 				</Header>
-				<FormContainer
-				// action="https://formsubmit.io/send/andelhusbands@gmail.com"
-				// method="post"
-				// ref={this.contactForm}
-				>
+				<FormContainer>
+					<FormItem>
+						<Label>Your Name:</Label>
+						<Input
+							value={name}
+							name="name"
+							onChange={this.updateInput}
+							required
+							placeholder="John Doe"
+						/>
+					</FormItem>
 					<FormItem>
 						<Label>Your Email:</Label>
 						<Input
@@ -231,39 +282,12 @@ class LetsTalkPage extends Component {
 					<ButtonContainer>
 						<Loader
 							type="Oval"
-							color="white"
+							color={colors.primary}
 							height={40}
 							width={40}
 						/>
 					</ButtonContainer>
 				)}
-
-				{/* <HiddenForm> */}
-				<form
-					action="https://formsubmit.io/send/andelhusbands@gmail.com"
-					method="post"
-					ref={this.contactForm}
-				>
-					<input hidden name="email" value={email} type="email" />
-					<input
-						hidden
-						name="projectType"
-						value={projectType}
-						type="text"
-					/>
-					<input
-						hidden
-						name="projectDescription"
-						value={projectDescription}
-						type="text"
-					/>
-					<input
-						type="hidden"
-						name="_next"
-						value="https://andelhusbands.xyz/thank-you/"
-					/>
-				</form>
-				{/* </HiddenForm> */}
 			</Layout>
 		)
 	}

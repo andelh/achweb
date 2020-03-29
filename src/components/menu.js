@@ -98,7 +98,11 @@ const Menu = ({ isOpen }) => (
 		<Overlay variants={overlay} />
 		<MenuList>
 			{menuList.map((item, index) => (
-				<Link key={index} to={item.link}>
+				<Link
+					style={{ textDecoration: 'none' }}
+					key={index}
+					to={item.link}
+				>
 					<MenuItem
 						initial="closed"
 						variants={listItem}
@@ -119,10 +123,10 @@ const menuList = [
 		title: 'Home',
 		link: '/'
 	},
-	{
-		title: 'See my work',
-		link: '/portfolio'
-	},
+	// {
+	// 	title: 'See my work',
+	// 	link: '/portfolio'
+	// },
 	{
 		title: 'Hire me',
 		link: '/lets-talk'

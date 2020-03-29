@@ -31,7 +31,9 @@ const NavLogo = styled.img`
 	display: block;
 	width: 200px;
 `
-const MenuContainer = styled.div``
+const MenuContainer = styled.div`
+	cursor: pointer;
+`
 
 class Navbar extends Component {
 	state = {
