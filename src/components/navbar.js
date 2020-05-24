@@ -37,7 +37,7 @@ const MenuContainer = styled.div`
 
 class Navbar extends Component {
 	state = {
-		isOpen: false
+		isOpen: false,
 	}
 	render() {
 		return (

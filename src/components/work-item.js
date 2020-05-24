@@ -6,7 +6,7 @@ const Container = styled.a`
 	width: 100%;
 	flex-basis: 46%;
 	height: 100px;
-	background: ${props => props.bg};
+	background: ${(props) => props.bg};
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
@@ -14,6 +14,7 @@ const Container = styled.a`
 	margin: 5px;
 	box-shadow: 0 9px 20px rgba(0, 0, 0, 0.39);
 	position: relative;
+	border: 1px solid rgba(255, 255, 255, 0.1);
 
 	@media (min-width: 550px) {
 		height: 180px;
