@@ -2,7 +2,7 @@ module.exports = {
 	siteMetadata: {
 		title: `Andel Husbands | Online Portfolio`,
 		description: `A web and software developer based in Trinidad and Tobago. Raising the bar on the quality of technology coming out of his home soil.`,
-		author: `@AndelHusbands`
+		author: `@AndelHusbands`,
 	},
 	plugins: [
 		`gatsby-plugin-styled-components`,
@@ -11,15 +11,15 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `images`,
-				path: `${__dirname}/src/images`
-			}
+				path: `${__dirname}/src/images`,
+			},
 		},
 		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
 				trackingId: `UA-126510773-2`,
-				head: true
-			}
+				head: true,
+			},
 		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
@@ -73,7 +73,7 @@ module.exports = {
 					'**/categories',
 					'**/posts',
 					'**/pages',
-					'**/media'
+					'**/media',
 					// "**/tags",
 					// "**/taxonomies",
 					// "**/users",
@@ -81,10 +81,10 @@ module.exports = {
 				// Blacklisted routes using glob patterns
 				excludedRoutes: ['**/posts/1456'],
 				// use a custom normalizer which is applied after the built-in ones.
-				normalizer: function({ entities }) {
+				normalizer: function ({ entities }) {
 					return entities
-				}
-			}
+				},
+			},
 		},
 		{
 			resolve: `gatsby-plugin-manifest`,
@@ -95,17 +95,17 @@ module.exports = {
 				background_color: `#663399`,
 				theme_color: `#663399`,
 				display: `minimal-ui`,
-				icon: `src/images/favico.png` // This path is relative to the root of the site.
-			}
+				icon: `src/images/favico.png`, // This path is relative to the root of the site.
+			},
 		},
-		{
-			resolve: 'gatsby-plugin-drift',
-			options: {
-				appId: 'pmi4en6x2vae'
-			}
-		}
+		// {
+		// 	resolve: 'gatsby-plugin-drift',
+		// 	options: {
+		// 		appId: 'pmi4en6x2vae'
+		// 	}
+		// }
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',
-	]
+	],
 }
