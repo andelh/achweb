@@ -16,7 +16,8 @@ class IndexPage extends React.Component {
 	state = {}
 
 	render() {
-		const data = this.props.data.allWordpressPost.edges
+		const data = this.props.data.wordpressPage
+		const portfolio = data.acf.item
 		return (
 			<Layout>
 				<SEO
@@ -43,7 +44,7 @@ class IndexPage extends React.Component {
 					]}
 				/>
 				<Heading />
-				<FeaturedWork portfolio={data} />
+				<FeaturedWork portfolio={portfolio} />
 				<Freelance />
 			</Layout>
 		)
@@ -53,22 +54,16 @@ class IndexPage extends React.Component {
 export default IndexPage
 
 export const PortfolioQuery = graphql`
-	query($category: String = "Portfolio Item") {
-		allWordpressPost(
-			filter: { categories: { elemMatch: { name: { eq: $category } } } }
-			sort: { fields: date, order: DESC }
-		) {
-			edges {
-				node {
-					id
-					title
-					slug
-					acf {
-						brand_colour
-						website_url
-						logo {
-							source_url
-						}
+	query($page: String = "Portfolio") {
+		wordpressPage(title: {eq: $page}) {
+			id
+			title
+			acf {
+				item {
+					brand_colour
+					website_url
+					logo {
+						source_url
 					}
 				}
 			}

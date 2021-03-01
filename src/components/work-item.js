@@ -37,10 +37,10 @@ const Logo = styled.img`
 const WorkItem = ({ portfolio }) => (
 	<Container
 		target="_blank"
-		href={portfolio.acf.website_url}
-		bg={portfolio.acf.brand_colour}
+		href={portfolio.website_url}
+		bg={portfolio.brand_colour}
 	>
-		<Logo src={portfolio.acf.logo.source_url} />
+		<Logo src={portfolio.logo.source_url} />
 	</Container>
 )
 

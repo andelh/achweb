@@ -12,7 +12,7 @@ const Container = styled.div`
 const FeaturedWorkList = ({ portfolio }) => (
 	<Container>
 		{portfolio.map((item, index) => (
-			<WorkItem key={index} portfolio={item.node} />
+			<WorkItem key={index} portfolio={item} />
 		))}
 	</Container>
 )
