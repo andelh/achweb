@@ -30,7 +30,6 @@ export default function IndexPage({ projects }) {
 export async function getStaticProps() {
   // Run API calls in parallel
   const [projects] = await Promise.all([fetchAPI("/api/projects")])
-
   return {
     props: { projects },
     revalidate: 1,
