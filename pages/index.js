@@ -12,8 +12,8 @@ import FeaturedWork from "../components/home/featured-work"
 import { fetchAPI } from "../lib/api"
 
 export default function IndexPage({ projects }) {
-  const projectsData = projects.data.map(project => project.attributes)
-  console.log({ projectsData })
+  // const projectsData = projects.data.map(project => project.attributes)
+  // console.log({ projectsData })
   return (
     <Layout>
       <SEO
@@ -21,7 +21,7 @@ export default function IndexPage({ projects }) {
         description="A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!"
       />
       <Heading />
-      <FeaturedWork projects={projectsData} />
+      {/* <FeaturedWork projects={projectsData} /> */}
       <Freelance />
     </Layout>
   )
@@ -29,9 +29,9 @@ export default function IndexPage({ projects }) {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [projects] = await Promise.all([fetchAPI("/api/projects")])
+  // const [projects] = await Promise.all([fetchAPI("/api/projects")])
   return {
-    props: { projects },
+    props: { projects: [] },
     revalidate: 1,
   }
 }
