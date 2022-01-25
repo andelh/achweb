@@ -28,7 +28,9 @@
     "sanity-plugin-color-picker": "^1.0.3",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@sanity/cli": "^2.25.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/andelh/achweb.git"
