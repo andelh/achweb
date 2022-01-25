@@ -35,8 +35,12 @@ const Logo = styled.img`
 `
 
 const WorkItem = ({ project }) => (
-  <Container target="_blank" href={project.name} bg={project.hex}>
-    {/* <Logo src={project.logo.source_url} /> */}
+  <Container
+    target="_blank"
+    href={project.url}
+    bg={project.backgroundHex ?? "#000"}
+  >
+    <Logo src={project.poster} />
   </Container>
 )
 
