@@ -1,7 +1,8 @@
+import { motion } from "framer-motion"
 import React from "react"
 import styled from "styled-components"
 
-const Container = styled.a`
+const Container = styled(motion.a)`
   flex: 1;
   width: 100%;
   flex-basis: 46%;
@@ -34,10 +35,13 @@ const Logo = styled.img`
   object-fit: contain;
 `
 
-const WorkItem = ({ project }) => (
+const WorkItem = ({ project, variants }) => (
   <Container
     target="_blank"
     href={project.url}
+    variants={variants}
+    whileHover={{ scale: 1.04 }}
+    whileTap={{ scale: 0.95 }}
     bg={project.backgroundHex ?? "#000"}
   >
     <Logo src={project.poster} />
