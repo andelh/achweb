@@ -11,6 +11,7 @@ import Freelance from "../components/freelance"
 import FeaturedWork from "../components/home/featured-work"
 import { fetchAPI } from "../lib/api"
 import client from "../lib/sanity"
+import PersonalProjects from "../components/home/personal-projects"
 
 const homeQuery = `*\[_type == "project"\] | order(releaseDate desc) {
   title,
@@ -19,25 +20,42 @@ const homeQuery = `*\[_type == "project"\] | order(releaseDate desc) {
   backgroundHex,
   overview,
   releaseDate,
-  "poster": poster.asset->url
-
+  "poster": poster.asset->url,
+  
+}`
+const personalWorkQuery = `*\[ _type == "personalWorks"\][0] {
+  title,
+  description,
+  projects[] {
+    title, 
+    description,
+    "image": image.asset->url,
+    url,
+    screenshots[] {
+      "url": asset->url
+    }
+  }
 }`
 
 export async function getStaticProps() {
+  const projects = await client.fetch(personalWorkQuery)
   const pageData = await client.fetch(homeQuery)
   const data = { pageData }
+  const projectsData = { projects }
 
   return {
     props: {
       data,
+      projectsData,
     },
     revalidate: 1,
   }
 }
 
-export default function IndexPage({ data }) {
-  console.log({ data })
+export default function IndexPage({ data, projectsData }) {
+  console.log({ data, projectsData })
   const projects = data.pageData
+  const personalProjects = projectsData.projects
   // const projectsData = projects.data.map(project => project.attributes)
   // console.log({ projectsData })
   return (
@@ -47,6 +65,7 @@ export default function IndexPage({ data }) {
         description="A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!"
       />
       <Heading />
+      <PersonalProjects data={personalProjects} />
       <FeaturedWork projects={projects} />
       <Freelance />
     </Layout>

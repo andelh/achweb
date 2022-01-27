@@ -3,7 +3,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type"
 
 export default {
   name: "project",
-  title: "Project",
+  title: "Projects",
   type: "document",
   icon,
   fields: [
