@@ -77,12 +77,25 @@ const StickySection = styled.div`
   position: sticky;
   top: 120px;
   margin-bottom: 40px;
+
+  @media (max-width: 680px) {
+    position: relative;
+    top: 0;
+  }
 `
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 50px;
   position: relative;
+
+  @media (max-width: 766px) {
+    grid-template-columns: 200px 1fr;
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
 `
 const Tags = styled.div`
   display: flex;

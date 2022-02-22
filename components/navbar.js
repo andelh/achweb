@@ -30,6 +30,10 @@ const NavLogo = styled.img`
   margin: 0 auto;
   display: block;
   width: 200px;
+
+  @media (max-width: 550px) {
+    width: 160px;
+  }
 `
 const MenuContainer = styled.div`
   cursor: pointer;
@@ -42,8 +46,14 @@ const MenuContainer = styled.div`
     color: white;
     text-decoration: none;
   }
-`
 
+  @media (max-width: 550px) {
+    gap: 5px;
+  }
+`
+const LinkItem = styled(motion.a)`
+  font-size: 16px;
+`
 class Navbar extends Component {
   state = {
     isOpen: false,
@@ -86,5 +96,3 @@ class Navbar extends Component {
 }
 
 export default Navbar
-
-const LinkItem = styled(motion.a)``
