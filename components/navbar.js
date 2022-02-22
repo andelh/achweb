@@ -6,6 +6,7 @@ import Link from "next/link"
 import HamburgerMenu from "react-hamburger-menu"
 import { colors } from "../styles/colors"
 import Menu from "./menu"
+import { motion } from "framer-motion"
 
 const NavContainer = styled.div`
   background-color: #030405;
@@ -32,6 +33,15 @@ const NavLogo = styled.img`
 `
 const MenuContainer = styled.div`
   cursor: pointer;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `
 
 class Navbar extends Component {
@@ -48,7 +58,15 @@ class Navbar extends Component {
             </a>
           </Link>
           <MenuContainer>
-            <HamburgerMenu
+            <Link href="/blog">
+              <LinkItem whileHover={{ color: colors.primary }}>Blog</LinkItem>
+            </Link>
+            <Link href="/lets-talk">
+              <LinkItem whileHover={{ color: colors.primary }}>
+                Work with me
+              </LinkItem>
+            </Link>
+            {/* <HamburgerMenu
               isOpen={this.state.isOpen}
               menuClicked={() => this.setState({ isOpen: !this.state.isOpen })}
               width={23}
@@ -59,7 +77,7 @@ class Navbar extends Component {
               borderRadius={0}
               animationDuration={0.5}
             />
-            <Menu isOpen={this.state.isOpen} />
+            <Menu isOpen={this.state.isOpen} /> */}
           </MenuContainer>
         </InnerContainer>
       </NavContainer>
@@ -68,3 +86,5 @@ class Navbar extends Component {
 }
 
 export default Navbar
+
+const LinkItem = styled(motion.a)``
