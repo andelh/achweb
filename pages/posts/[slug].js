@@ -58,7 +58,7 @@ export default PostPage
 
 const Container = styled.div`
   max-width: 690px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 `
 const A = styled.a`
   color: ${colors.primary};
