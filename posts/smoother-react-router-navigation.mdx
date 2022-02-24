@@ -4,6 +4,7 @@ date: "November 21, 2018"
 description: "Here's a short guide on making navigation with react router feel better"
 thumbnailUrl: "/posts/smooth-nav.jpeg"
 tags: ["react", "tutorial"]
+draft: false
 ---
 
 React and React Router are a great combo when it comes to implementing navigation in websites built with React, but it can be improved. One thing that I always found to be lacking was a “buttery” feel when moving between pages. Everything always seemed to just happen without any kind of visual cues.
@@ -15,7 +16,7 @@ Today we will be improving navigation by doing two things:
 
 Let’s get started shall we!? You can find an example of what we will be building [here](https://reelgood.com/)
 
-# **What is Pace?**
+### **What is Pace?**
 
 According to their website:
 
@@ -25,49 +26,63 @@ According to their website:
 
 Sounds good right!?
 
-# **1. The setup**
+### **1. The setup**
 
 _For this tutorial, I’m going to assume you have already set up a react app and some sort of navigation system using react-router._
 
 Open your terminal to the folder directory and run the following command:
 
-```
-`npm install pace-js pace --save`
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    npm install pace-js pace --save
+  `}
+</SyntaxHighlighter>
 
-<!-- Once this is done, open *public/index.html* and include the following **<script>**tag in the document **<head>** -->
+Once this is done, open `public/index.html` and include the following script tag in the document head:
 
-```
-`<script src="[https://unpkg.com/pace-js@1.0.2/pace.min.js](https://unpkg.com/pace-js@1.0.2/pace.min.js)"></script>`
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    <script src="[https://unpkg.com/pace-js@1.0.2/pace.min.js](https://unpkg.com/pace-js@1.0.2/pace.min.js)"></script>
+  `}
+</SyntaxHighlighter>
 
-Now, open *src/index.js* and include the following imports:
+Now, open `src/index.js` and include the following imports:
 
-```
-import 'pace-js'
-import 'pace-js/themes/yellow/pace-theme-minimal.css'
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    import 'pace-js'
+    import 'pace-js/themes/yellow/pace-theme-minimal.css'
+  `}
+</SyntaxHighlighter>
 
 _The second line is the import of the theme we decided to use for pace-js. You can view all the theme demos [here](https://github.hubspot.com/pace/docs/welcome/) and then choose one of your own using this [repo](https://github.com/HubSpot/pace/tree/master/themes)._
 
 Next, we are going to define a global CSS class which we will use on all our Page Components. Open *src/App.css* and add CSS rules as follows
 
-```
-@keyframes FadeAnim {0% {   opacity: 0;}100% {   opacity: 1;}}
-```
-
+<SyntaxHighlighter language="css">
+  {`
+    @keyframes FadeAnim {
+        0% {   
+            opacity: 0;
+        }
+        100% {   
+            opacity: 1;
+        }
+    }
+  `}
+</SyntaxHighlighter>
 _Feel free to adjust these values in order to achieve different fade in effects._
 
-# **2. The Implementation**
+### **2. The Implementation**
 
 Since Pace.js can automatically detect when a page load is occurring, all we have to do to complete the buttery smooth animation is add the “_Fade_” class to any page we want to navigate to like so:
 
 <SyntaxHighlighter language="javascript">
   {`
-    class Appextends 
+    class Appextends
         Component {
-            render() {   
-                return (      
+            render() {
+                return (
                     <div class="App Fade">
                         <!--Page Content-->
                     </div>
@@ -79,6 +94,10 @@ Since Pace.js can automatically detect when a page load is occurring, all we hav
 
 And that’s it! As you navigate between Page Components with the Fade class, the content will smoothly transition in and Pace.js will automatically start and stop the page load indicator as the content is loaded giving the user the sense that something is actually happening!
 
-# **Thanks for reading!**
+## **Thanks for reading!**
 
 I hope this post helped you in some way. Feel free to ask questions or suggest anything to me, I’m always willing to chat :) You can expect to find more tutorials like this on [my website](http://thefrontendr.wordpress.com/)
+
+```
+
+```
