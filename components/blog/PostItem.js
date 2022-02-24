@@ -41,7 +41,7 @@ const Title = styled.h3`
 const Excerpt = styled.p`
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.4;
   margin-bottom: 15px;
 `
 const Date = styled.p`
