@@ -57,6 +57,9 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
             h3: H3,
             h4: H4,
             h5: H5,
+            li: Li,
+            ol: Ol,
+            ul: Ul,
           }}
         />
       </Container>
@@ -81,26 +84,61 @@ const Title = styled.h1`
 // Updating MDX base html elements
 const A = styled.a`
   color: ${colors.primary};
+  text-decoration: none;
+  font-weight: 500;
 `
 const P = styled.p`
   color: white;
   opacity: 0.9;
   line-height: 1.6;
   font-size: 18px;
+  margin-bottom: 1.5rem;
 `
 const H1 = styled.h1`
   font-size: 48px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: #efd3b5;
 `
 const H2 = styled.h2`
   font-size: 39px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: #efd3b5;
 `
 const H3 = styled.h3`
   font-size: 31px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: #efd3b5;
 `
 const H4 = styled.h4`
   font-size: 25px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: #efd3b5;
 `
 const H5 = styled.h5`
   font-size: 20px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: #efd3b5;
 `
-const H6 = styled.h6``
+const H6 = styled.h6`
+  font-size: 19px;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  color: #efd3b5;
+`
+const Li = styled.li`
+  color: white;
+  opacity: 0.9;
+  line-height: 1.6;
+  font-size: 18px;
+`
+const Ol = styled.ol`
+  margin-left: 40px;
+`
+const Ul = styled.ul`
+  margin-left: 40px;
+`

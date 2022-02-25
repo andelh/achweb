@@ -12,11 +12,13 @@ const NavContainer = styled.div`
   background-color: #030405;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
   width: 100%;
-  padding: 30px;
   position: fixed;
   z-index: 100;
-
   padding: 30px 10% 30px 10%;
+
+  @media (max-width: 550px) {
+    padding: 20px;
+  }
 `
 const InnerContainer = styled.div`
   max-width: 1100px;
@@ -48,11 +50,12 @@ const MenuContainer = styled.div`
   }
 
   @media (max-width: 550px) {
-    gap: 5px;
+    gap: 10px;
   }
 `
 const LinkItem = styled(motion.a)`
   font-size: 16px;
+  font-weight: 500;
 `
 class Navbar extends Component {
   state = {
