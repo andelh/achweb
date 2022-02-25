@@ -36,7 +36,6 @@ export async function getStaticProps() {
 }
 
 export default function IndexPage({ data }) {
-  console.log({ data })
   const projects = data.pageData
   // const projectsData = projects.data.map(project => project.attributes)
   // console.log({ projectsData })

@@ -30,7 +30,8 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.25.0"
+    "@sanity/cli": "^2.25.0",
+    "gray-matter": "^4.0.3"
   },
   "repository": {
     "type": "git",

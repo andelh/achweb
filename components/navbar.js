@@ -6,16 +6,19 @@ import Link from "next/link"
 import HamburgerMenu from "react-hamburger-menu"
 import { colors } from "../styles/colors"
 import Menu from "./menu"
+import { motion } from "framer-motion"
 
 const NavContainer = styled.div`
   background-color: #030405;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
   width: 100%;
-  padding: 30px;
   position: fixed;
   z-index: 100;
-
   padding: 30px 10% 30px 10%;
+
+  @media (max-width: 550px) {
+    padding: 20px;
+  }
 `
 const InnerContainer = styled.div`
   max-width: 1100px;
@@ -29,11 +32,31 @@ const NavLogo = styled.img`
   margin: 0 auto;
   display: block;
   width: 200px;
+
+  @media (max-width: 550px) {
+    width: 160px;
+  }
 `
 const MenuContainer = styled.div`
   cursor: pointer;
-`
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  @media (max-width: 550px) {
+    gap: 10px;
+  }
+`
+const LinkItem = styled(motion.a)`
+  font-size: 16px;
+  font-weight: 500;
+`
 class Navbar extends Component {
   state = {
     isOpen: false,
@@ -48,7 +71,15 @@ class Navbar extends Component {
             </a>
           </Link>
           <MenuContainer>
-            <HamburgerMenu
+            <Link href="/blog">
+              <LinkItem whileHover={{ color: colors.primary }}>Blog</LinkItem>
+            </Link>
+            <Link href="/lets-talk">
+              <LinkItem whileHover={{ color: colors.primary }}>
+                Work with me
+              </LinkItem>
+            </Link>
+            {/* <HamburgerMenu
               isOpen={this.state.isOpen}
               menuClicked={() => this.setState({ isOpen: !this.state.isOpen })}
               width={23}
@@ -59,7 +90,7 @@ class Navbar extends Component {
               borderRadius={0}
               animationDuration={0.5}
             />
-            <Menu isOpen={this.state.isOpen} />
+            <Menu isOpen={this.state.isOpen} /> */}
           </MenuContainer>
         </InnerContainer>
       </NavContainer>

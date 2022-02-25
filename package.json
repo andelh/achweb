@@ -10,7 +10,7 @@
     "babel-plugin-styled-components": "^1.13.3",
     "emailjs-com": "^2.4.1",
     "framer-motion": "^5.6.0",
-    "next": "^12.0.8",
+    "next": "^12.1.0",
     "pace-progressbar": "^1.0.9",
     "pg": "^8.7.1",
     "prop-types": "^15.7.2",
@@ -24,6 +24,7 @@
     "react-loader-spinner": "^3.1.5",
     "react-reveal": "^1.2.2",
     "react-select": "^3.0.8",
+    "react-syntax-highlighter": "^15.4.5",
     "react-text-loop": "^2.3.0",
     "react-typed": "^1.2.0",
     "styled-components": "^5.3.3"
@@ -48,5 +49,9 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "next-mdx-remote": "^3.0.8"
   }
 }

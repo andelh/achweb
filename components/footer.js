@@ -52,11 +52,11 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterGroup>
-        <Title>Ready to work?</Title>
+        {/* <Title>Ready to work?</Title>
         <MainButton
           clickHandler={() => router.push("/lets-talk")}
           title="Let's Talk"
-        />
+        /> */}
         <SocialsContainer>
           <SocialIcon>
             <a
