@@ -89,9 +89,9 @@ const A = styled.a`
 `
 const P = styled.p`
   color: white;
-  opacity: 0.9;
-  line-height: 1.6;
-  font-size: 18px;
+  opacity: 0.95;
+  /* line-height: 1.6; */
+  /* font-size: 18px; */
   margin-bottom: 1.5rem;
 `
 const H1 = styled.h1`
@@ -134,7 +134,7 @@ const Li = styled.li`
   color: white;
   opacity: 0.9;
   line-height: 1.6;
-  font-size: 18px;
+  font-size: 20px;
 `
 const Ol = styled.ol`
   margin-left: 40px;
