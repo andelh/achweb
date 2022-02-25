@@ -60,6 +60,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
             li: Li,
             ol: Ol,
             ul: Ul,
+            code: Code,
           }}
         />
       </Container>
@@ -93,42 +94,51 @@ const P = styled.p`
   /* line-height: 1.6; */
   /* font-size: 18px; */
   margin-bottom: 1.5rem;
+
+  code {
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+  em {
+    font-weight: 500;
+    line-height: 1.4;
+  }
 `
 const H1 = styled.h1`
   font-size: 48px;
   margin-top: 64px;
   margin-bottom: 16px;
-  color: #efd3b5;
+  color: ${colors.tertiary};
 `
 const H2 = styled.h2`
   font-size: 39px;
   margin-top: 64px;
   margin-bottom: 16px;
-  color: #efd3b5;
+  color: ${colors.tertiary};
 `
 const H3 = styled.h3`
   font-size: 31px;
   margin-top: 64px;
   margin-bottom: 16px;
-  color: #efd3b5;
+  color: ${colors.tertiary};
 `
 const H4 = styled.h4`
   font-size: 25px;
   margin-top: 64px;
   margin-bottom: 16px;
-  color: #efd3b5;
+  color: ${colors.tertiary};
 `
 const H5 = styled.h5`
   font-size: 20px;
   margin-top: 64px;
   margin-bottom: 16px;
-  color: #efd3b5;
+  color: ${colors.tertiary};
 `
 const H6 = styled.h6`
   font-size: 19px;
   margin-top: 64px;
   margin-bottom: 16px;
-  color: #efd3b5;
+  color: ${colors.tertiary};
 `
 const Li = styled.li`
   color: white;
@@ -141,4 +151,8 @@ const Ol = styled.ol`
 `
 const Ul = styled.ul`
   margin-left: 40px;
+`
+const Code = styled.code`
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2) !important;
 `
