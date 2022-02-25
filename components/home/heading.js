@@ -17,6 +17,7 @@ const HeadingContainer = styled(motion.div)`
 const Title = styled.h1`
   font-size: 48px;
   font-weight: 900;
+  font-family: "Inter", sans-serif;
 
   @media (min-width: 550px) {
     font-size: 9vmax;
@@ -27,7 +28,6 @@ const Title = styled.h1`
   }
 `
 const Caption = styled.div`
-  font-family: "Inter";
   margin-bottom: 50px;
   /* height: 95px; */
 
@@ -57,9 +57,9 @@ const IntervalTextCaption = styled.div`
   width: 100%;
   color: white;
   opacity: 0.7;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.2;
-  font-family: "Inter", sans-serif;
+  font-family: "Vorkurs", sans-serif;
   font-weight: 500;
   display: block;
 
