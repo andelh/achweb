@@ -10,6 +10,13 @@ import Layout from "../../components/layout.js"
 import SEO from "../../components/seo.js"
 import { colors } from "../../styles/colors.js"
 import { motion } from "framer-motion"
+import Image from "next/image"
+
+const ResponsiveImage = props => (
+  <div style={{ position: "relative", height: 400, width: "100%" }}>
+    <Image alt={props.alt} objectFit="cover" layout="fill" {...props} />
+  </div>
+)
 
 const AnimatedA = props => {
   return (
@@ -76,6 +83,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
             ul: Ul,
             code: Code,
             blockquote: BlockQuote,
+            img: ResponsiveImage,
           }}
         />
       </Container>
@@ -102,7 +110,8 @@ const A = styled(motion.a)`
   color: ${colors.primary};
   text-decoration: none;
   font-weight: 500;
-  /* display: inline-block; */
+  display: inline-block;
+  word-break: break-word;
   cursor: pointer;
 `
 const P = styled.p`
@@ -126,30 +135,35 @@ const H1 = styled.h1`
   margin-top: 64px;
   margin-bottom: 16px;
   color: ${colors.tertiary};
+  letter-spacing: -1.5px;
 `
 const H2 = styled.h2`
   font-size: 39px;
   margin-top: 64px;
   margin-bottom: 16px;
   color: ${colors.tertiary};
+  letter-spacing: -1.5px;
 `
 const H3 = styled.h3`
   font-size: 31px;
   margin-top: 64px;
   margin-bottom: 16px;
   color: ${colors.tertiary};
+  letter-spacing: -1.5px;
 `
 const H4 = styled.h4`
   font-size: 25px;
   margin-top: 64px;
   margin-bottom: 16px;
   color: ${colors.tertiary};
+  letter-spacing: -1.5px;
 `
 const H5 = styled.h5`
   font-size: 20px;
   margin-top: 64px;
   margin-bottom: 16px;
   color: ${colors.tertiary};
+  letter-spacing: -1.5px;
 `
 const H6 = styled.h6`
   font-size: 19px;
@@ -181,6 +195,6 @@ const BlockQuote = styled.blockquote`
   margin-left: 25px;
   padding-left: 25px;
   font-style: italic;
-  font-weight: 400;
+  font-weight: normal;
   opacity: 0.9;
 `
