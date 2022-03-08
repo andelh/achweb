@@ -1,0 +1,261 @@
+---
+title: Add Butter Smooth Scroll-Based Animations to your Static Website
+date: "March 8, 2022"
+description: Reveal animations are a simple but effective way to delight your users as they scroll through your website.
+tags: ["animation", "css", "react"]
+draft: false
+---
+
+Reveal animations are a simple but effective way to delight your users as they scroll through your website. It’s a method of having your content appear on screen just-in-time — and with control over the entry animation you’re able to pull off some nitfy and fluid transitions. In this post, I will teach you how to add some simple reveal animations to your website, specifically with NextJS, Framer Motion and Styled Components.
+
+> You can just as easily follow along this tutorial without using styled-components, but I highly recommend it as a method of writing re-usable CSS components.
+
+### Framer Motion
+
+Framer motion is a motion library for React that feels like magic. It allows developers to easily add enter and exit animations, and animations based on some state for just about any css property. It’s API is well written and [well documented](https://www.framer.com/docs/introduction/) with tons of [examples](https://www.framer.com/docs/examples/).
+
+[some gjf with transition happem
+
+Since v5.3, they have introduced a `whileInView` prop that allows you to perform animations based on an element’s visibility in the viewport — also known as scroll based animations.
+
+[https://twitter.com/mattgperry/status/1458872361801990154?s=21](https://twitter.com/mattgperry/status/1458872361801990154?s=21)
+
+### What we’ll be building
+
+\*consider including who this tutorial is for: developers that know how to code. Maybe the type of language they code in. And also provide resources if you don’t yet code. E.g. This tutorial is going to help developers who have basic knowledge on NextJS, if you don’t read up a bit on this before starting.
+
+[Move this above the framer motion section]
+
+At the end of this tutorial, you should be equipped with everything you need to add scroll based animations to your next project — or even to spruce up your existing ones. We will be applying some animation techniques to build a simple text and image UI that will allow us to truly get a feel for reveal animations with Framer.
+
+[Gif animation here]
+
+### Getting Started
+
+To get started, create your own fork of the [andelh/framer-motion-reveal repo](https://github.com/andelh/framer-reveal-animations). It is a boilerplate nextjs app with a few elements added for us to animate. Feel free to check out the `final` branch to see the final code.
+
+The repo includes the following notable dependencies:
+
+- framer-motion
+- styled-components
+
+Okay now that we’re all set, let’s get started!
+
+## The header section
+
+The header section includes two text elements: a h1 `Title`, and a paragraph `Copy` element. We will add a simple entry animation here since these elements are seen as soon as you land on the page.
+
+To begin, turn both of the styled components into `motion` elements. In HTML, we can do this like so:
+
+<SyntaxHighlighter language="javascript">
+  {`
+    <!--Standard HTML elements-->
+    <h1>A Superb and Extended Title</h1>
+    <p>Some copy</p>
+    
+    <!--Framer Elements-->
+    <motion.h1>A Superb and Extended Title</motion.h1>
+    <motion.p>Some copy</motion.p>
+  `}
+</SyntaxHighlighter>
+
+_move this above the html version_
+
+When using `styled-components`, we can instead achieve this like so:
+
+```jsx
+// Standard styled elements
+const Title = styled.h1`
+  font-size: 60px;
+  font-weight: bold;
+`
+const Copy = styled.p`
+  margin-bottom: 25vh;
+`
+// Framer motion styled elements
+const Title = styled(motion.h1)`
+  font-size: 60px;
+  font-weight: bold;
+`
+const Copy = styled(motion.p)`
+  margin-bottom: 25vh;
+`
+```
+
+### Animating the text
+
+Let’s get started with a simple entry animation. WIth framer, we can do this using just three props on our motion component:
+
+- `initial` - describes the animationstate that the component should be in when it mounts
+- `animate` - describes to animation state that we want to transition to from the initial. We can also use state here to describe different animation states. We’ll see an example of this later.
+- `transition` - helps us describe how we wish to present our animation, with options for the duration, delay and easing for example.
+
+With this in mind, let’s animate our components!
+
+```jsx
+<Title
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+>
+          A Superb and Extended Title
+        </Title>
+        <Copy
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          The most powerful MacBook Pro ever is here. With the blazing-fast M1
+          Pro or M1 Max chip — the first Apple silicon designed for pros — you
+          get groundbreaking performance and amazing battery life. Add to that a
+          stunning Liquid Retina XDR display, the best camera and audio ever in
+          a Mac notebook, and all the ports you need. The first notebook of its
+          kind, this MacBook Pro is a beast.
+</Copy>
+```
+
+[gif of animation]
+
+This is nice, but we can make it better. Using the transition prop, lets adjust the duration and delay so that the text elements appear one after the other.
+
+```jsx
+<Title
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.5,
+            delay: 0.4,
+            ease: [0.34, 1.56, 0.64, 1], // easings.net
+          }}
+        >
+          A Superb and Extended Title
+        </Title>
+        <Copy
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.5,
+            delay: 0.7,
+            ease: [0.34, 1.56, 0.64, 1],
+          }}
+        >
+          The most powerful MacBook Pro ever is here. With the blazing-fast M1
+          Pro or M1 Max chip — the first Apple silicon designed for pros — you
+          get groundbreaking performance and amazing battery life. Add to that a
+          stunning Liquid Retina XDR display, the best camera and audio ever in
+          a Mac notebook, and all the ports you need. The first notebook of its
+          kind, this MacBook Pro is a beast.
+        </Copy>
+```
+
+[Easings.net](http://Easings.net) is a handy website for getting different easing previews to apply to your animation. Find one you like and add it to the transition prop in an array:
+
+```jsx
+<Title
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.5,
+            delay: 0.4,
+            ease: [0.34, 1.56, 0.64, 1], // easings.net
+          }}
+        >
+          A Superb and Extended Title
+        </Title>
+        <Copy
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.5,
+            delay: 0.7,
+            ease: [0.34, 1.56, 0.64, 1],
+          }}
+        >
+          The most powerful MacBook Pro ever is here. With the blazing-fast M1
+          Pro or M1 Max chip — the first Apple silicon designed for pros — you
+          get groundbreaking performance and amazing battery life. Add to that a
+          stunning Liquid Retina XDR display, the best camera and audio ever in
+          a Mac notebook, and all the ports you need. The first notebook of its
+          kind, this MacBook Pro is a beast.
+        </Copy>
+```
+
+[gif of result]
+
+Lookin good chap! Let’s move on to the next section
+
+## The Gallery Section
+
+First things, we’ll convert everything in the section to motion elements. *You should be a pro at this by now 😉* [link to section above].
+
+Now we can add our animations. Let’s re-use the `Title` animation properties from above for our `Heading` element.
+
+This time though, we will utilize Framer’s `whileInView` prop. Switch out the `animate` prop for the `whileInView` prop and now, the animation happens only when the element is in view! Scroll around the page a few times to give it a try.
+
+[code block]
+
+[gif preview]
+
+### The `viewport` prop
+
+With the `whileInView` prop applied, you gain access to the `viewport` prop which lets you adjust a few things about how your animation interacts with the viewport.
+
+**Here are a few key ones**
+`once` boolean - describes..
+`margin`string - describes..
+`amount` "some" | "all" | number - describes…
+
+### Animating the images
+
+To your `motion.img` element, apply the following animation settings:
+
+It’s similar to what we’ve been using before, but here we. use a scaling animation instead. Play around with the `once` prop here to see which user experience you prefer!
+
+```jsx
+...
+<Gallery>
+          {images.map((image, index) => (
+            <Image
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{
+                once: false,
+                amount: 0.9,
+                // amount?: "some" | "all" | number;
+              }}
+              transition={{
+                duration: 1.5,
+                delay: 0.4,
+                ease: [0.34, 1.56, 0.64, 1],
+              }}
+              src={`https://picsum.photos/seed/${index}/230`}
+            />
+          ))}
+        </Gallery>
+...
+```
+
+## The List Section
+
+For our list reveal, we want each item to gradually appear one after the other. To do this, we will set up something known as variants in Framer. You can think of them as a way of describing different animation states in an object, so that you can refer to them in your JSX later on. They also allow you to _create animations that propagate throughout the DOM, and orchestrate them in a declarative way._
+
+Before we get started, make sure you’ve converted all the elements in this section to `motion` elements. You can apply the same Heading animation to the `Heading` in this section (and even consider making this a component, we’ve repeated it enough times!)
+
+Now, we’ll create a variant object for the List Container and each List Item.
+
+```jsx
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+  hidden: { opacity: 0 },
+}
+
+const item = {
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+  hidden: { opacity: 0, y: 40, transition: { duration: 0.7 } },
+}
+```
+
+We’ve described two animation states: `hidden` and `visible`. We can this object into the `motion` component using the `variants` prop. Once they are applied, they can then be referred to by label for the `initial` and `animate` props.

@@ -715,8 +715,10 @@ code {
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  background: rgba(255, 255, 255, 0.2) !important;
+  padding: 4px 4px;
+  border-radius: 3px;
+  margin: 0 3px;
 }
 pre code {
   background: none;

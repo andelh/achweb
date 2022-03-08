@@ -9,6 +9,20 @@ import Button from "../../components/Button.jsx"
 import Layout from "../../components/layout.js"
 import SEO from "../../components/seo.js"
 import { colors } from "../../styles/colors.js"
+import { motion } from "framer-motion"
+
+const AnimatedA = props => {
+  return (
+    <A
+      {...props}
+      target="_blank"
+      initial={{ y: 0 }}
+      whileHover={{ y: -3, rotate: -3 }}
+    >
+      {props.children}
+    </A>
+  )
+}
 
 export const getStaticPaths = async () => {
   const files = fs.readdirSync(path.join("posts"))
@@ -50,7 +64,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
           components={{
             Button,
             SyntaxHighlighter,
-            a: A,
+            a: AnimatedA,
             p: P,
             h1: H1,
             h2: H2,
@@ -61,6 +75,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
             ol: Ol,
             ul: Ul,
             code: Code,
+            blockquote: BlockQuote,
           }}
         />
       </Container>
@@ -83,10 +98,12 @@ const Title = styled.h1`
   }
 `
 // Updating MDX base html elements
-const A = styled.a`
+const A = styled(motion.a)`
   color: ${colors.primary};
   text-decoration: none;
   font-weight: 500;
+  display: inline-block;
+  cursor: pointer;
 `
 const P = styled.p`
   color: white;
@@ -155,4 +172,15 @@ const Ul = styled.ul`
 const Code = styled.code`
   font-size: 16px;
   background: rgba(255, 255, 255, 0.2) !important;
+  padding: 3px 4px;
+  border-radius: 3px;
+  margin: 0 3px;
+`
+const BlockQuote = styled.blockquote`
+  border-left: 2px dashed ${colors.tertiary};
+  margin-left: 25px;
+  padding-left: 25px;
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.9;
 `
