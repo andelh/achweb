@@ -102,7 +102,7 @@ const A = styled(motion.a)`
   color: ${colors.primary};
   text-decoration: none;
   font-weight: 500;
-  display: inline-block;
+  /* display: inline-block; */
   cursor: pointer;
 `
 const P = styled.p`
