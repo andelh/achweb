@@ -6,38 +6,34 @@ tags: ["animation", "css", "react"]
 draft: false
 ---
 
-As a frontend developer, reveal animations are a simple but effective way to include delight in your end user’s experience. It’s a method of having content appear on screen just-in-time as they scroll through your website — and with control over the entry animation, you’re able to pull off some nifty and fluid [transitions.](http://transitions.in)
+As a frontend developer, reveal animations are a simple but effective way to include delight in your end user’s experience. It is a method of having content appear just-in-time as they scroll through your website — and with control over the entry animation, you’re able to pull off some nifty and fluid transitions between different sections.
 
 In this post, I will teach you how to add some simple reveal animations to your website, specifically with NextJS, Framer Motion and Styled Components.
 
-> You can just as easily follow along this tutorial without using styled-components. I do recommend it though as a method of writing re-usable CSS components.
+> You can just as easily follow along this tutorial without using styled-components. Though, I highly recommend it — it is my favourite way of writing re-usable CSS components.
 
 ### What we’re building
 
-**Intended audience**
-This tutorial is best suited for developers with beginner - intermediate knowledge of React, who are looking to improve the look and feel of their websites.
+At the end of this tutorial, you should be equipped with everything you need to add your own scroll-based reveal animations to your next project. Heck, you can even spruce up some of your existing websites! We will be exploring some of the basics techniques of the Framer Motion library to build our own simple website.
 
-At the end of this tutorial, you should be equipped with everything you need to add scroll-based reveal animations to your next project — or even to spruce up your existing websites. We will be exploring some basics techniques of the Framer Motion animation library to build a simple text and image UI.
+**Intended audience**
+This tutorial is best suited for developers with beginner to intermediate knowledge of React, who are looking to improve the look and feel of their websites.
 
 [Gif animation here]
 
 ### Framer Motion
 
-\*consider adding a bit of personableness to this. For e.g. I’ve created a boilerplate which includes a motion library for us to start working with. This will make it easier for you to get started.
-
-Being personable will make it less instructive and more inclusive for the user that’s learning. They feel like they have a partner vs being told what they should do
-
-Framer motion is a motion library for React that feels like magic. It allows developers to easily add enter and exit animations, and animations based on some state for just about any css property. It’s API is well written and [well documented](https://www.framer.com/docs/introduction/) with tons of [examples](https://www.framer.com/docs/examples/).
+Framer Motion is an animation library for React that feels like magic. It allows developers to easily add enter and exit animations, and animations based on some state for just about any css property. It’s API is well written and [well documented](https://www.framer.com/docs/introduction/) with tons of [examples](https://www.framer.com/docs/examples/).
 
 ![framer-intro.png](/posts/framer-intro.png)
 
-Since **v5.3**, they have introduced a `whileInView` prop that allows you to perform animations based on an element’s visibility in the viewport — also known as scroll based animations.
+Since **v5.3**, they have introduced a `whileInView` prop that allows you to perform animations based on an element’s visibility in the viewport — also known as scroll-triggered animations.
 
 [https://twitter.com/mattgperry/status/1458872361801990154?s=21](https://twitter.com/mattgperry/status/1458872361801990154?s=21)
 
 ### Getting Started
 
-I’ve created a repo for us to use as our starting point for getting started. Create your own fork of the [andelh/framer-motion-reveal repo](https://github.com/andelh/framer-reveal-animations). It is a boilerplate NextJs app with a few elements added for us to animate. Feel free to check out the `final` branch to see the what we will be achieving in the end.
+I have created a boilerplate repo for us to getting started. Create your own fork of the [andelh/framer-motion-reveal repo](https://github.com/andelh/framer-reveal-animations). It is a NextJS app with a few standard text and image elements added for us to animate. Feel free to check out the `final` branch to see the what we will be achieving at the end.
 
 The repo includes the following notable dependencies:
 
@@ -55,7 +51,7 @@ Our first section to tackle is the [Hero](https://www.awebco.com/blog/hero-secti
 
 We will add a simple entry animation to this section since these elements are seen as soon as you land on the page.
 
-To begin, turn both of the styled components into `motion` elements.
+To begin, turn both of the styled components into `motion` elements. Framer extends every HTML and SVG element with their own `motion` component. They work exactly like their standard counterparts but allow you to access framer’s powerful Motion API.
 
 When using `styled-components`, we can achieve this like so:
 
@@ -96,7 +92,7 @@ When using HTML, you can just convert the tag to one of Framer’s replacement e
 
 ### Animating the text
 
-Now let’s add our simple entry animation. With framer, we can do this using just three props on our motion components:
+Now let’s add our first animation. With framer, we can do this using just the `animate` prop. Together, `intial`, `animate` and `transition` will be your bread and butter for most animations.
 
 - `initial` - describes the animations state that the component should be in when it mounts. Any CSS property can be passed into this object such as `opacity` and `backgroundColor`.
 - `animate` - describes to animation state that we want to transition to. By default, the _from_ part of the animation is described in the `initial` prop. from the initial. We can also use state values here to trigger different animation states. We’ll see an example of this later.
@@ -158,7 +154,7 @@ This is nice, but we can make it better. Using the transition prop, let’s adju
         </Copy>
 ```
 
-[Easings.net](http://Easings.net) is a handy website for getting different easing previews to apply to your animation. Find one you like and add it to the transition prop in an array:
+[Easings.net](http://Easings.net) is a handy website for previewing different easing values to apply to your animation. Find one you like and add it to the transition prop in an array:
 
 ```jsx
 <Title
@@ -200,7 +196,7 @@ First things first, we’ll convert everything in the section to motion elements
 
 With this done, we can add our animations. Let’s re-use the `Title` animation properties from above for our `Heading` element.
 
-This time though, we will have some fun and utilize Framer’s `whileInView` prop. Switch out the `animate` prop for the `whileInView` prop and now, the animation happens only when the element is in view! Scroll around the page a few times to give it a try.
+This time though, we will have some fun and utilize Framer’s `whileInView` prop. Switch out the `animate` prop for `whileInView` and now, the animation happens only when the element is in view! Scroll around the page a few times to give it a try.
 
 ```jsx
 <Heading
@@ -224,24 +220,24 @@ This time though, we will have some fun and utilize Framer’s `whileInView` pro
 
 ### The `viewport` prop
 
-With the `whileInView` prop applied, you gain access to the `viewport` prop which lets you adjust a few things about how your animation interacts with the...viewport (duh).
+With the `whileInView` prop applied, you gain access to the `viewport` prop which lets you adjust a few things about how your animation interacts with the...viewport (_duh_).
 
-**Here are a few key ones**
-`once` : boolean
+**Here are a few key props**
+`**once**` : boolean
 
 If `true`, the animation described will happen every single time the element comes into view
 
-`margin`: string
+`**margin**`: string
 
 A margin to add to the viewport when detecting whether the element has entered it. Useful for delaying the triggering of a viewport animation until more of the element is shown. A single value can be used to add a margin on every side, e.g. **`"200px"`**. Or, multiple values can be defined to assign a margin to each axis in the order of top/right/bottom/left, e.g. **`"0px -20px 0px 100px"`**.
 
-`amount`: "some" | "all" | number
+`**amount**`: "some" | "all" | number
 
 Defaults to **`"some"`**, this option defines the amount of the element that has to intersect with the viewport in order for it to be considered within view. When using a number, 0 represents none and 1 represents all of the element.
 
 ### Animating the images
 
-To your `motion.img` element, apply the following animation settings. It’s similar to what we’ve been using before, but here we use a scaling animation for the reveal instead. Play around with the `once` prop here to see which style you prefer!
+To your `motion.img` element, apply the following animation settings. It’s similar to what we’ve been using before, but here we use a scaling animation for the reveal instead. Play around with the `once` and `amount` props to see which style you prefer!
 
 ```jsx
 ...
@@ -269,9 +265,9 @@ To your `motion.img` element, apply the following animation settings. It’s sim
 
 ## The List Section
 
-For our list reveal, we want each item to gradually appear one after the other. To do this, we will set up something known as variants in Framer. You can think of variants as a way of describing different animation states in an object, so that you can refer to them in your JSX later on. They also allow you to _create animations that propagate throughout the DOM, and orchestrate them in a declarative way._
+For our list reveal, we want each item to gradually appear one after the other. To do this, we will set up something known as **[variants](https://www.framer.com/docs/animation/#variants)** in Framer. You can think of variants as a way of describing different animation states in an object, so that you can refer to them in your JSX later on. They also allow you to _create animations that propagate throughout the DOM, and orchestrate them in a declarative way._
 
-Before we get started, make sure you’ve converted all the elements in this section to `motion` elements. You can apply the same Heading animation from above to the `Heading` in this section (and even consider making this a component, we’ve repeated it enough times!)
+Before we get started, make sure you’ve converted all the elements in this section to `motion` components. You can apply the same Heading animation from above to the `Heading` in this section (and even consider making this its own reusable component, we’ve repeated it enough times!)
 
 Next, we’ll create a variant object for the List Container and each List Item.
 
@@ -347,4 +343,4 @@ For our last section, we will use the `whileInView` and `transition` props to de
 
 ### Closing the curtain
 
-And that’s it, with these simple tools in your arsenal you’re on your way to creating butter smooth reveal animations for your next website.
+And that’s it! We’ve now built and seen how easy scroll-triggered animations are to implement with the Framer Motion library. You should now have the tools required to create that buttery feel for your next web project. Explore the animations you can create by playing with different easing values, transitions and orchestration. Feel free to share your forks of the project with me :)
