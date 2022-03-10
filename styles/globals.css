@@ -98,7 +98,7 @@
     url("/fonts/Vorkurs/ii-vorkurs-medium-oblique.ttf") format("truetype"),
     url("/fonts/Vorkurs/ii-vorkurs-medium-oblique.svg#youworkforthem")
       format("svg");
-  font-weight: normal;
+  font-weight: 500;
   font-style: italic;
 }
 

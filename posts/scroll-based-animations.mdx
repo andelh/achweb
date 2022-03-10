@@ -1,5 +1,5 @@
 ---
-title: Add Butter Smooth Scroll-Based Animations to your Static Website
+title: Add Butter Smooth Scroll-triggered Animations to your Static Website
 date: "March 8, 2022"
 description: Reveal animations are a simple but effective way to delight your users as they scroll through your website.
 tags: ["animation", "css", "react"]
@@ -14,7 +14,7 @@ In this post, I will teach you how to add some simple reveal animations to your 
 
 ### What we’re building
 
-At the end of this tutorial, you should be equipped with everything you need to add your own scroll-based reveal animations to your next project. Heck, you can even spruce up some of your existing websites! We will be exploring some of the basics techniques of the Framer Motion library to build our own simple website.
+At the end of this tutorial, you should be equipped with everything you need to add your own scroll-triggered reveal animations to your next project. Heck, you can even spruce up some of your existing websites! We will be exploring some of the basics techniques of the Framer Motion library to build our own simple website.
 
 **Intended audience**
 This tutorial is best suited for developers with beginner to intermediate knowledge of React, who are looking to improve the look and feel of their websites.
@@ -33,7 +33,7 @@ Since **v5.3**, they have introduced a `whileInView` prop that allows you to per
 
 ### Getting Started
 
-I have created a boilerplate repo for us to getting started. Create your own fork of the [andelh/framer-motion-reveal repo](https://github.com/andelh/framer-reveal-animations). It is a NextJS app with a few standard text and image elements added for us to animate. Feel free to check out the `final` branch to see the what we will be achieving at the end.
+I have created a boilerplate repo for us to get started. Create your own fork of the [andelh/framer-motion-reveal repo](https://github.com/andelh/framer-reveal-animations). It is a NextJS app with a few standard text and image elements added for us to animate. Feel free to check out the `final` branch to see the what we will be achieving at the end.
 
 The repo includes the following notable dependencies:
 
@@ -44,7 +44,7 @@ Okay now that we’re all set, let’s get started!
 
 ## It all starts with a Hero
 
-Our first section to tackle is the [Hero](https://www.awebco.com/blog/hero-section/) Section. It contains just two text elements:
+Our first section to tackle is the [Hero Section](https://www.awebco.com/blog/hero-section/). It contains just two text elements:
 
 - `Title` - an h1 element
 - `Copy` - a paragraph element
@@ -126,65 +126,69 @@ With this in mind, let’s animate our components!
 
 This is nice, but we can make it better. Using the transition prop, let’s adjust the `duration` and `delay` so that the text elements appear one after the other.
 
-```jsx
-<Title
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.5,
-            delay: 0.4,
-          }}
-        >
-          A Superb and Extended Title
-        </Title>
-        <Copy
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.5,
-            delay: 0.7,
-          }}
-        >
-          The most powerful MacBook Pro ever is here. With the blazing-fast M1
-          Pro or M1 Max chip — the first Apple silicon designed for pros — you
-          get groundbreaking performance and amazing battery life. Add to that a
-          stunning Liquid Retina XDR display, the best camera and audio ever in
-          a Mac notebook, and all the ports you need. The first notebook of its
-          kind, this MacBook Pro is a beast.
-        </Copy>
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    <Title
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1.5,
+        delay: 0.4,
+      }}
+    >
+      A Superb and Extended Title
+    </Title>
+    <Copy
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1.5,
+        delay: 0.7,
+      }}
+    >
+      The most powerful MacBook Pro ever is here. With the blazing-fast M1
+      Pro or M1 Max chip — the first Apple silicon designed for pros — you
+      get groundbreaking performance and amazing battery life. Add to that a
+      stunning Liquid Retina XDR display, the best camera and audio ever in
+      a Mac notebook, and all the ports you need. The first notebook of its
+      kind, this MacBook Pro is a beast.
+    </Copy>
+  `}
+</SyntaxHighlighter>
 
 [Easings.net](http://Easings.net) is a handy website for previewing different easing values to apply to your animation. Find one you like and add it to the transition prop in an array:
 
-```jsx
-<Title
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.5,
-            delay: 0.4,
-            ease: [0.34, 1.56, 0.64, 1], // easings.net
-          }}
-        >
-          A Superb and Extended Title
-        </Title>
-        <Copy
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1.5,
-            delay: 0.7,
-            ease: [0.34, 1.56, 0.64, 1], // easings.net
-          }}
-        >
-          The most powerful MacBook Pro ever is here. With the blazing-fast M1
-          Pro or M1 Max chip — the first Apple silicon designed for pros — you
-          get groundbreaking performance and amazing battery life. Add to that a
-          stunning Liquid Retina XDR display, the best camera and audio ever in
-          a Mac notebook, and all the ports you need. The first notebook of its
-          kind, this MacBook Pro is a beast.
-        </Copy>
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    <Title
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1.5,
+        delay: 0.4,
+        ease: [0.34, 1.56, 0.64, 1], // easings.net
+      }}
+    >
+      A Superb and Extended Title
+    </Title>
+    <Copy
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1.5,
+        delay: 0.7,
+        ease: [0.34, 1.56, 0.64, 1], // easings.net
+      }}
+    >
+      The most powerful MacBook Pro ever is here. With the blazing-fast M1
+      Pro or M1 Max chip — the first Apple silicon designed for pros — you
+      get groundbreaking performance and amazing battery life. Add to that a
+      stunning Liquid Retina XDR display, the best camera and audio ever in
+      a Mac notebook, and all the ports you need. The first notebook of its
+      kind, this MacBook Pro is a beast.
+    </Copy>
+  `}
+</SyntaxHighlighter>
 
 [gif of result]
 
@@ -198,23 +202,25 @@ With this done, we can add our animations. Let’s re-use the `Title` animation 
 
 This time though, we will have some fun and utilize Framer’s `whileInView` prop. Switch out the `animate` prop for `whileInView` and now, the animation happens only when the element is in view! Scroll around the page a few times to give it a try.
 
-```jsx
-<Heading
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{
-    once: false,
-    amount: "all",
-  }}
-  transition={{
-    duration: 1.5,
-    delay: 0.4,
-    ease: [0.34, 1.56, 0.64, 1],
-  }}
->
-  Here is a simple gallery reveal
-</Heading>
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    <Heading
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{
+        once: false,
+        amount: "all",
+      }}
+      transition={{
+        duration: 1.5,
+        delay: 0.4,
+        ease: [0.34, 1.56, 0.64, 1],
+      }}
+    >
+      Here is a simple gallery reveal
+    </Heading>
+  `}
+</SyntaxHighlighter>
 
 [gif preview]
 
@@ -223,15 +229,15 @@ This time though, we will have some fun and utilize Framer’s `whileInView` pro
 With the `whileInView` prop applied, you gain access to the `viewport` prop which lets you adjust a few things about how your animation interacts with the...viewport (_duh_).
 
 **Here are a few key props**
-`**once**` : boolean
+**`once`** : boolean
 
 If `true`, the animation described will happen every single time the element comes into view
 
-`**margin**`: string
+**`margin`**: string
 
 A margin to add to the viewport when detecting whether the element has entered it. Useful for delaying the triggering of a viewport animation until more of the element is shown. A single value can be used to add a margin on every side, e.g. **`"200px"`**. Or, multiple values can be defined to assign a margin to each axis in the order of top/right/bottom/left, e.g. **`"0px -20px 0px 100px"`**.
 
-`**amount**`: "some" | "all" | number
+**`amount`**: "some" | "all" | number
 
 Defaults to **`"some"`**, this option defines the amount of the element that has to intersect with the viewport in order for it to be considered within view. When using a number, 0 represents none and 1 represents all of the element.
 
@@ -239,29 +245,31 @@ Defaults to **`"some"`**, this option defines the amount of the element that ha
 
 To your `motion.img` element, apply the following animation settings. It’s similar to what we’ve been using before, but here we use a scaling animation for the reveal instead. Play around with the `once` and `amount` props to see which style you prefer!
 
-```jsx
-...
-<Gallery>
-          {images.map((image, index) => (
-            <Image
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{
-                once: false,
-                amount: 0.9,
-                // amount?: "some" | "all" | number;
-              }}
-              transition={{
-                duration: 1.5,
-                delay: 0.4,
-                ease: [0.34, 1.56, 0.64, 1],
-              }}
-              src={`https://picsum.photos/seed/${index}/230`}
-            />
-          ))}
-</Gallery>
-...
-```
+<SyntaxHighlighter language="javascript">
+  {`
+    //...
+    <Gallery>
+      {images.map((image, index) => (
+        <Image
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{
+            once: false,
+            amount: 0.9,
+            // amount?: "some" | "all" | number;
+          }}
+          transition={{
+            duration: 1.5,
+            delay: 0.4,
+            ease: [0.34, 1.56, 0.64, 1],
+          }}
+          src={${"`"}https://picsum.photos/seed/{index}/230${"`"}}
+        />
+      ))}
+  </Gallery>
+  ...
+  `}
+</SyntaxHighlighter>
 
 ## The List Section
 
@@ -292,32 +300,34 @@ const item = {
 
 We’ve described two animation states on our objects: `hidden` and `visible`. We can load this object into the `motion` component using the `variants` prop. Once they are applied, they can then be referred to by label inside of the `initial` and `animate` props.
 
-```jsx
-...
-<List
-  initial="hidden"
+<SyntaxHighlighter language="javascript">
+  {`
+    ...
+    <List
+      initial="hidden"
+      viewport={{
+        amount: "some",
+      }}
+      whileInView="visible"
+      variants={list}
+    >
+      {listItems.map((listItem, index) => (
+        <Item
+          key={index}
+          variants={item}
           viewport={{
             amount: "some",
           }}
           whileInView="visible"
-          variants={list}
+          initial="hidden"
         >
-          {listItems.map((listItem, index) => (
-            <Item
-              key={index}
-              variants={item}
-              viewport={{
-                amount: "some",
-              }}
-              whileInView="visible"
-              initial="hidden"
-            >
-              A simple list item {listItem}
-            </Item>
-          ))}
-</List>
-...
-```
+          A simple list item {listItem}
+        </Item>
+      ))}
+    </List>
+    ...
+  `}
+</SyntaxHighlighter>
 
 ### The 💩 reveal
 
@@ -325,21 +335,23 @@ For our last section, we will use the `whileInView` and `transition` props to de
 
 > Don’t forget to turn your components into motion elements
 
-```jsx
-<Emoji
-  whileInView={{
-    rotate: 360,
-    opacity: 1,
-  }}
-  transition={{
-    repeat: Infinity,
-    repeatType: "mirror",
-    duration: 2,
-  }}
->
-  <span role="emoji">💩</span>
-</Emoji>
-```
+<SyntaxHighlighter language="javascript">
+  {`
+   <Emoji
+    whileInView={{
+      rotate: 360,
+      opacity: 1,
+    }}
+    transition={{
+      repeat: Infinity,
+      repeatType: "mirror",
+      duration: 2,
+    }}
+  >
+    <span role="emoji">💩</span>
+  </Emoji>
+  `}
+</SyntaxHighlighter>
 
 ### Closing the curtain
 

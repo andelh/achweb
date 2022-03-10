@@ -120,6 +120,11 @@ const P = styled.p`
   /* line-height: 1.6; */
   /* font-size: 18px; */
   margin-bottom: 1.5rem;
+  font-weight: 500;
+
+  @media (max-width: 550px) {
+    font-size: 18px;
+  }
 
   code {
     font-size: 16px;
@@ -150,6 +155,10 @@ const H3 = styled.h3`
   margin-bottom: 16px;
   color: ${colors.tertiary};
   letter-spacing: -1.5px;
+
+  > code {
+    font-size: 24px;
+  }
 `
 const H4 = styled.h4`
   font-size: 25px;
@@ -176,6 +185,11 @@ const Li = styled.li`
   opacity: 0.9;
   line-height: 1.6;
   font-size: 20px;
+  font-weight: 500;
+
+  @media (max-width: 550px) {
+    font-size: 17px;
+  }
 `
 const Ol = styled.ol`
   margin-left: 40px;
@@ -195,6 +209,14 @@ const BlockQuote = styled.blockquote`
   margin-left: 25px;
   padding-left: 25px;
   font-style: italic;
-  font-weight: normal;
   opacity: 0.9;
+
+  @media (max-width: 550px) {
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+  > p {
+    font-weight: normal;
+    font-size: 17px;
+  }
 `
