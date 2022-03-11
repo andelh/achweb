@@ -14,8 +14,14 @@ import Image from "next/image"
 
 const ResponsiveImage = props => (
   <div style={{ position: "relative", height: 400, width: "100%" }}>
-    <Image alt={props.alt} objectFit="cover" layout="fill" {...props} />
+    <Image alt={props.alt} objectFit="contain" layout="fill" {...props} />
   </div>
+)
+
+const MySyntaxHighlighter = props => (
+  <SyntaxHighlighter showLineNumbers {...props}>
+    {props.children}
+  </SyntaxHighlighter>
 )
 
 const AnimatedA = props => {
@@ -70,7 +76,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
           {...mdxSource}
           components={{
             Button,
-            SyntaxHighlighter,
+            SyntaxHighlighter: MySyntaxHighlighter,
             a: AnimatedA,
             p: P,
             h1: H1,
