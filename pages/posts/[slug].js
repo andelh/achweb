@@ -4,8 +4,8 @@ import { MDXRemote } from "next-mdx-remote"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import SyntaxHighlighter from "react-syntax-highlighter"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+// import SyntaxHighlighter from "react-syntax-highlighter"
 import Button from "../../components/Button.jsx"
 import Layout from "../../components/layout.js"
 import SEO from "../../components/seo.js"
@@ -26,7 +26,7 @@ const ResponsiveImage = props => (
 )
 
 const MySyntaxHighlighter = props => (
-  <SyntaxHighlighter style={tommorrowNightBlue} showLineNumbers {...props}>
+  <SyntaxHighlighter style={duotoneSea} {...props}>
     {props.children}
   </SyntaxHighlighter>
 )
@@ -689,5 +689,414 @@ const tommorrowNightBlue = {
   },
   "hljs-strong": {
     fontWeight: "bold",
+  },
+}
+
+const synthWave = {
+  'code[class*="language-"]': {
+    color: "#f92aad",
+    textShadow: "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
+    background: "none",
+    fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+    fontSize: "1em",
+    textAlign: "left",
+    whiteSpace: "pre",
+    wordSpacing: "normal",
+    wordBreak: "normal",
+    wordWrap: "normal",
+    lineHeight: "1.5",
+    MozTabSize: "4",
+    OTabSize: "4",
+    tabSize: "4",
+    WebkitHyphens: "none",
+    MozHyphens: "none",
+    msHyphens: "none",
+    hyphens: "none",
+  },
+  'pre[class*="language-"]': {
+    color: "#f92aad",
+    textShadow: "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
+    background: "none",
+    fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+    fontSize: "1em",
+    textAlign: "left",
+    whiteSpace: "pre",
+    wordSpacing: "normal",
+    wordBreak: "normal",
+    wordWrap: "normal",
+    lineHeight: "1.5",
+    MozTabSize: "4",
+    OTabSize: "4",
+    tabSize: "4",
+    WebkitHyphens: "none",
+    MozHyphens: "none",
+    msHyphens: "none",
+    hyphens: "none",
+    padding: "1em",
+    margin: ".5em 0",
+    overflow: "auto",
+    backgroundColor: "transparent !important",
+    backgroundImage: "linear-gradient(to bottom, #2a2139 75%, #34294f)",
+  },
+  ':not(pre) > code[class*="language-"]': {
+    backgroundColor: "transparent !important",
+    backgroundImage: "linear-gradient(to bottom, #2a2139 75%, #34294f)",
+    padding: ".1em",
+    borderRadius: ".3em",
+    whiteSpace: "normal",
+  },
+  comment: {
+    color: "#8e8e8e",
+  },
+  "block-comment": {
+    color: "#8e8e8e",
+  },
+  prolog: {
+    color: "#8e8e8e",
+  },
+  doctype: {
+    color: "#8e8e8e",
+  },
+  cdata: {
+    color: "#8e8e8e",
+  },
+  punctuation: {
+    color: "#ccc",
+  },
+  tag: {
+    color: "#e2777a",
+  },
+  "attr-name": {
+    color: "#e2777a",
+  },
+  namespace: {
+    color: "#e2777a",
+  },
+  number: {
+    color: "#e2777a",
+  },
+  unit: {
+    color: "#e2777a",
+  },
+  hexcode: {
+    color: "#e2777a",
+  },
+  deleted: {
+    color: "#e2777a",
+  },
+  property: {
+    color: "#72f1b8",
+    textShadow: "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475",
+  },
+  selector: {
+    color: "#72f1b8",
+    textShadow: "0 0 2px #100c0f, 0 0 10px #257c5575, 0 0 35px #21272475",
+  },
+  "function-name": {
+    color: "#6196cc",
+  },
+  boolean: {
+    color: "#fdfdfd",
+    textShadow:
+      "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975",
+  },
+  "selector.id": {
+    color: "#fdfdfd",
+    textShadow:
+      "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975",
+  },
+  function: {
+    color: "#fdfdfd",
+    textShadow:
+      "0 0 2px #001716, 0 0 3px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975",
+  },
+  "class-name": {
+    color: "#fff5f6",
+    textShadow:
+      "0 0 2px #000, 0 0 10px #fc1f2c75, 0 0 5px #fc1f2c75, 0 0 25px #fc1f2c75",
+  },
+  constant: {
+    color: "#f92aad",
+    textShadow: "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
+  },
+  symbol: {
+    color: "#f92aad",
+    textShadow: "0 0 2px #100c0f, 0 0 5px #dc078e33, 0 0 10px #fff3",
+  },
+  important: {
+    color: "#f4eee4",
+    textShadow: "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
+    fontWeight: "bold",
+  },
+  atrule: {
+    color: "#f4eee4",
+    textShadow: "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
+  },
+  keyword: {
+    color: "#f4eee4",
+    textShadow: "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
+  },
+  "selector.class": {
+    color: "#f4eee4",
+    textShadow: "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
+  },
+  builtin: {
+    color: "#f4eee4",
+    textShadow: "0 0 2px #393a33, 0 0 8px #f39f0575, 0 0 2px #f39f0575",
+  },
+  string: {
+    color: "#f87c32",
+  },
+  char: {
+    color: "#f87c32",
+  },
+  "attr-value": {
+    color: "#f87c32",
+  },
+  regex: {
+    color: "#f87c32",
+  },
+  variable: {
+    color: "#f87c32",
+  },
+  operator: {
+    color: "#67cdcc",
+  },
+  entity: {
+    color: "#67cdcc",
+    cursor: "help",
+  },
+  url: {
+    color: "#67cdcc",
+  },
+  bold: {
+    fontWeight: "bold",
+  },
+  italic: {
+    fontStyle: "italic",
+  },
+  inserted: {
+    color: "green",
+  },
+}
+const duotoneSea = {
+  'code[class*="language-"]': {
+    fontFamily:
+      'Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace',
+    fontSize: "14px",
+    lineHeight: "1.375",
+    direction: "ltr",
+    textAlign: "left",
+    whiteSpace: "pre",
+    wordSpacing: "normal",
+    wordBreak: "normal",
+    MozTabSize: "4",
+    OTabSize: "4",
+    tabSize: "4",
+    WebkitHyphens: "none",
+    MozHyphens: "none",
+    msHyphens: "none",
+    hyphens: "none",
+    background: "#1d262f",
+    color: "#57718e",
+  },
+  'pre[class*="language-"]': {
+    fontFamily:
+      'Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace',
+    fontSize: "14px",
+    lineHeight: "1.375",
+    direction: "ltr",
+    textAlign: "left",
+    whiteSpace: "pre",
+    wordSpacing: "normal",
+    wordBreak: "normal",
+    MozTabSize: "4",
+    OTabSize: "4",
+    tabSize: "4",
+    WebkitHyphens: "none",
+    MozHyphens: "none",
+    msHyphens: "none",
+    hyphens: "none",
+    background: "#1d262f",
+    color: "#57718e",
+    padding: "1em",
+    margin: ".5em 0",
+    overflow: "auto",
+  },
+  'pre > code[class*="language-"]': {
+    fontSize: "1em",
+  },
+  'pre[class*="language-"]::-moz-selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'pre[class*="language-"] ::-moz-selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'code[class*="language-"]::-moz-selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'code[class*="language-"] ::-moz-selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'pre[class*="language-"]::selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'pre[class*="language-"] ::selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'code[class*="language-"]::selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  'code[class*="language-"] ::selection': {
+    textShadow: "none",
+    background: "#004a9e",
+  },
+  ':not(pre) > code[class*="language-"]': {
+    padding: ".1em",
+    borderRadius: ".3em",
+  },
+  comment: {
+    color: "#4a5f78",
+  },
+  prolog: {
+    color: "#4a5f78",
+  },
+  doctype: {
+    color: "#4a5f78",
+  },
+  cdata: {
+    color: "#4a5f78",
+  },
+  punctuation: {
+    color: "#4a5f78",
+  },
+  namespace: {
+    Opacity: ".7",
+  },
+  tag: {
+    color: "#0aa370",
+  },
+  operator: {
+    color: "#0aa370",
+  },
+  number: {
+    color: "#0aa370",
+  },
+  property: {
+    color: "#57718e",
+  },
+  function: {
+    color: "#57718e",
+  },
+  "tag-id": {
+    color: "#ebf4ff",
+  },
+  selector: {
+    color: "#ebf4ff",
+  },
+  "atrule-id": {
+    color: "#ebf4ff",
+  },
+  "code.language-javascript": {
+    color: "#7eb6f6",
+  },
+  "attr-name": {
+    color: "#7eb6f6",
+  },
+  "code.language-css": {
+    color: "#47ebb4",
+  },
+  "code.language-scss": {
+    color: "#47ebb4",
+  },
+  boolean: {
+    color: "#47ebb4",
+  },
+  string: {
+    color: "#47ebb4",
+  },
+  entity: {
+    color: "#47ebb4",
+    cursor: "help",
+  },
+  url: {
+    color: "#47ebb4",
+  },
+  ".language-css .token.string": {
+    color: "#47ebb4",
+  },
+  ".language-scss .token.string": {
+    color: "#47ebb4",
+  },
+  ".style .token.string": {
+    color: "#47ebb4",
+  },
+  "attr-value": {
+    color: "#47ebb4",
+  },
+  keyword: {
+    color: "#47ebb4",
+  },
+  control: {
+    color: "#47ebb4",
+  },
+  directive: {
+    color: "#47ebb4",
+  },
+  unit: {
+    color: "#47ebb4",
+  },
+  statement: {
+    color: "#47ebb4",
+  },
+  regex: {
+    color: "#47ebb4",
+  },
+  atrule: {
+    color: "#47ebb4",
+  },
+  placeholder: {
+    color: "#47ebb4",
+  },
+  variable: {
+    color: "#47ebb4",
+  },
+  deleted: {
+    textDecoration: "line-through",
+  },
+  inserted: {
+    borderBottom: "1px dotted #ebf4ff",
+    textDecoration: "none",
+  },
+  italic: {
+    fontStyle: "italic",
+  },
+  important: {
+    fontWeight: "bold",
+    color: "#7eb6f6",
+  },
+  bold: {
+    fontWeight: "bold",
+  },
+  "pre > code.highlight": {
+    Outline: ".4em solid #34659d",
+    OutlineOffset: ".4em",
+  },
+  ".line-numbers .line-numbers-rows": {
+    borderRightColor: "#1f2932",
+  },
+  ".line-numbers-rows > span:before": {
+    color: "#2c3847",
+  },
+  ".line-highlight": {
+    background:
+      "linear-gradient(to right, rgba(10, 163, 112, 0.2) 70%, rgba(10, 163, 112, 0))",
   },
 }

@@ -79,7 +79,7 @@ When using `styled-components`, we can achieve this like so:
 
 When using HTML, you can just convert the tag to one of Framer’s replacement elements like so:
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     <!--Standard HTML elements-->
     <h1>A Superb and Extended Title</h1>
@@ -101,7 +101,7 @@ Now let’s add our first animation. With framer, we can do this using just the 
 
 With this in mind, let’s animate our components!
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     <Title
       initial={{ opacity: 0, y: 50 }}
@@ -159,7 +159,7 @@ This is nice, but we can make it better. Using the transition prop, let’s adju
 
 [Easings.net](http://Easings.net) is a handy website for previewing different easing values to apply to your animation. Find one you like and add it to the transition prop in an array:
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     <Title
       initial={{ opacity: 0, y: 50 }}
@@ -343,22 +343,21 @@ For our last section, we will use the `whileInView` and `transition` props to de
 
 > Don’t forget to turn your components into motion elements
 
-<SyntaxHighlighter language="javascript">
-  {`
-   <Emoji
-    whileInView={{
-      rotate: 360,
-      opacity: 1,
-    }}
-    transition={{
-      repeat: Infinity,
-      repeatType: "mirror",
-      duration: 2,
-    }}
-  >
-    <span role="emoji">💩</span>
-  </Emoji>
-  `}
+<SyntaxHighlighter language="jsx">
+  {`<Emoji
+      whileInView={{
+        rotate: 360,
+        opacity: 1,
+      }}
+      transition={{
+        repeat: Infinity,
+        repeatType: "mirror",
+        duration: 2,
+      }}
+    >
+  <span role="emoji">💩</span>
+</Emoji>
+`}
 </SyntaxHighlighter>
 
 ### Closing the curtain
