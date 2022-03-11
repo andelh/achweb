@@ -14,7 +14,9 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const ResponsiveImage = props => (
-  <div style={{ position: "relative", height: 400, width: "100%" }}>
+  <div
+    style={{ position: "relative", height: 400, width: "100%", marginTop: 32 }}
+  >
     <Image
       alt={props.alt}
       objectFit="contain"
