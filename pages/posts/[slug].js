@@ -12,11 +12,10 @@ import SEO from "../../components/seo.js"
 import { colors } from "../../styles/colors.js"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { TwitterTweetEmbed } from "react-twitter-embed"
 
 const ResponsiveImage = props => (
-  <div
-    style={{ position: "relative", height: 400, width: "100%", marginTop: 32 }}
-  >
+  <div style={{ position: "relative", width: "100%", marginTop: 32 }}>
     <Image
       alt={props.alt}
       objectFit="contain"
@@ -24,6 +23,22 @@ const ResponsiveImage = props => (
       // placeholder={props?.src?.includes(".gif") ? "empty" : "blur"}
       {...props}
     />
+  </div>
+)
+
+const ResponsiveTweetEmbed = props => (
+  <div
+    style={{
+      position: "relative",
+      height: "100%",
+      width: "100%",
+      marginTop: 32,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <TwitterTweetEmbed {...props} />
   </div>
 )
 
@@ -86,6 +101,7 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
           components={{
             Button,
             SyntaxHighlighter: MySyntaxHighlighter,
+            TwitterTweetEmbed: ResponsiveTweetEmbed,
             a: AnimatedA,
             p: P,
             h1: H1,
