@@ -127,7 +127,7 @@ With this in mind, let’s animate our components!
 
 This is nice, but we can make it better. Using the transition prop, let’s adjust the `duration` and `delay` so that the text elements appear one after the other.
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     <Title
       initial={{ opacity: 0, y: 50 }}
@@ -203,7 +203,7 @@ With this done, we can add our animations. Let’s re-use the `Title` animation 
 
 This time though, we will have some fun and utilize Framer’s `whileInView` prop. Switch out the `animate` prop for `whileInView` and now, the animation happens only when the element is in view! Scroll around the page a few times to give it a try.
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     <Heading
       initial={{ opacity: 0, y: 50 }}
@@ -225,7 +225,7 @@ This time though, we will have some fun and utilize Framer’s `whileInView` pro
 
 [gif preview]
 
-### The `viewport` prop
+### The **`viewport`** prop
 
 With the `whileInView` prop applied, you gain access to the `viewport` prop which lets you adjust a few things about how your animation interacts with the...viewport (_duh_).
 
@@ -246,7 +246,7 @@ Defaults to **`"some"`**, this option defines the amount of the element that ha
 
 To your `motion.img` element, apply the following animation settings. It’s similar to what we’ve been using before, but here we use a scaling animation for the reveal instead. Play around with the `once` and `amount` props to see which style you prefer!
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     //...
     <Gallery>
@@ -310,7 +310,7 @@ Next, we’ll create a variant object for the List Container and each List Item.
 
 We’ve described two animation states on our objects: `hidden` and `visible`. We can load this object into the `motion` component using the `variants` prop. Once they are applied, they can then be referred to by label inside of the `initial` and `animate` props.
 
-<SyntaxHighlighter language="javascript">
+<SyntaxHighlighter language="jsx">
   {`
     <List
       initial="hidden"
