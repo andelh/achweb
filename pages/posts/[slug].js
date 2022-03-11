@@ -12,36 +12,14 @@ import SEO from "../../components/seo.js"
 import { colors } from "../../styles/colors.js"
 import { motion } from "framer-motion"
 import Image from "next/image"
-// import { TwitterTweetEmbed } from "react-twitter-embed"
 
 const ResponsiveImage = props => (
-  <div style={{ position: "relative", width: "100%", marginTop: 32 }}>
-    <Image
-      alt={props.alt}
-      objectFit="contain"
-      layout="fill"
-      // placeholder={props?.src?.includes(".gif") ? "empty" : "blur"}
-      {...props}
-    />
+  <div
+    style={{ position: "relative", width: "100%", height: 300, marginTop: 32 }}
+  >
+    <Image alt={props.alt} objectFit="contain" layout="fill" {...props} />
   </div>
 )
-
-// const ResponsiveTweetEmbed = props => (
-//   <div
-//     style={{
-//       position: "relative",
-//       height: "100%",
-//       width: "100%",
-//       marginTop: 32,
-//       display: "flex",
-//       justifyContent: "center",
-//       alignItems: "center",
-//     }}
-//   >
-//     <TwitterTweetEmbed {...props} />
-//   </div>
-// )
-
 const MySyntaxHighlighter = props => (
   <SyntaxHighlighter style={duotoneSea} {...props}>
     {props.children}
@@ -101,7 +79,6 @@ const PostPage = ({ frontMatter: { title }, mdxSource }) => {
           components={{
             Button,
             SyntaxHighlighter: MySyntaxHighlighter,
-            // TwitterTweetEmbed: ResponsiveTweetEmbed,
             a: AnimatedA,
             p: P,
             h1: H1,

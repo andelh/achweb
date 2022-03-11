@@ -91,6 +91,8 @@ When using HTML, you can just convert the tag to one of Framer’s replacement e
 
 ### Animating the text
 
+![header animation.gif](/posts/header-animation.gif)
+
 Now let’s add our first animation. With framer, we can do this using just the `animate` prop. Together, `intial`, `animate` and `transition` will be your bread and butter for most animations.
 
 - `initial` - describes the animations state that the component should be in when it mounts. Any CSS property can be passed into this object such as `opacity` and `backgroundColor`.
@@ -186,8 +188,6 @@ This is nice, but we can make it better. Using the transition prop, let’s adju
     </Copy>
   `}
 </SyntaxHighlighter>
-
-![header animation.gif](/posts/header-animation.gif)
 
 Looking good chap! Let’s move on to the next section
 
@@ -332,9 +332,11 @@ We’ve described two animation states on our objects: `hidden` and `visible`. W
   `}
 </SyntaxHighlighter>
 
-### The 💩 reveal
+### The emoji spin
 
 For our last section, we will use the `whileInView` and `transition` props to describe an animation that happens whenever the element is visible — and then plays on loop.
+
+![shit-loop.gif](/posts/shit-loop.gif)
 
 > Don’t forget to turn your components into motion elements
 
@@ -355,8 +357,6 @@ For our last section, we will use the `whileInView` and `transition` props to de
     </Emoji>
 `}
 </SyntaxHighlighter>
-
-![shit-loop.gif](/posts/shit-loop.gif)
 
 ### Closing the curtain
 
