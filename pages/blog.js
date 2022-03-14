@@ -21,6 +21,7 @@ export async function getStaticProps() {
       return {
         frontMatter,
         slug: filename.split(".")[0],
+        markdownWithMeta,
       }
     })
     .filter(post => !post.frontMatter.draft)

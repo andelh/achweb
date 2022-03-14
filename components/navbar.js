@@ -71,17 +71,12 @@ const NavText = styled.a`
 `
 const Navbar = () => {
   const router = useRouter()
-  console.log({ router })
-  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <NavContainer>
       <InnerContainer>
         <Link href="/">
-          {/* <a> */}
-          {/* <NavLogo src="/AH.png" /> */}
           <NavText>Andel Husbands</NavText>
-          {/* </a> */}
         </Link>
         <MenuContainer>
           <Link href="/blog">

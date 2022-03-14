@@ -511,7 +511,7 @@ p {
   line-height: 1.6;
   font-family: "Vorkurs", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: normal;
+  font-weight: 500;
 }
 figure {
   margin-left: 0;

@@ -1780,6 +1780,11 @@
     "string_decoder" "~1.1.1"
     "util-deprecate" "~1.0.1"
 
+"reading-time@^1.5.0":
+  "integrity" "sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg=="
+  "resolved" "https://registry.npmjs.org/reading-time/-/reading-time-1.5.0.tgz"
+  "version" "1.5.0"
+
 "refractor@^3.2.0":
   "integrity" "sha512-QwPJd3ferTZ4cSPPjdP5bsYHMytwWYnAN5EEnLtGvkqp/FCCnGsBgxrm9EuIDnjUC3Uc/kETtvVi7fSIVC74Dg=="
   "resolved" "https://registry.npmjs.org/refractor/-/refractor-3.5.0.tgz"

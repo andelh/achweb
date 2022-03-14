@@ -3,7 +3,7 @@ title: Add Butter Smooth Scroll-triggered Animations to your Static Website
 date: "March 14, 2022"
 description: Reveal animations are a simple but effective way to include delight in your end user’s experience.
 tags: ["animation", "css", "react"]
-draft: true
+draft: false
 ---
 
 As a frontend developer, reveal animations are a simple but effective way to include delight in your end user’s experience. It is a method of having content appear just-in-time as they scroll through your website — and with control over the entry animation, you’re able to pull off some nifty and fluid transitions between different sections.
@@ -18,7 +18,7 @@ At the end of this tutorial, you should be equipped with everything you need to 
 
 ![full-animation.gif](/posts/full-animation.gif)
 
-##### **Intended audience**
+#### **Intended audience**
 
 This tutorial is best suited for developers with beginner to intermediate knowledge of React, who are looking to improve the look and feel of their websites.
 
@@ -193,7 +193,7 @@ Looking good chap! Let’s move on to the next section
 
 ## The Gallery Section
 
-First things first, we’ll convert everything in the section to motion elements. _You should be a pro at this by now 😉_.
+First things first, we’ll convert everything in the section to motion elements. You should be a pro at this by now 😉.
 
 With this done, we can add our animations. Let’s re-use the `Title` animation properties from above for our `Heading` element.
 
@@ -223,17 +223,17 @@ This time though, we will have some fun and utilize Framer’s `whileInView` pro
 
 With the `whileInView` prop applied, you gain access to the `viewport` prop which lets you adjust a few things about how your animation interacts with the...viewport (_duh_).
 
-**Here are a few key props**
+**Here are a few key props:**
 
-**`once`** : boolean
+**`once`** : _Boolean_
 
 If `true`, the animation described will happen every single time the element comes into view
 
-**`margin`**: string
+**`margin`**: _string_
 
 A margin to add to the viewport when detecting whether the element has entered it. Useful for delaying the triggering of a viewport animation until more of the element is shown. A single value can be used to add a margin on every side, e.g. **`"200px"`**. Or, multiple values can be defined to assign a margin to each axis in the order of top/right/bottom/left, e.g. **`"0px -20px 0px 100px"`**.
 
-**`amount`**: "some" | "all" | number
+**`amount`**: _"some" | "all" | number_
 
 Defaults to **`"some"`**, this option defines the amount of the element that has to intersect with the viewport in order for it to be considered within view. When using a number, 0 represents none and 1 represents all of the element.
 
@@ -241,7 +241,7 @@ Defaults to **`"some"`**, this option defines the amount of the element that ha
 
 ![gallery-reveal.gif](/posts/gallery-reveal.gif)
 
-To your `motion.img` element, apply the following animation settings. It’s similar to what we’ve been using before, but here we use a scaling animation for the reveal instead. Play around with the `once` and `amount` props to see which style you prefer!
+To your `motion.img` element, apply the following animation settings. It’s similar to what we’ve been using before, but here we use a scale up animation for the reveal instead. It helps to give the effect of the images popping into view. Here you can play around with the `once` and `amount` props to see which results you prefer!
 
 <SyntaxHighlighter language="jsx">
   {`
@@ -270,7 +270,7 @@ To your `motion.img` element, apply the following animation settings. It’s sim
 
 ## The List Section
 
-For our list reveal, we want each item to gradually appear one after the other. To do this, we will set up something known as **[variants](https://www.framer.com/docs/animation/#variants)** in Framer. You can think of variants as a way of describing different animation states in an object, so that you can refer to them in your JSX later on. They also allow you to _create animations that propagate throughout the DOM, and orchestrate them in a declarative way._
+For our list reveal, we want each item to gradually appear one after the other. To do this, we will set up something known as **[variants](https://www.framer.com/docs/animation/#variants)** in Framer. You can think of variants as a way of describing different animation states in an object, so that you can refer to them in your JSX later on. They also allow you to "_create animations that propagate throughout the DOM, and orchestrate them in a declarative way."_
 
 Before we get started, make sure you’ve converted all the elements in this section to `motion` components. You can apply the same Heading animation from above to the `Heading` in this section (and even consider making this its own reusable component, we’ve repeated it enough times!)
 
@@ -338,8 +338,6 @@ We’ve described two animation states on our objects: `hidden` and `visible`. W
 For our last section, we will use the `whileInView` and `transition` props to describe an animation that happens whenever the element is visible — and then plays on loop.
 
 ![shit-loop.gif](/posts/shit-loop.gif)
-
-> Don’t forget to turn your components into motion elements
 
 <SyntaxHighlighter language="jsx">
   {`

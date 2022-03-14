@@ -125,8 +125,6 @@ const A = styled(motion.a)`
 const P = styled.p`
   color: white;
   opacity: 0.95;
-  /* line-height: 1.6; */
-  /* font-size: 18px; */
   margin-bottom: 1.5rem;
   font-weight: 500;
 
@@ -135,11 +133,12 @@ const P = styled.p`
   }
 
   code {
-    font-size: 16px;
+    font-size: 17px;
     /* background: rgba(255, 255, 255, 0.2) !important; */
   }
   em {
     font-weight: 500;
+    font-style: italic;
     line-height: 1.4;
   }
 `
