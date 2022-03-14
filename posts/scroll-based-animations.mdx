@@ -1,9 +1,9 @@
 ---
 title: Add Butter Smooth Scroll-triggered Animations to your Static Website
-date: "March 8, 2022"
-description: Reveal animations are a simple but effective way to delight your users as they scroll through your website.
+date: "March 14, 2022"
+description: Reveal animations are a simple but effective way to include delight in your end user’s experience.
 tags: ["animation", "css", "react"]
-draft: false
+draft: true
 ---
 
 As a frontend developer, reveal animations are a simple but effective way to include delight in your end user’s experience. It is a method of having content appear just-in-time as they scroll through your website — and with control over the entry animation, you’re able to pull off some nifty and fluid transitions between different sections.
@@ -93,10 +93,10 @@ When using HTML, you can just convert the tag to one of Framer’s replacement e
 
 ![header animation.gif](/posts/header-animation.gif)
 
-Now let’s add our first animation. With framer, we can do this using just the `animate` prop. Together, `intial`, `animate` and `transition` will be your bread and butter for most animations.
+Now let’s add our first animation. With framer, we can do this using just the `animate` prop. Together, `initial`, `animate` and `transition` will be your bread and butter for most animations.
 
 - `initial` - describes the animations state that the component should be in when it mounts. Any CSS property can be passed into this object such as `opacity` and `backgroundColor`.
-- `animate` - describes to animation state that we want to transition to. By default, the _from_ part of the animation is described in the `initial` prop. from the initial. We can also use state values here to trigger different animation states. We’ll see an example of this later.
+- `animate` - describes to animation state that we want to transition to. By default, the _from_ part of the animation is described in the `initial` prop. from the initial. We can also use state values here to trigger different animation states.
 - `transition` - helps us describe how we wish to present our animation, with options for the duration, delay, easing and more.
 
 With this in mind, let’s animate our components!
@@ -155,7 +155,7 @@ This is nice, but we can make it better. Using the transition prop, let’s adju
   `}
 </SyntaxHighlighter>
 
-[Easings.net](http://Easings.net) is a handy website for previewing different easing values to apply to your animation. Find one you like and add it to the transition prop in an array:
+[Easings.net](https://easings.net) is a handy website for previewing different easing values to apply to your animation. Find one you like and add it to the transition prop in an array:
 
 <SyntaxHighlighter language="jsx">
   {`

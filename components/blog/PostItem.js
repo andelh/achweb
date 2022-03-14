@@ -7,11 +7,7 @@ import { motion } from "framer-motion"
 export default function PostItem({ post }) {
   return (
     <Link href={"/posts/" + post.slug} passHref>
-      <Card
-        whileHover={{ opacity: 0.8 }}
-        className="card-body"
-        // style={{ maxWidth: "540px" }}
-      >
+      <Card whileHover={{ opacity: 0.8 }} className="card-body">
         <Title className="card-title">{post.frontMatter.title}</Title>
         <Excerpt className="card-text">{post.frontMatter.description}</Excerpt>
         <Date className="card-text">
@@ -45,7 +41,7 @@ const Excerpt = styled.p`
   margin-bottom: 15px;
 `
 const Date = styled.p`
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1
   margin-bottom: 25px;

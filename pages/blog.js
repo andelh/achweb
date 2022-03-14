@@ -6,8 +6,6 @@ import SEO from "../components/seo"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
-import Image from "next/image"
 import PostItem from "../components/blog/PostItem"
 import { colors } from "../styles/colors"
 
