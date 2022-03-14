@@ -65,8 +65,8 @@ const NavText = styled.a`
   text-transform: uppercase;
   font-family: "Vorkurs";
   font-weight: 600;
-  letter-spacing: 2px;
-  font-size: 16px;
+  letter-spacing: 5px;
+  font-size: 15px;
   cursor: pointer;
 `
 const Navbar = () => {

@@ -68,10 +68,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 
-const PostPage = ({ frontMatter: { title }, mdxSource }) => {
+const PostPage = ({ frontMatter: { title, description = "" }, mdxSource }) => {
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} description={description} />
       <Title>{title}</Title>
       <Container>
         <MDXRemote
