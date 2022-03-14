@@ -3,13 +3,11 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Heading from "../components/home/heading"
-import PortfolioItem from "../components/portfolio-item"
 
 //NPM
 
 import Freelance from "../components/freelance"
 import FeaturedWork from "../components/home/featured-work"
-import { fetchAPI } from "../lib/api"
 import client from "../lib/sanity"
 
 const homeQuery = `*\[_type == "project"\] | order(releaseDate desc) {
@@ -37,8 +35,6 @@ export async function getStaticProps() {
 
 export default function IndexPage({ data }) {
   const projects = data.pageData
-  // const projectsData = projects.data.map(project => project.attributes)
-  // console.log({ projectsData })
   return (
     <Layout>
       <SEO

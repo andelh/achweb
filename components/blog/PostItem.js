@@ -3,19 +3,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { colors } from "../../styles/colors"
 import { motion } from "framer-motion"
+import readingTime from "reading-time"
 
 export default function PostItem({ post }) {
+  const readTime = readingTime(post.markdownWithMeta)
   return (
     <Link href={"/posts/" + post.slug} passHref>
-      <Card
-        whileHover={{ opacity: 0.8 }}
-        className="card-body"
-        // style={{ maxWidth: "540px" }}
-      >
+      <Card whileHover={{ opacity: 0.8 }} className="card-body">
         <Title className="card-title">{post.frontMatter.title}</Title>
         <Excerpt className="card-text">{post.frontMatter.description}</Excerpt>
         <Date className="card-text">
-          <small className="text-muted">{post.frontMatter.date}</small>
+          <small className="text-muted">
+            {post.frontMatter.date} • {readTime.text}
+          </small>
         </Date>
         <Link href={"/posts/" + post.slug}>
           <CTA>Read more</CTA>
@@ -45,7 +45,7 @@ const Excerpt = styled.p`
   margin-bottom: 15px;
 `
 const Date = styled.p`
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1
   margin-bottom: 25px;
