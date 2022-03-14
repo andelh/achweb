@@ -1,4 +1,4 @@
-import React, { Component, useState, useRef } from "react" //NPM
+import React from "react" //NPM
 
 //NPM
 import styled from "styled-components"
@@ -10,7 +10,8 @@ import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 
 const NavContainer = styled.div`
-  background-color: #030405;
+  background-color: #03040590;
+  backdrop-filter: blur(8px);
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
   width: 100%;
   position: fixed;
@@ -28,15 +29,6 @@ const InnerContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`
-const NavLogo = styled.img`
-  margin: 0 auto;
-  display: block;
-  width: 200px;
-
-  @media (max-width: 550px) {
-    width: 160px;
-  }
 `
 const MenuContainer = styled.div`
   cursor: pointer;
@@ -65,8 +57,9 @@ const NavText = styled.a`
   text-transform: uppercase;
   font-family: "Vorkurs";
   font-weight: 600;
-  letter-spacing: 5px;
-  font-size: 15px;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-swap: auto;
   cursor: pointer;
 `
 const Navbar = () => {
