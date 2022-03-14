@@ -34,7 +34,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     background: "#1f1f1f",
-    fontFamily: "Inter",
+    fontFamily: "Vorkurs",
     fontSize: 16,
     fontWeight: 500,
     color: state.isSelected ? "#036CE3" : "white",
@@ -48,7 +48,7 @@ const customStyles = {
   input: (provided, state) => ({
     ...provided,
     color: "white",
-    fontFamily: "Inter",
+    fontFamily: "Vorkurs",
   }),
   placeholder: (provided, state) => ({
     ...provided,
@@ -58,7 +58,7 @@ const customStyles = {
   singleValue: (provided, state) => ({
     ...provided,
     color: "white",
-    fontFamily: "Inter",
+    fontFamily: "Vorkurs",
   }),
 }
 
@@ -88,28 +88,28 @@ const Title = styled.h1`
   }
 `
 const Caption = styled.p`
-  font-size: 16px;
-  opacity: 0.7;
+  font-size: 19px;
+  opacity: 0.9;
+  line-height: 1.3;
+  max-width: 50ch;
 `
 const FormContainer = styled.div``
 const FormItem = styled.div`
   margin-bottom: 30px;
 `
 const Label = styled.p`
-  font-family: "Inter";
-  font-weight: 900;
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 15px;
 `
 const Textarea = styled.textarea`
   background: #1f1f1f;
   border-radius: 4px;
   color: white;
-  font-family: "Inter";
   font-weight: 500;
   border: none;
   padding: 15px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
   width: 100%;
 
@@ -121,11 +121,11 @@ const Input = styled.input`
   background: #1f1f1f;
   border-radius: 4px;
   color: white;
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-weight: 500;
   border: none;
   padding: 15px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
   width: 100%;
 
@@ -196,12 +196,19 @@ export default function LetsTalkPage() {
       <FormContainer>
         <FormItem>
           <Label>Your Name:</Label>
-          <Input value={name} name="name" required placeholder="John Doe" />
+          <Input
+            onChange={e => setName(e.target.value)}
+            value={name}
+            name="name"
+            required
+            placeholder="John Doe"
+          />
         </FormItem>
         <FormItem>
           <Label>Your Email:</Label>
           <Input
             value={email}
+            onChange={e => setEmail(e.target.value)}
             name="email"
             required
             placeholder="john@example.com"
@@ -229,6 +236,7 @@ export default function LetsTalkPage() {
           <Textarea
             value={projectDescription}
             name="projectDescription"
+            onChange={e => setProjectDescription(e.target.value)}
             placeholder="Start typing here..."
             rows={8}
           />
