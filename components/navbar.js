@@ -3,9 +3,7 @@ import React from "react" //NPM
 //NPM
 import styled from "styled-components"
 import Link from "next/link"
-import HamburgerMenu from "react-hamburger-menu"
 import { colors } from "../styles/colors"
-import Menu from "./menu"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 

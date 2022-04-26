@@ -9,6 +9,7 @@ import Loader from "react-loader-spinner"
 import emailjs from "emailjs-com"
 import { colors } from "../styles/colors"
 import { useRouter } from "next/router"
+import axios from "axios"
 
 const services = [
   { value: "Website", label: "Website" },
@@ -151,9 +152,22 @@ export default function LetsTalkPage() {
   const [projectDescription, setProjectDescription] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  const sendEmail = () => {
+  const sendEmail = async () => {
     //Start loading
     setIsLoading(true)
+
+    // Send a slack message
+    try {
+      await axios.post("/api/send-slack-message", {
+        name,
+        email,
+        projectType,
+        projectDescription,
+      })
+    } catch (err) {
+      console.log("could not send slack message")
+      console.log(err.message)
+    }
 
     const template_params = {
       name: name,
