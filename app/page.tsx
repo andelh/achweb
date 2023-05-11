@@ -22,21 +22,19 @@ const getProjects = async () => {
 }
 
 export default async function IndexPage({}: Props) {
-  const root = getWebsiteRootUrl()
-  console.log({ root })
-  const projects = await (
-    await fetch(
-      `${
-        process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : "http://localhost:3000"
-      }/api/home`
-    )
-  ).json()
+  // const projects = await (
+  //   await fetch(
+  //     `${
+  //       process.env.VERCEL_URL
+  //         ? `https://${process.env.VERCEL_URL}`
+  //         : "http://localhost:3000"
+  //     }/api/home`
+  //   )
+  // ).json()
   return (
     <>
       <Heading />
-      <FeaturedWork projects={projects.data} />
+      {/* <FeaturedWork projects={projects.data} /> */}
       {/* <Freelance /> */}
     </>
   )
