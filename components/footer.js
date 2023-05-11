@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 import {
   FaFacebookF,
@@ -11,8 +12,11 @@ import {
 //NPM
 import MainButton from "./main-button"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export default function Footer() {
+  const pathname = usePathname()
+  if (pathname === "/lets-talk") return null
   return (
     <footer className="w-full p-[30px] text-center text-white">
       <div className="flex flex-col items-center justify-center">

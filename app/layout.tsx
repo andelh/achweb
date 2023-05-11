@@ -22,10 +22,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable}`}>
       <body>
         <Navbar />
-        <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white">
+        <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white lg:px-0">
           {children}
         </main>
-        {<Footer />}
+        <Footer />
       </body>
       {/* {!noFooter && <Footer />} */}
     </html>
