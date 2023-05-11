@@ -1,110 +1,53 @@
+"use client"
 import React from "react" //NPM
 
 //NPM
-import styled from "styled-components"
 import Link from "next/link"
 import { colors } from "../styles/colors"
 import { motion } from "framer-motion"
-import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
 
-const NavContainer = styled.div`
-  background-color: #03040590;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-  padding: 30px 10% 30px 10%;
-
-  @media (max-width: 550px) {
-    padding: 20px;
-  }
-`
-const InnerContainer = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`
-const MenuContainer = styled.div`
-  cursor: pointer;
-  color: white;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 10px;
-
-  a {
-    text-decoration: none;
-  }
-
-  @media (max-width: 550px) {
-    gap: 10px;
-  }
-`
-const LinkItem = styled(motion.a)`
-  font-size: 16px;
-  font-weight: 500;
-  color: ${props => (props.active ? colors.primary : "white")};
-`
-const NavText = styled.a`
-  margin: 0;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Vorkurs";
-  font-weight: 600;
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-swap: auto;
-  cursor: pointer;
-`
 const Navbar = () => {
-  const router = useRouter()
+  const pathname = usePathname()
 
   return (
-    <NavContainer>
-      <InnerContainer>
+    <nav className="fixed z-40 w-full bg-[#03040590] px-[20px] py-[30px] shadow-md backdrop-blur-md md:px-[10%]">
+      <div className="mx-auto  flex max-w-[1100px] flex-row items-center justify-between">
         <Link href="/">
-          <NavText>Andel Husbands</NavText>
+          <span className="m-0 cursor-pointer text-sm font-semibold uppercase tracking-widest text-white no-underline">
+            Andel Husbands
+          </span>
         </Link>
-        <MenuContainer>
+        <div className="grid cursor-pointer grid-cols-2 gap-[10px] text-white">
           <Link href="/blog">
-            <LinkItem
-              active={router.pathname == "/blog"}
+            <motion.span
+              className=" font-medium text-white"
+              style={{
+                color: pathname === "/blog" ? colors.primary : "inherit",
+              }}
               whileHover={{
                 color: colors.primary,
               }}
             >
               Blog
-            </LinkItem>
+            </motion.span>
           </Link>
           <Link href="/lets-talk">
-            <LinkItem
-              active={router.pathname == `/lets-talk`}
+            <motion.span
+              className=" font-medium text-white"
+              style={{
+                color: pathname === "/lets-talk" ? colors.primary : "inherit",
+              }}
               whileHover={{
                 color: colors.primary,
               }}
             >
               Work with me
-            </LinkItem>
+            </motion.span>
           </Link>
-          {/* <HamburgerMenu
-           isOpen={this.state.isOpen}
-           menuClicked={() => this.setState({ isOpen: !this.state.isOpen })}
-           width={23}
-           height={15}
-           strokeWidth={2}
-           rotate={0}
-           color={colors.primary}
-           borderRadius={0}
-           animationDuration={0.5}
-          />
-          <Menu isOpen={this.state.isOpen} /> */}
-        </MenuContainer>
-      </InnerContainer>
-    </NavContainer>
+        </div>
+      </div>
+    </nav>
   )
 }
 

@@ -8,14 +8,12 @@ const Container = styled.div`
 const Title = styled.h2``
 const Categories = styled.div``
 
-const FeaturedWork = ({ projects }) => {
+export default function FeaturedWork({ projects }) {
   return (
     <Container>
-      <Title>See My Work</Title>
+      <Title>See My Featured Work</Title>
       <Categories></Categories>
       <FeaturedWorkList projects={projects} />
     </Container>
   )
 }
-
-export default FeaturedWork

@@ -1,86 +1,20 @@
 import React from "react"
 
 //NPM
-import styled from "styled-components"
 import TextLoop from "react-text-loop"
 import MainButton from "../main-button"
 import { motion } from "framer-motion"
-import { useRouter } from "next/router"
+import Link from "next/link"
 
-const HeadingContainer = styled(motion.div)`
-  min-height: 50vh;
-  margin-bottom: 40px;
-
-  @media (min-width: 550px) {
-  }
-`
-const Title = styled.h1`
-  font-size: 48px;
-  font-weight: 900;
-  font-family: "Inter", sans-serif;
-
-  @media (min-width: 550px) {
-    font-size: 9vmax;
-  }
-
-  @media (min-width: 1000px) {
-    font-size: 10.5vmin;
-  }
-`
-const Caption = styled.div`
-  margin-bottom: 50px;
-  /* height: 95px; */
-
-  @media (min-width: 550px) {
-    width: 100%;
-  }
-`
-const TitleIntervalText = styled.div`
-  display: block;
-  width: 100%;
-  ::after {
-    content: "";
-    width: 105%;
-    height: 14px;
-    margin: 0 auto;
-    margin-top: -13px;
-    display: block;
-    background: rgb(14, 153, 238);
-    background: linear-gradient(
-      63deg,
-      rgba(14, 153, 238, 1) 0%,
-      rgba(2, 105, 226, 1) 100%
-    );
-  }
-`
-const IntervalTextCaption = styled.div`
-  width: 100%;
-  color: white;
-  opacity: 0.7;
-  font-size: 20px;
-  line-height: 1.2;
-  font-family: "Vorkurs", sans-serif;
-  font-weight: 500;
-  display: block;
-
-  @media (min-width: 550px) {
-    font-size: 22px;
-  }
-`
-const Break = styled.hr`
-  background: white;
-  opacity: 0.15;
-  width: 100%;
-`
 export default function Heading() {
-  const router = useRouter()
   return (
-    <HeadingContainer
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+    <motion.div
+      className="mb-[40px] min-h-[50vh] text-white"
+      // initial={{ opacity: 0, y: 40 }}
+      // animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, stiffness: 10 }}
     >
-      <Title>
+      <h1 className="font-inter text-[48px] font-extrabold text-white md:text-[9vmax] xl:text-[10.5vmin]">
         I'm a freelance web developer & I can build your next
         <br />
         <TextLoop
@@ -89,37 +23,46 @@ export default function Heading() {
           // springConfig={{ stiffness: 140, damping: 10 }}
           mask
         >
-          <TitleIntervalText>website</TitleIntervalText>
-          <TitleIntervalText>online store</TitleIntervalText>
-          <TitleIntervalText>mobile app</TitleIntervalText>
-          <TitleIntervalText>web app</TitleIntervalText>
+          <div className="block w-fit after:mx-auto after:mt-[-13px] after:block after:h-[10px] after:w-full after:bg-blue-500 after:bg-gradient-to-tr after:from-blue-500 after:to-blue-500 after:content-['']">
+            website
+          </div>
+          <div className="block w-fit after:mx-auto after:mt-[-13px] after:block after:h-[10px] after:w-full after:bg-blue-500 after:bg-gradient-to-tr after:from-blue-500 after:to-blue-500 after:content-['']">
+            online store
+          </div>
+          <div className="block w-fit after:mx-auto after:mt-[-13px] after:block after:h-[10px] after:w-full after:bg-blue-500 after:bg-gradient-to-tr after:from-blue-500 after:to-blue-500 after:content-['']">
+            mobile app
+          </div>
+          <div className="block w-fit after:mx-auto after:mt-[-13px] after:block after:h-[10px] after:w-full after:bg-blue-500 after:bg-gradient-to-tr after:from-blue-500 after:to-blue-500 after:content-['']">
+            web app
+          </div>
         </TextLoop>
-      </Title>
+      </h1>
 
-      <Caption>
+      <div className="mb-[50px] w-full">
         <TextLoop
           interval={1500}
           adjustingSpeed={0}
           // springConfig={{ stiffness: 140, damping: 14 }}
           // noWrap={false}
         >
-          <IntervalTextCaption>
+          <div className="text-md block w-full font-medium leading-tight text-white opacity-70 lg:text-xl">
             To help you reach more customers
-          </IntervalTextCaption>
-          <IntervalTextCaption>To help you make more sales</IntervalTextCaption>
-          <IntervalTextCaption>
+          </div>
+          <div className="text-md block w-full font-medium leading-tight text-white opacity-70 lg:text-xl">
+            To help you make more sales
+          </div>
+          <div className="text-md block w-full font-medium leading-tight text-white opacity-70 lg:text-xl">
             To help you increase customer loyalty
-          </IntervalTextCaption>
-          <IntervalTextCaption>
+          </div>
+          <div className="text-md block w-full font-medium leading-tight text-white opacity-70 lg:text-xl">
             To help you streamline your operations
-          </IntervalTextCaption>
+          </div>
         </TextLoop>
-      </Caption>
-      <MainButton
-        clickHandler={() => router.push("/lets-talk")}
-        title="Let's Talk"
-      />
-      <Break />
-    </HeadingContainer>
+      </div>
+      <Link href="/lets-talk">
+        <MainButton title="Let's Talk" />
+      </Link>
+      <br className="w-full bg-white opacity-10" />
+    </motion.div>
   )
 }

@@ -1,51 +1,28 @@
 import { motion } from "framer-motion"
+import Image from "next/image"
 import React from "react"
-import styled from "styled-components"
-
-const Container = styled(motion.a)`
-  flex: 1;
-  width: 100%;
-  flex-basis: 46%;
-  height: 100px;
-  background: ${props => props.bg};
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 5px;
-  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.39);
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  @media (min-width: 550px) {
-    height: 180px;
-    flex-basis: 30%;
-  }
-
-  @media (min-width: 1000px) {
-    height: 200px;
-    flex-basis: 23%;
-  }
-`
-const Logo = styled.img`
-  width: 50%;
-  margin: 0;
-  height: 100%;
-  max-width: 120px;
-  object-fit: contain;
-`
 
 const WorkItem = ({ project, variants }) => (
-  <Container
+  <motion.a
+    className={`relative m-1 flex h-[100px] w-full flex-1 basis-[46%] items-center justify-center rounded-md border border-white border-opacity-10 shadow-sm md:h-[180px] md:basis-[30%] lg:h-[200px] lg:basis-[23%]`}
+    style={{ backgroundColor: project.backgroundHex ?? "#000" }}
     target="_blank"
     href={project.url}
     variants={variants}
-    whileHover={{ scale: 1.04 }}
+    whileHover={{ scale: 1.02 }}
+    transition={{ ease: [0.33, 1, 0.68, 1] }}
     whileTap={{ scale: 0.95 }}
     bg={project.backgroundHex ?? "#000"}
   >
-    <Logo src={project.poster} />
-  </Container>
+    <div className="absolute m-0 h-full w-1/2 max-w-[120px]">
+      <Image
+        style={{ objectFit: "contain" }}
+        fill
+        alt="project-image"
+        src={project.poster}
+      />
+    </div>
+  </motion.a>
 )
 
 export default WorkItem
