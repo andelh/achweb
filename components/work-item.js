@@ -12,7 +12,6 @@ const WorkItem = ({ project, variants }) => (
     whileHover={{ scale: 1.02 }}
     transition={{ ease: [0.33, 1, 0.68, 1] }}
     whileTap={{ scale: 0.95 }}
-    bg={project.backgroundHex ?? "#000"}
   >
     <div className="absolute m-0 h-full w-1/2 max-w-[120px]">
       <Image

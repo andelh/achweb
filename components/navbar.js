@@ -18,7 +18,21 @@ const Navbar = () => {
             Andel Husbands
           </span>
         </Link>
-        <div className="grid cursor-pointer grid-cols-2 gap-[2px] text-white">
+        <div className="grid cursor-pointer grid-cols-3 items-center justify-center gap-[2px] text-center text-white">
+          <Link href="/daily-ui-code">
+            <motion.span
+              className="text-sm font-medium text-white"
+              style={{
+                color:
+                  pathname === "/daily-ui-code" ? colors.primary : "inherit",
+              }}
+              whileHover={{
+                color: colors.primary,
+              }}
+            >
+              #DailyUICode
+            </motion.span>
+          </Link>
           <Link href="/blog">
             <motion.span
               className="text-sm font-medium text-white"
