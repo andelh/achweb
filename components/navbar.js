@@ -18,10 +18,10 @@ const Navbar = () => {
             Andel Husbands
           </span>
         </Link>
-        <div className="grid cursor-pointer grid-cols-2 gap-[10px] text-white">
+        <div className="grid cursor-pointer grid-cols-2 gap-[2px] text-white">
           <Link href="/blog">
             <motion.span
-              className=" font-medium text-white"
+              className="text-sm font-medium text-white"
               style={{
                 color: pathname === "/blog" ? colors.primary : "inherit",
               }}
@@ -34,7 +34,7 @@ const Navbar = () => {
           </Link>
           <Link href="/lets-talk">
             <motion.span
-              className=" font-medium text-white"
+              className="text-sm font-medium text-white"
               style={{
                 color: pathname === "/lets-talk" ? colors.primary : "inherit",
               }}
