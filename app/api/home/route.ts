@@ -16,7 +16,5 @@ export async function GET() {
   const rawPageData = { pageData }
   const data = rawPageData.pageData
 
-  console.log({ data })
-
   return NextResponse.json({ data })
 }

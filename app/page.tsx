@@ -3,8 +3,7 @@ import React from "react"
 import Heading from "../components/home/heading"
 // import Freelance from "../components/freelance"
 import FeaturedWork from "../components/home/featured-work"
-import client from "../lib/sanity"
-import { homeQuery } from "../lib/queries"
+import { getWebsiteRootUrl } from "../lib/utils"
 
 type Props = {}
 
@@ -23,11 +22,16 @@ const getProjects = async () => {
 }
 
 export default async function IndexPage({}: Props) {
-  const projects = await (await fetch("http://localhost:3000/api/home")).json()
+  const root = getWebsiteRootUrl()
+  console.log({ root })
+  const projects = await (
+    await fetch(`${process.env.VERCEL_URL ?? "http://localhost:3000"}/api/home`)
+  ).json()
   return (
     <>
       <Heading />
       <FeaturedWork projects={projects.data} />
+      {/* <Freelance /> */}
     </>
   )
 }
