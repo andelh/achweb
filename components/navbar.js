@@ -11,17 +11,17 @@ const Navbar = () => {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed z-40 w-full bg-[#03040590] px-[20px] py-[30px] shadow-md backdrop-blur-md md:px-[10%] lg:px-0">
-      <div className="mx-auto  flex max-w-[1100px] flex-row items-center justify-between">
+    <nav className="fixed z-40 w-full bg-[#03040590] px-3 py-[30px] shadow-md backdrop-blur-md sm:px-[20px] md:px-[10%] lg:px-0">
+      <div className="mx-auto flex max-w-[1100px] flex-row items-center justify-between">
         <Link href="/">
-          <span className="m-0 cursor-pointer text-xs font-semibold uppercase tracking-[8px] text-white no-underline">
+          <span className="m-0 cursor-pointer text-[10px] font-semibold uppercase tracking-normal text-white no-underline sm:text-xs sm:tracking-[8px]">
             Andel Husbands
           </span>
         </Link>
-        <div className="grid cursor-pointer grid-cols-3 items-center justify-center gap-[2px] text-center text-white">
+        <div className="grid cursor-pointer grid-cols-3 items-center justify-center gap-[1px] text-center text-white">
           <Link href="/daily-ui-code">
             <motion.span
-              className="text-sm font-medium text-white"
+              className="text-xs font-medium text-white sm:text-sm"
               style={{
                 color:
                   pathname === "/daily-ui-code" ? colors.primary : "inherit",
@@ -35,7 +35,7 @@ const Navbar = () => {
           </Link>
           <Link href="/blog">
             <motion.span
-              className="text-sm font-medium text-white"
+              className="text-xs font-medium text-white sm:text-sm"
               style={{
                 color: pathname === "/blog" ? colors.primary : "inherit",
               }}
@@ -48,7 +48,7 @@ const Navbar = () => {
           </Link>
           <Link href="/lets-talk">
             <motion.span
-              className="text-sm font-medium text-white"
+              className="text-xs font-medium text-white sm:text-sm"
               style={{
                 color: pathname === "/lets-talk" ? colors.primary : "inherit",
               }}
