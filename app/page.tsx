@@ -3,7 +3,6 @@ import React from "react"
 import Heading from "../components/home/heading"
 // import Freelance from "../components/freelance"
 import FeaturedWork from "../components/home/featured-work"
-import { getWebsiteRootUrl } from "../lib/utils"
 
 type Props = {}
 

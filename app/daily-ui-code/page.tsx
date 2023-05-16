@@ -2,7 +2,7 @@ import Image from "next/image"
 import React from "react"
 import UIList from "./ui-list"
 
-export default function DailyUIPage() {
+export default async function DailyUIPage() {
   return (
     <div className="mt-8 flex flex-col items-center">
       <h1 className="font-bolder mb-2 text-center">#DailyUICode</h1>
