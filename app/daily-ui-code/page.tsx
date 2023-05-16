@@ -4,7 +4,7 @@ import UIList from "./ui-list"
 
 export default function DailyUIPage() {
   return (
-    <div className="mt-14 flex flex-col items-center">
+    <div className="mt-8 flex flex-col items-center">
       <h1 className="font-bolder mb-2 text-center">#DailyUICode</h1>
       <p className="text-md max-w-lg text-center">
         Follow along with me as I practice and express learnings through the

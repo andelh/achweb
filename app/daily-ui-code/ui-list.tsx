@@ -45,6 +45,7 @@ const items = [
       "https://cdn.sanity.io/images/3r62ldv6/production/a93ad9e6b975c6d77d375abd9f03dde6a5489b6a-8001x4501.svg",
     order: 1,
     title: "Sign Up Page",
+    slug: "sign-up-page",
   },
   {
     videoUrl: "https://www.youtube.com/watch?v=1Yqj76Q4jJ4",
@@ -53,6 +54,7 @@ const items = [
       "https://cdn.sanity.io/images/3r62ldv6/production/a93ad9e6b975c6d77d375abd9f03dde6a5489b6a-8001x4501.svg",
     order: 2,
     title: "Login In Page",
+    slug: "login-in-page",
   },
 ]
 
