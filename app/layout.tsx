@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import { inter } from "../styles/fonts"
+import { Analytics } from "@vercel/analytics/react"
 
 // if (typeof window !== "undefined") {
 //   require("pace-progressbar")
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white lg:px-0">
           {children}
         </main>
+        <Analytics />
         <Footer />
       </body>
       {/* {!noFooter && <Footer />} */}
