@@ -1,9 +1,9 @@
-import { motion } from "framer-motion"
 import Image from "next/image"
 import React from "react"
+import { MotionA } from "../app/use-clients"
 
 const WorkItem = ({ project, variants }) => (
-  <motion.a
+  <MotionA
     className={`relative m-1 flex h-[100px] w-full flex-1 basis-[46%] items-center justify-center rounded-md border border-white border-opacity-10 shadow-sm md:h-[180px] md:basis-[30%] lg:h-[200px] lg:basis-[23%]`}
     style={{ backgroundColor: project.backgroundHex ?? "#000" }}
     target="_blank"
@@ -21,7 +21,7 @@ const WorkItem = ({ project, variants }) => (
         src={project.poster}
       />
     </div>
-  </motion.a>
+  </MotionA>
 )
 
 export default WorkItem

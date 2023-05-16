@@ -64,6 +64,7 @@ export default function ContactForm() {
   const router = useRouter()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("+1")
   const [projectType, setProjectType] = useState("")
   const [projectDescription, setProjectDescription] = useState("")
   const [isLoading, setIsLoading] = useState(false)

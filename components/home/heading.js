@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 
 //NPM
@@ -5,10 +6,11 @@ import TextLoop from "react-text-loop"
 import MainButton from "../main-button"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { MotionDiv } from "../../app/use-clients"
 
 export default function Heading() {
   return (
-    <motion.div
+    <MotionDiv
       className="mb-[40px] min-h-[50vh] text-white"
       // initial={{ opacity: 0, y: 40 }}
       // animate={{ opacity: 1, y: 0 }}
@@ -63,6 +65,6 @@ export default function Heading() {
         <MainButton title="Let's Talk" />
       </Link>
       <br className="w-full bg-white opacity-10" />
-    </motion.div>
+    </MotionDiv>
   )
 }

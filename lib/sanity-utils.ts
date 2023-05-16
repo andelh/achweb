@@ -1,5 +1,16 @@
 import { createClient, groq } from "next-sanity"
-import { dailyUIItemQuery, dailyUIQuery } from "./queries"
+import { dailyUIQuery, homeQuery } from "./queries"
+
+export async function getProjects() {
+  const client = createClient({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: "production",
+    token:
+      "skJNMoJrGs8wNm6apxFw9ApErF5B4beEmsrohv4KjLJCie4HrtCQRoSaQxyrqMa4HScFJozQpH1ynX9AH7yhj7zdg98iOKbEo0Go9CWfhxcW67YpJEjWATI1yM7j6Obxghk4oA9hxbsJ2GZlmhfj5Xf42rWSTiZdX6apOYD8az20APCpgZZX", // or leave blank to be anonymous user
+  })
+
+  return client.fetch(groq`${homeQuery}`)
+}
 
 export async function getDailyUIItems() {
   const client = createClient({
