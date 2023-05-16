@@ -1,15 +1,14 @@
 import Image from "next/image"
-import React from "react"
+import React, { Suspense } from "react"
 import UIList from "./ui-list"
+import { getDailyUIItems } from "../../lib/sanity-utils"
 
 export default async function DailyUIPage() {
+  const data = await getDailyUIItems()
   return (
     <div className="mt-8 flex flex-col items-center">
-      <h1 className="font-bolder mb-2 text-center">#DailyUICode</h1>
-      <p className="text-md max-w-lg text-center">
-        Follow along with me as I practice and express learnings through the
-        coding of various UI screens.
-      </p>
+      <h1 className="font-bolder mb-2 text-center">{data.title}</h1>
+      <p className="text-md max-w-lg text-center">{data.body}</p>
       <div className="mb-10 flex flex-row items-center justify-center gap-3">
         <Image src="/youtube.svg" alt="youtube-icon" width={26} height={22} />
         <p className="text-sm">
@@ -19,7 +18,20 @@ export default async function DailyUIPage() {
           </span>
         </p>
       </div>
-      <UIList />
+      <Suspense fallback={<Loading />}>
+        <UIList />
+      </Suspense>
+    </div>
+  )
+}
+
+const Loading = () => {
+  return (
+    <div className="grid w-full grid-cols-2 gap-3 ">
+      <div className="aspect-video w-full rounded-lg bg-slate-700"></div>
+      <div className="aspect-video w-full rounded-lg bg-slate-700"></div>
+      <div className="aspect-video w-full rounded-lg bg-slate-700"></div>
+      <div className="aspect-video w-full rounded-lg bg-slate-700"></div>
     </div>
   )
 }

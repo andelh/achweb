@@ -1,7 +1,7 @@
-"use client"
-import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { getDailyUIItems } from "../../lib/sanity-utils"
+import { MotionDiv } from "../use-clients"
 
 const list = {
   visible: {
@@ -18,10 +18,21 @@ const uiItem = {
   hidden: { opacity: 0, y: 30, transition: { duration: 0.7 } },
 }
 
-export default function UIList() {
+type DailyUIItem = {
+  title: string
+  url: string
+  slug: string
+  poster: string
+  videoUrl: string
+}
+
+export default async function UIList() {
+  const data = await getDailyUIItems()
+  const items: DailyUIItem[] = data.challenges
+
   return (
-    <motion.div
-      className="flex w-full flex-row flex-wrap gap-1 md:gap-3"
+    <MotionDiv
+      className="grid w-full grid-cols-2 gap-3"
       layout
       initial="hidden"
       viewport={{
@@ -31,78 +42,53 @@ export default function UIList() {
       variants={list}
     >
       {items.map((item, index) => (
-        <UIItem key={index} item={item} variants={uiItem} />
+        <UIItem key={index} item={item} order={index + 1} variants={uiItem} />
       ))}
-    </motion.div>
+    </MotionDiv>
   )
 }
 
-const items = [
-  {
-    videoUrl: "https://www.youtube.com/watch?v=1Yqj76Q4jJ4",
-    url: "1-sign-up",
-    poster:
-      "https://cdn.sanity.io/images/3r62ldv6/production/a93ad9e6b975c6d77d375abd9f03dde6a5489b6a-8001x4501.svg",
-    order: 1,
-    title: "Sign Up Page",
-    slug: "sign-up-page",
-  },
-  {
-    videoUrl: "https://www.youtube.com/watch?v=1Yqj76Q4jJ4",
-    url: "1-sign-up",
-    poster:
-      "https://cdn.sanity.io/images/3r62ldv6/production/a93ad9e6b975c6d77d375abd9f03dde6a5489b6a-8001x4501.svg",
-    order: 2,
-    title: "Login In Page",
-    slug: "login-in-page",
-  },
-]
-
-const UIItem = ({ item, variants }) => {
+const UIItem = ({ item, variants, order }) => {
   return (
-    <motion.div
+    <MotionDiv
       className={`relative flex w-full flex-1 basis-[46%] flex-col items-start justify-center  md:basis-[30%]  lg:basis-[23%]`}
-      //   href={item.url}
       variants={variants}
       whileHover={{ scale: 1.02 }}
       transition={{ ease: [0.33, 1, 0.68, 1] }}
       whileTap={{ scale: 0.95 }}
     >
       <div className="relative m-0 mb-3 aspect-video w-full overflow-hidden  rounded-lg border border-white border-opacity-20 shadow-sm">
-        <Link href={`/daily-ui-code/${item.url}`}>
+        <Link href={`/daily-ui-code/${item.slug}`}>
           <Image
             style={{ objectFit: "cover" }}
             fill
             alt="project-image"
-            src={
-              "https://mir-s3-cdn-cf.behance.net/project_modules/fs/a21e03128429749.6155cfe88a80c.jpg"
-            }
+            src={item.poster}
           />
         </Link>
       </div>
-      <Link href="/daily-ui-code/">
+      <Link href={`/daily-ui-code/${item.slug}`}>
         <p className="md:text-md mb-1 text-[16px] hover:text-primary hover:underline">
-          #{item.order} {item.title}
+          #{order} {item.title}
         </p>
       </Link>
-      <div className="mb-16 flex flex-row items-center justify-center gap-1">
-        <Image
-          src="/youtube.svg"
-          alt="youtube-icon"
-          width={24}
-          height={20}
-          style={{ margin: 0 }}
-        />
-        <a
-          href="https://youtube.com"
-          className="m-0 text-xs hover:text-red-600"
-        >
-          Watch on{" "}
-          <span className="font-bold text-red-600 underline underline-offset-4">
-            YouTube
-          </span>
-        </a>
-      </div>
-    </motion.div>
+      {item.videoUrl && (
+        <div className="mb-16 flex flex-row items-center justify-center gap-1">
+          <Image
+            src="/youtube.svg"
+            alt="youtube-icon"
+            width={24}
+            height={20}
+            style={{ margin: 0 }}
+          />
+          <a href={item.videoUrl} className="m-0 text-xs hover:text-red-600">
+            Watch on{" "}
+            <span className="font-bold text-red-600 underline underline-offset-4">
+              YouTube
+            </span>
+          </a>
+        </div>
+      )}
+    </MotionDiv>
   )
 }
