@@ -19,6 +19,7 @@ export default async function DailyUIPage() {
         </p>
       </div>
       <Suspense fallback={<Loading />}>
+        {/* @ts-expect-error Server Component */}
         <UIList />
       </Suspense>
     </div>
