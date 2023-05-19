@@ -22,6 +22,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/Vorkurs/ii-vorkurs-light.woff"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/Vorkurs/ii-vorkurs-medium.woff"
+          as="font"
+          crossOrigin=""
+        />
+        {/* Add favicon */}
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body>
         <Navbar />
         <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white xl:px-0">
