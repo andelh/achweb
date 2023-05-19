@@ -10,9 +10,8 @@ import Image from "next/image"
 
 const Navbar = () => {
   const pathname = usePathname()
-
   return (
-    <nav className="fixed z-40 w-full bg-[#03040590] px-3 py-[30px] shadow-md backdrop-blur-md sm:px-[20px] md:px-[10%] lg:px-0">
+    <nav className="fixed z-40 w-full bg-[#03040590] px-[5%] py-[30px] shadow-md backdrop-blur-md sm:px-[20px] md:px-[10%] lg:px-0">
       <div className="mx-auto flex max-w-[1100px] flex-row items-center justify-between">
         <Link href="/">
           <Image
@@ -40,9 +39,12 @@ const Navbar = () => {
           </Link>
           <Link href="/blog">
             <motion.span
-              className=" text-sm font-medium text-white"
+              className="text-sm font-medium text-white"
               style={{
-                color: pathname === "/blog" ? colors.primary : "inherit",
+                color:
+                  pathname.includes("/posts") || pathname === "/blog"
+                    ? colors.primary
+                    : "inherit",
               }}
               whileHover={{
                 color: colors.primary,
