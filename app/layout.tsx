@@ -4,11 +4,6 @@ import Footer from "../components/footer"
 import { inter } from "../styles/fonts"
 import { Analytics } from "@vercel/analytics/react"
 
-if (typeof window !== "undefined") {
-  require("pace-progressbar")
-  require("pace-progressbar/themes/blue/pace-theme-minimal.css")
-}
-
 export const metadata = {
   title: "Andel Husbands | Freelance Web and App Developer",
   description:

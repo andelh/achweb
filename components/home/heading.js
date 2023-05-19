@@ -5,20 +5,19 @@ import Balancer from "react-wrap-balancer"
 //NPM
 import TextLoop from "react-text-loop"
 import MainButton from "../main-button"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import { MotionDiv } from "../../app/use-clients"
 
 export default function Heading() {
   return (
     <MotionDiv
-      className="mb-[40px] min-h-[50vh] text-white"
+      className="mb-[40px] w-full text-white"
       // initial={{ opacity: 0, y: 40 }}
       // animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, stiffness: 10 }}
     >
-      <Balancer>
-        <h1 className="max-w-2xl font-inter text-[9vw] font-extrabold text-white md:text-[9vw] xl:text-[10.5vmin]">
+      <h1 className="max-w-2xl font-inter text-[9vw] font-extrabold text-white md:text-[7vw] xl:text-[10vmin]">
+        <Balancer className="w-full">
           I'm a freelance web developer & I can build your next
           <br />
           <TextLoop
@@ -40,8 +39,8 @@ export default function Heading() {
               web app
             </div>
           </TextLoop>
-        </h1>{" "}
-      </Balancer>
+        </Balancer>
+      </h1>
 
       <div className="mb-[50px] w-full">
         <TextLoop
