@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
   // fetch data
   const rawData = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
     next: {
-      revalidate: 1,
+      revalidate: 300,
     },
   })
   const data = await rawData.json()
@@ -26,7 +26,7 @@ export default async function PostPage({ params }) {
   const slug = params.slug
   const rawData = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
     next: {
-      revalidate: 1,
+      revalidate: 300,
     },
   })
   const data = await rawData.json()
