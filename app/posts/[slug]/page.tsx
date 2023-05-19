@@ -1,13 +1,6 @@
-// "use client"
-import { serialize } from "next-mdx-remote/serialize"
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
 import MyMDXRemote from "./mdx-remote"
 import Link from "next/link.js"
 import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
-
-export const revalidate = 300
 
 export async function generateMetadata({ params }) {
   // read route params
