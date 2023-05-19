@@ -7,20 +7,6 @@ import MyMDXRemote from "./mdx-remote"
 import Link from "next/link.js"
 import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
 
-const getPost = async (slug: string) => {
-  const markdownWithMeta = fs.readFileSync(
-    path.join("posts", slug + ".mdx"),
-    "utf-8"
-  )
-  const { data: frontMatter, content } = matter(markdownWithMeta)
-  const mdxSource = await serialize(content)
-  return {
-    frontMatter,
-    slug,
-    mdxSource,
-  }
-}
-
 export const revalidate = 300
 
 export async function generateMetadata({ params }) {
@@ -28,19 +14,29 @@ export async function generateMetadata({ params }) {
   const slug = params.slug
 
   // fetch data
-  const data = await getPost(slug)
+  const rawData = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
+    next: {
+      revalidate: 1,
+    },
+  })
+  const data = await rawData.json()
   const { frontMatter } = data
   const { title, description } = frontMatter
 
   return {
-    title: title,
+    title,
     description,
   }
 }
 
 export default async function PostPage({ params }) {
   const slug = params.slug
-  const data = await getPost(slug)
+  const rawData = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
+    next: {
+      revalidate: 1,
+    },
+  })
+  const data = await rawData.json()
   const { mdxSource, frontMatter } = data
   const { title } = frontMatter
   return (
