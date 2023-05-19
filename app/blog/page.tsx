@@ -1,5 +1,4 @@
 import React from "react"
-//NPM
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
@@ -26,9 +25,6 @@ const getPosts = async () => {
 
 export default async function IndexPage() {
   const posts = await getPosts()
-  console.log({ posts })
-  // const projectsData = projects.data.map(project => project.attributes)
-  // console.log({ projectsData })
   return (
     <>
       <div className="relative mx-auto w-full pt-[50px]">
@@ -37,10 +33,6 @@ export default async function IndexPage() {
           <div className="sticky top-[120px] mb-10">
             <div className="flex flex-row flex-wrap gap-x-4 gap-y-1">
               <p className="m-0 font-medium text-primary">All posts</p>
-              {/* <Tag>Tutorials</Tag>
-              <Tag>React</Tag>
-              <Tag>Animation</Tag>
-              <Tag>Design for Developers</Tag> */}
             </div>
           </div>
           <div>

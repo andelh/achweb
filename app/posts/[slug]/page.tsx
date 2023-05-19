@@ -5,11 +5,15 @@ import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
 export async function generateMetadata({ params }) {
   // read route params
   const slug = params.slug
+  const isLocal = process.env.NODE_ENV === "development"
 
   // fetch data
   const rawData = await fetch(
-    // `http://localhost:3000/api/blog?slug=${slug}`,
-    `https://achweb-git-dailyuicode-andelh.vercel.app/api/blog?slug=${slug}`,
+    `http${isLocal ? "" : "s"}://${
+      process.env.NEXT_PUBLIC_VERCEL_URL ||
+      process.env.VERCEL_URL ||
+      "localhost:3000"
+    }/api/blog?slug=${slug}`,
     {
       next: {
         revalidate: 300,
@@ -28,15 +32,12 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const slug = params.slug
-
-  console.log("Hello")
-  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
-  console.log(process.env.VERCEL_URL)
+  const isLocal = process.env.NODE_ENV === "development"
   const rawData = await fetch(
-    `https://${
+    `http${isLocal ? "" : "s"}://${
       process.env.NEXT_PUBLIC_VERCEL_URL ||
       process.env.VERCEL_URL ||
-      "http://localhost:3000"
+      "localhost:3000"
     }/api/blog?slug=${slug}`,
     {
       next: {
@@ -79,7 +80,7 @@ const BreadCrumbs = ({ title }) => {
         duration: 0.6,
         ease: [0.6, 0.01, -0.05, 0.9],
       }}
-      className="bg-zinc-800-950 mb-16 flex w-fit items-center rounded-lg border border-slate-800 px-5 py-3 text-gray-700 dark:border-gray-700 dark:bg-gray-800"
+      className="mb-16 flex w-fit items-center rounded-lg border border-slate-800 bg-stone-950 px-5 py-3 text-gray-700"
       aria-label="Breadcrumb"
     >
       <ol className="m-0 inline-flex items-center space-x-1 md:space-x-3">

@@ -5,9 +5,9 @@ import { inter } from "../styles/fonts"
 import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
-  title: "Andel Husbands | Freelance Web and App Developer",
+  title: "Andel Husbands | Web and App Developer",
   description:
-    "A web and software developer based in Trinidad and Tobago. My aim is to raise the bar in the quality of products that come out of our home soil. Contact me for work!",
+    "I'm a passionate web and software developer based in vibrant Trinidad and Tobago, and I'm here to turn your ideas into reality. With a strong desire to elevate the quality of products born from our home soil, I bring creativity, expertise, and a personal touch to every project. Let's connect and embark on a journey to create something truly remarkable.",
 }
 
 export default function RootLayout({
