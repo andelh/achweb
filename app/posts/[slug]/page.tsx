@@ -33,7 +33,7 @@ export default async function PostPage({ params }) {
   console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
   console.log(process.env.VERCEL_URL)
   const rawData = await fetch(
-    `${
+    `https://${
       process.env.NEXT_PUBLIC_VERCEL_URL ||
       process.env.VERCEL_URL ||
       "http://localhost:3000"
