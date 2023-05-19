@@ -8,6 +8,7 @@ export async function generateMetadata({ params }) {
 
   // fetch data
   const rawData = await fetch(
+    // `http://localhost:3000/api/blog?slug=${slug}`,
     `https://achweb-git-dailyuicode-andelh.vercel.app/api/blog?slug=${slug}`,
     {
       next: {
@@ -33,7 +34,9 @@ export default async function PostPage({ params }) {
   console.log(process.env.VERCEL_URL)
   const rawData = await fetch(
     `${
-      process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL
+      process.env.NEXT_PUBLIC_VERCEL_URL ||
+      process.env.VERCEL_URL ||
+      "http://localhost:3000"
     }/api/blog?slug=${slug}`,
     {
       next: {
