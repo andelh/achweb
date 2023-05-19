@@ -3,10 +3,10 @@ export default {
   author: {
     name: "Andel Husbands",
     summary:
-      "A web and software developer based in Trinidad and Tobago. Raising the bar on the quality of technology coming out of his home soil.",
+      "I'm a fullstack web and mobile developer based in Trinidad and Tobago. I work with ambitious and curious clients to create award-winning work.",
   },
   description:
-    "A web and software developer based in Trinidad and Tobago. Raising the bar on the quality of technology coming out of his home soil.",
+    "I'm a fullstack web and mobile developer based in Trinidad and Tobago. I work with ambitious and curious clients to create award-winning work.",
   social: {
     twitter: "andelhusbands",
   },

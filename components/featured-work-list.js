@@ -1,14 +1,7 @@
-import { motion } from "framer-motion"
 import React from "react"
-import styled from "styled-components"
 import WorkItem from "./work-item"
-
-const Container = styled(motion.div)`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`
+import { getProjects } from "../lib/sanity-utils"
+import { MotionDiv } from "../app/use-clients"
 
 const list = {
   visible: {
@@ -25,20 +18,23 @@ const workItem = {
   hidden: { opacity: 0, y: 30, transition: { duration: 0.7 } },
 }
 
-const FeaturedWorkList = ({ projects }) => (
-  <Container
-    layout
-    initial="hidden"
-    viewport={{
-      amount: 0.3,
-    }}
-    whileInView="visible"
-    variants={list}
-  >
-    {projects.map((item, index) => (
-      <WorkItem key={index} project={item} variants={workItem} />
-    ))}
-  </Container>
-)
+export default async function FeaturedWorkList() {
+  const projects = await getProjects()
 
-export default FeaturedWorkList
+  return (
+    <MotionDiv
+      className="flex w-full flex-row flex-wrap"
+      layout
+      initial="hidden"
+      viewport={{
+        amount: 0.3,
+      }}
+      whileInView="visible"
+      variants={list}
+    >
+      {projects.map((item, index) => (
+        <WorkItem key={index} project={item} variants={workItem} />
+      ))}
+    </MotionDiv>
+  )
+}

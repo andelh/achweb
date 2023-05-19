@@ -1,21 +1,12 @@
 import React from "react"
-import styled from "styled-components"
 import FeaturedWorkList from "../featured-work-list"
 
-const Container = styled.div`
-  margin-bottom: 40px;
-`
-const Title = styled.h2``
-const Categories = styled.div``
-
-const FeaturedWork = ({ projects }) => {
+export default function FeaturedWork() {
   return (
-    <Container>
-      <Title>See My Work</Title>
-      <Categories></Categories>
-      <FeaturedWorkList projects={projects} />
-    </Container>
+    <div className="mb-10">
+      <h2>See My Featured Work</h2>
+      <div></div>
+      <FeaturedWorkList />
+    </div>
   )
 }
-
-export default FeaturedWork

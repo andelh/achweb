@@ -1,6 +1,8 @@
 module.exports = {
-  compiler: {
-    // ssr and displayName are configured by default
-    styledComponents: true,
+  images: {
+    domains: ["cdn.sanity.io", "mir-s3-cdn-cf.behance.net"],
+  },
+  experimental: {
+    serverActions: true,
   },
 }

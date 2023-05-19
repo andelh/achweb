@@ -1,35 +1,19 @@
+"use client"
 import React from "react"
-import styled from "styled-components"
-
-const Button = styled.button`
-  border-radius: 2px;
-  padding: 15px 30px;
-  color: white;
-  font-family: "Vorkurs";
-  font-weight: 700;
-  min-width: 160px;
-  font-size: 20px;
-  width: ${props => props.full && "100%"};
-  cursor: pointer;
-
-  background: rgb(1, 95, 208);
-  background: linear-gradient(
-    69deg,
-    rgba(1, 95, 208, 1) 0%,
-    rgba(30, 210, 252, 1) 100%
-  );
-  border: none;
-  margin-bottom: 30px;
-
-  @media (min-width: 550px) {
-    min-width: 250px;
-  }
-`
+import { motion } from "framer-motion"
 
 const MainButton = props => (
-  <Button full={props.full} onClick={() => props.clickHandler()}>
+  <motion.button
+    whileHover={{ scaleX: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    className={`${
+      props.full && "w-full"
+    } text-md bg-[rgb(1, 95, 208)] mb-[30px] min-w-[160px] cursor-pointer rounded-sm border-none bg-gradient-to-tr from-blue-500 to-blue-400 px-[30px] py-[15px] text-lg font-bold lg:min-w-[250px]`}
+    full={props.full}
+    onClick={() => props.clickHandler()}
+  >
     {props.title}
-  </Button>
+  </motion.button>
 )
 
 export default MainButton

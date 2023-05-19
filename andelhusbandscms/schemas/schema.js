@@ -13,6 +13,8 @@ import screening from "./screening"
 import plotSummary from "./plotSummary"
 import plotSummaries from "./plotSummaries"
 import project from "./project"
+import dailyUI from "./dailyUI"
+import dailyUIItem from "./dailyUIItem"
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +27,8 @@ export default createSchema({
     // in the studio.
     // movie,
     project,
+    dailyUI,
+    dailyUIItem,
     // person,
     // screening,
     // When added to this list, object types can be used as

@@ -1,16 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800;900&display=swap");
 
 /* Vorkurs */
-@font-face {
-  font-family: "Gilmer";
-  src: url("/fonts/gilmer-regular.woff2") format("woff2"),
-    url("/fonts/gilmer-regular.woff") format("woff"),
-    url("/fonts/gilmer-regular.ttf") format("truetype"),
-    url("/fonts/gilmer-regular.svg#youworkforthem") format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
 @font-face {
   font-family: "Vorkurs";
   src: url("/fonts/Vorkurs/ii-vorkurs-medium-oblique.eot");
@@ -339,7 +334,6 @@ img {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
 }
 h1 {
   margin-left: 0;

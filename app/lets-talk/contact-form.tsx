@@ -1,14 +1,11 @@
-import React, { useRef, useState, Component } from "react"
-import styled from "styled-components"
-import Layout from "../components/layout"
-
+"use client"
 import Select from "react-select"
-import MainButton from "../components/main-button"
-import SEO from "../components/seo"
 import Loader from "react-loader-spinner"
+import MainButton from "../../components/main-button"
+import { colors } from "../../styles/colors"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 import emailjs from "emailjs-com"
-import { colors } from "../styles/colors"
-import { useRouter } from "next/router"
 import axios from "axios"
 
 const services = [
@@ -63,91 +60,11 @@ const customStyles = {
   }),
 }
 
-const Container = styled.div`
-  background: black;
-  padding: 50px 10% 5% 10%;
-  position: fixed;
-  z-index: 99;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  overflow: scroll;
-`
-const Header = styled.div`
-  margin-bottom: 40px;
-`
-const Title = styled.h1`
-  font-size: 48px;
-  font-weight: 900;
-
-  @media (min-width: 550px) {
-    font-size: 9vmax;
-  }
-
-  @media (min-width: 1000px) {
-    font-size: 10.5vmin;
-  }
-`
-const Caption = styled.p`
-  font-size: 19px;
-  opacity: 0.9;
-  line-height: 1.3;
-  max-width: 50ch;
-`
-const FormContainer = styled.div``
-const FormItem = styled.div`
-  margin-bottom: 30px;
-`
-const Label = styled.p`
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 15px;
-`
-const Textarea = styled.textarea`
-  background: #1f1f1f;
-  border-radius: 4px;
-  color: white;
-  font-weight: 500;
-  border: none;
-  padding: 15px;
-  font-size: 18px;
-  line-height: 1.5;
-  width: 100%;
-
-  :focus {
-    outline: 2px solid #036ce3;
-  }
-`
-const Input = styled.input`
-  background: #1f1f1f;
-  border-radius: 4px;
-  color: white;
-  /* font-family: "Inter"; */
-  font-weight: 500;
-  border: none;
-  padding: 15px;
-  font-size: 18px;
-  line-height: 1.5;
-  width: 100%;
-
-  :focus {
-    outline: 2px solid #036ce3;
-  }
-`
-const ButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  width: 100%;
-  position: relative;
-`
-
-export default function LetsTalkPage() {
+export default function ContactForm() {
   const router = useRouter()
-  const contactForm = useRef()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("+1")
   const [projectType, setProjectType] = useState("")
   const [projectDescription, setProjectDescription] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -198,45 +115,39 @@ export default function LetsTalkPage() {
   }
 
   return (
-    <Layout noFooter>
-      <SEO title="Let's talk - Get a free quote" />
-      <Header>
-        <Title>Let's Talk</Title>
-        <Caption>
-          Tell me a bit about your project so we can get the ball rolling and
-          build something great together!
-        </Caption>
-      </Header>
-      <FormContainer>
-        <FormItem>
-          <Label>Your Name:</Label>
-          <Input
+    <>
+      <div>
+        <div className="mb-[30px]">
+          <p className="text-md mb-[15px] font-bold">Your Name:</p>
+          <input
+            className="text-md w-full rounded-md border-none bg-[#1f1f1f] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
             onChange={e => setName(e.target.value)}
             value={name}
             name="name"
             required
             placeholder="John Doe"
           />
-        </FormItem>
-        <FormItem>
-          <Label>Your Email:</Label>
-          <Input
+        </div>
+        <div className="mb-[30px]">
+          <p className="text-md mb-[15px] font-bold">Your Email:</p>
+          <input
+            className="text-md w-full rounded-md border-none bg-[#1f1f1f] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
             value={email}
             onChange={e => setEmail(e.target.value)}
             name="email"
             required
             placeholder="john@example.com"
           />
-        </FormItem>
-        <FormItem>
-          <Label>I'm looking for a:</Label>
+        </div>
+        <div className="mb-[30px]">
+          <p className="text-md mb-[15px] font-bold">I'm looking for a:</p>
           <Select
             placeholder="Please select"
             styles={customStyles}
             options={services}
             onChange={val => setProjectType(val.value)}
           />
-        </FormItem>
+        </div>
         {/* <FormItem>
 						  <Label>My budget is in the range of:</Label>
 						  <Select
@@ -245,23 +156,26 @@ export default function LetsTalkPage() {
 							  options={budget}
 						  />
 					  </FormItem> */}
-        <FormItem>
-          <Label>Describe your project as simply as possible:</Label>
-          <Textarea
+        <div className="mb-[30px]">
+          <p className="text-md mb-[15px] font-bold">
+            Describe your project as simply as possible:
+          </p>
+          <textarea
+            className="text-md w-full rounded-md border-none bg-[#1d1d1d] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
             value={projectDescription}
             name="projectDescription"
             onChange={e => setProjectDescription(e.target.value)}
             placeholder="Start typing here..."
             rows={8}
           />
-        </FormItem>
+        </div>
         <MainButton full title="Submit" clickHandler={() => handleSubmit()} />
-      </FormContainer>
+      </div>
       {isLoading && (
-        <ButtonContainer>
+        <div className="relative mt-[20px] flex w-full items-center justify-center ">
           <Loader type="Oval" color={colors.primary} height={40} width={40} />
-        </ButtonContainer>
+        </div>
       )}
-    </Layout>
+    </>
   )
 }

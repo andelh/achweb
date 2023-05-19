@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 import {
   FaFacebookF,
@@ -9,56 +10,22 @@ import {
 } from "react-icons/fa"
 
 //NPM
-import styled from "styled-components"
 import MainButton from "./main-button"
-import { useRouter } from "next/router"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
-const FooterWrapper = styled.div`
-  width: 100%;
-  text-align: center;
-  color: white;
-  padding: 30px;
-`
-const FooterGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-const Title = styled.h1`
-  font-size: 28px;
-  font-style: italic;
-`
-
-const SocialsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  max-width: 300px;
-  width: 100%;
-  margin: 20px auto;
-`
-
-const SocialIcon = styled.div`
-  font-size: 1.8rem;
-  display: inline;
-  transition: 0.5s ease;
-
-  &:hover {
-    color: #0e99ee;
-  }
-`
 export default function Footer() {
-  const router = useRouter()
+  const pathname = usePathname()
+  if (pathname === "/lets-talk") return null
   return (
-    <FooterWrapper>
-      <FooterGroup>
-        <Title>Let's work together</Title>
-        <MainButton
-          clickHandler={() => router.push("/lets-talk")}
-          title="Contact me"
-        />
-        <SocialsContainer>
-          <SocialIcon>
+    <footer className="w-full p-[30px] text-center text-white">
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="text-lg italic">Let's work together</h1>
+        <Link href="/lets-talk">
+          <MainButton title="Contact me" />
+        </Link>
+        <div className="mx-auto my-[20px] grid max-w-[300px] grid-cols-6 gap-4">
+          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -67,8 +34,8 @@ export default function Footer() {
             >
               <FaFacebookF />
             </a>
-          </SocialIcon>
-          <SocialIcon>
+          </div>
+          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -77,8 +44,8 @@ export default function Footer() {
             >
               <FaInstagram />
             </a>
-          </SocialIcon>
-          <SocialIcon>
+          </div>
+          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -87,8 +54,8 @@ export default function Footer() {
             >
               <FaTwitter />
             </a>
-          </SocialIcon>
-          <SocialIcon>
+          </div>
+          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -97,8 +64,8 @@ export default function Footer() {
             >
               <FaWhatsappSquare />
             </a>
-          </SocialIcon>
-          <SocialIcon>
+          </div>
+          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -107,8 +74,8 @@ export default function Footer() {
             >
               <FaLinkedinIn />
             </a>
-          </SocialIcon>
-          <SocialIcon>
+          </div>
+          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -117,9 +84,9 @@ export default function Footer() {
             >
               <FaGithub />
             </a>
-          </SocialIcon>
-          {/* <SocialIcon><a style={{color: 'inherit'}} rel="noopener noreferrer" target="_blank" href="mailto:andelhusbands@gmail.com"><FaRegEnvelope /></a></SocialIcon> */}
-        </SocialsContainer>
+          </div>
+          {/* <div><a style={{color: 'inherit'}} rel="noopener noreferrer" target="_blank" href="mailto:andelhusbands@gmail.com"><FaRegEnvelope /></a></div> */}
+        </div>
         <p
           style={{
             fontSize: "14px",
@@ -128,9 +95,9 @@ export default function Footer() {
             margin: "5px 0",
           }}
         >
-          © 2022 Andel Husbands. All Rights Reserved.
+          © 2023 Andel Husbands. All Rights Reserved.
         </p>
-      </FooterGroup>
-    </FooterWrapper>
+      </div>
+    </footer>
   )
 }

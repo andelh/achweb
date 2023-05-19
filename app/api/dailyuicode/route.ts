@@ -1,9 +1,7 @@
-"use client"
+import { NextResponse } from "next/server"
 import sanityClient from "@sanity/client"
+import { dailyUIQuery } from "../../../lib/queries"
 
-// See the image above on how to get your projectId and add a new API token
-// I added one called "landing page"
-console.log("projectID:", process.env.NEXT_PUBLIC_SANITY_PROJECT_ID)
 const client = sanityClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: "production",
@@ -13,4 +11,10 @@ const client = sanityClient({
   ignoreBrowserTokenWarning: true,
 })
 
-export default client
+export async function GET() {
+  const pageData = await client.fetch(dailyUIQuery)
+  const rawPageData = { pageData }
+  const data = rawPageData.pageData
+
+  return NextResponse.json({ data })
+}

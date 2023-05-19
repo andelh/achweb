@@ -1,38 +1,27 @@
 import React, { Component } from "react"
-import styled, { keyframes } from "styled-components"
 import { Highlight } from "./highlight"
-
-const FreelanceContainer = styled.div`
-  color: white;
-  margin-bottom: 60px;
-`
-
-const HeadingTitle = styled.h1`
-  font-size: 18px;
-`
-
-const Copy = styled.p`
-  font-weight: 500;
-  font-size: 18px;
-`
 
 class Freelance extends Component {
   state = {}
   render() {
     return (
-      <FreelanceContainer>
-        <HeadingTitle>
-          What does <Highlight>freelance</Highlight> even mean?
-        </HeadingTitle>
-        <Copy>
+      <div className="mb-16 text-white">
+        <h1 className="text-lg">
+          What does{" "}
+          <span className="block w-fit after:mx-auto after:mt-[-13px] after:block after:h-[10px] after:w-full after:bg-blue-500 after:bg-gradient-to-tr after:from-blue-500 after:to-blue-500 after:content-['']">
+            freelance
+          </span>{" "}
+          even mean?
+        </h1>
+        <p className="text-md max-w-xl text-sm font-medium">
           For you, this means competitive pricing and more involvement in the
           overall design and development process.
           <br />
           <br />
           For me, freelance means getting the chance to work with amazing
           clients to help bring their product to life
-        </Copy>
-      </FreelanceContainer>
+        </p>
+      </div>
     )
   }
 }

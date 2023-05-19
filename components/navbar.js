@@ -1,110 +1,81 @@
+"use client"
 import React from "react" //NPM
 
 //NPM
-import styled from "styled-components"
 import Link from "next/link"
 import { colors } from "../styles/colors"
 import { motion } from "framer-motion"
-import { useRouter } from "next/router"
+import { usePathname } from "next/navigation"
+import Image from "next/image"
+import { MotionDiv, MotionSpan } from "../app/use-clients"
 
-const NavContainer = styled.div`
-  background-color: #03040590;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-  padding: 30px 10% 30px 10%;
-
-  @media (max-width: 550px) {
-    padding: 20px;
-  }
-`
-const InnerContainer = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`
-const MenuContainer = styled.div`
-  cursor: pointer;
-  color: white;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 10px;
-
-  a {
-    text-decoration: none;
-  }
-
-  @media (max-width: 550px) {
-    gap: 10px;
-  }
-`
-const LinkItem = styled(motion.a)`
-  font-size: 16px;
-  font-weight: 500;
-  color: ${props => (props.active ? colors.primary : "white")};
-`
-const NavText = styled.a`
-  margin: 0;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Vorkurs";
-  font-weight: 600;
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-swap: auto;
-  cursor: pointer;
-`
 const Navbar = () => {
-  const router = useRouter()
-
+  const pathname = usePathname()
   return (
-    <NavContainer>
-      <InnerContainer>
+    <nav className="fixed left-0 right-0 z-40 mx-auto w-full max-w-[1100px] bg-[#03040590] px-[5%] py-[30px] text-white shadow-md backdrop-blur-md xl:px-0">
+      <div className="mx-auto flex w-full max-w-[1100px] flex-row items-center justify-between">
         <Link href="/">
-          <NavText>Andel Husbands</NavText>
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ rotateY: 359 }}
+            transition={{ ease: [0.68, -0.6, 0.32, 1.6], duration: 1 }}
+          >
+            <Image
+              style={{ margin: 0 }}
+              src="/ah-logo.png"
+              alt="logo"
+              width={40}
+              height={45}
+            />
+          </MotionDiv>
         </Link>
-        <MenuContainer>
+        <div className="grid cursor-pointer grid-cols-3 items-center justify-center gap-[1px] text-center text-white">
+          <Link href="/daily-ui-code">
+            <motion.span
+              className="text-sm font-medium text-white xl:text-[17px]"
+              style={{
+                color: pathname === "/daily-ui-code" ? colors.primary : "white",
+              }}
+              whileHover={{
+                color: colors.primary,
+              }}
+            >
+              #DailyUICode
+            </motion.span>
+          </Link>
           <Link href="/blog">
-            <LinkItem
-              active={router.pathname == "/blog"}
+            <motion.span
+              className="text-sm font-medium text-white xl:text-[17px]"
+              style={{
+                color:
+                  pathname.includes("/posts") || pathname === "/blog"
+                    ? colors.primary
+                    : "white",
+              }}
               whileHover={{
                 color: colors.primary,
               }}
             >
               Blog
-            </LinkItem>
+            </motion.span>
           </Link>
           <Link href="/lets-talk">
-            <LinkItem
-              active={router.pathname == `/lets-talk`}
+            <motion.span
+              className=" text-sm font-medium text-white xl:text-[17px]"
+              style={{
+                color: pathname === "/lets-talk" ? colors.primary : "white",
+              }}
               whileHover={{
                 color: colors.primary,
               }}
             >
               Work with me
-            </LinkItem>
+            </motion.span>
           </Link>
-          {/* <HamburgerMenu
-           isOpen={this.state.isOpen}
-           menuClicked={() => this.setState({ isOpen: !this.state.isOpen })}
-           width={23}
-           height={15}
-           strokeWidth={2}
-           rotate={0}
-           color={colors.primary}
-           borderRadius={0}
-           animationDuration={0.5}
-          />
-          <Menu isOpen={this.state.isOpen} /> */}
-        </MenuContainer>
-      </InnerContainer>
-    </NavContainer>
+        </div>
+      </div>
+    </nav>
   )
 }
 
