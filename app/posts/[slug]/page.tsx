@@ -7,11 +7,14 @@ export async function generateMetadata({ params }) {
   const slug = params.slug
 
   // fetch data
-  const rawData = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
-    next: {
-      revalidate: 300,
-    },
-  })
+  const rawData = await fetch(
+    `https://achweb-git-dailyuicode-andelh.vercel.app/api/blog?slug=${slug}`,
+    {
+      next: {
+        revalidate: 300,
+      },
+    }
+  )
   const data = await rawData.json()
   const { frontMatter } = data
   const { title, description } = frontMatter
@@ -24,11 +27,20 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const slug = params.slug
-  const rawData = await fetch(`http://localhost:3000/api/blog?slug=${slug}`, {
-    next: {
-      revalidate: 300,
-    },
-  })
+
+  console.log("Hello")
+  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
+  console.log(process.env.VERCEL_URL)
+  const rawData = await fetch(
+    `${
+      process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL
+    }/api/blog?slug=${slug}`,
+    {
+      next: {
+        revalidate: 300,
+      },
+    }
+  )
   const data = await rawData.json()
   const { mdxSource, frontMatter } = data
   const { title } = frontMatter
