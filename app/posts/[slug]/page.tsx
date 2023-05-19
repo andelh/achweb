@@ -3,9 +3,9 @@ import { serialize } from "next-mdx-remote/serialize"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import MyMDXRemote from "./mdx-remote.tsx"
+import MyMDXRemote from "./mdx-remote"
 import Link from "next/link.js"
-import { MotionDiv, MotionH1, MotionNav } from "../../use-clients.tsx"
+import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
 
 const getPost = async (slug: string) => {
   const markdownWithMeta = fs.readFileSync(
