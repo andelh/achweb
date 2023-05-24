@@ -3,7 +3,6 @@ import Link from "next/link"
 import { BsArrowLeftShort, BsLink } from "react-icons/bs"
 import { getDailyUIItem, getDailyUIItems } from "../../../lib/sanity-utils"
 import { MotionButton, MotionDiv, MotionH1, MotionP } from "../../use-clients"
-import PostLoading from "./loading"
 
 export const revalidate = 600 // revalidate every hour
 
