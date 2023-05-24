@@ -18,7 +18,7 @@ const workItem = {
   hidden: { opacity: 0, y: 30, transition: { duration: 0.7 } },
 }
 
-export const revalidate = 200 // revalidate every hour
+export const revalidate = 60 // revalidate every hour
 
 export default async function FeaturedWorkList() {
   const projects = await getProjects()
