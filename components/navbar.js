@@ -9,9 +9,11 @@ import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { MotionDiv, MotionSpan } from "../app/use-clients"
+import { useSplitter } from "splitter-gg/client"
 
-const Navbar = () => {
+const Navbar = ({ isVariant = false }) => {
   const pathname = usePathname()
+  const { trackClick } = useSplitter()
 
   useEffect(() => {
     ;(async function () {
@@ -75,16 +77,31 @@ const Navbar = () => {
               Blog
             </motion.span>
           </Link>
-          <motion.button
-            className="whitespace-nowrap rounded-full border border-primary px-3 py-2 text-sm font-medium text-white xl:text-[17px]"
-            data-cal-link="andelh/new-project-chat"
-            data-cal-config='{"layout":"month_view"}'
-            whileHover={{
-              color: colors.primary,
-            }}
-          >
-            Book a call
-          </motion.button>
+          {isVariant ? (
+            <motion.button
+              className="whitespace-nowrap rounded-full bg-primary px-3 py-2 text-sm font-medium text-white xl:text-[17px]"
+              data-cal-link="andelh/new-project-chat"
+              data-cal-config='{"layout":"month_view"}'
+              onClick={() => trackClick("booking-experiment")}
+              whileHover={{
+                color: "black",
+              }}
+            >
+              Book a chat
+            </motion.button>
+          ) : (
+            <motion.button
+              className="whitespace-nowrap rounded-full border border-primary px-3 py-2 text-sm font-medium text-white xl:text-[17px]"
+              data-cal-link="andelh/new-project-chat"
+              data-cal-config='{"layout":"month_view"}'
+              onClick={() => trackClick("booking-experiment")}
+              whileHover={{
+                color: colors.primary,
+              }}
+            >
+              Book a call
+            </motion.button>
+          )}
         </div>
       </div>
     </nav>
