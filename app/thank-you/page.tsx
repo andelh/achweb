@@ -4,10 +4,6 @@ import Link from "next/link"
 import MainButton from "../../components/main-button"
 import { useSplitter } from "splitter-gg/client"
 
-export const metadata = {
-  title: "Thank you",
-}
-
 export default function ThankYouPage() {
   const { trackConversion } = useSplitter()
 
