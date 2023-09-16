@@ -3,6 +3,8 @@ import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import { inter } from "../styles/fonts"
 import { Analytics } from "@vercel/analytics/react"
+import { SplitterProvider } from "splitter-gg/client"
+import { Experiment, Variant } from "splitter-gg"
 
 export const metadata = {
   title: "Andel Husbands | Web and App Developer",
@@ -36,14 +38,26 @@ export default function RootLayout({
         {/* Add favicon */}
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body>
-        <Navbar />
-        <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white xl:px-0">
-          {children}
-        </main>
-        <Analytics />
-        <Footer />
-      </body>
+      <SplitterProvider>
+        <body>
+          <Experiment name="booking-experiment">
+            {/* name of experiment from step 2 */}
+            <Variant name="default">
+              <Navbar />
+              {/* name to identify variant in the dashboard */}
+            </Variant>
+            <Variant name="bold">
+              {/* name to identify variant in the dashboard */}
+              <Navbar isVariant={true} />
+            </Variant>
+          </Experiment>
+          <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white xl:px-0">
+            {children}
+          </main>
+          <Analytics />
+          <Footer />
+        </body>
+      </SplitterProvider>
     </html>
   )
 }
