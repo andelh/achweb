@@ -1,7 +1,8 @@
 import React from "react"
 import WorkItem from "./work-item"
-import { getProjects } from "../lib/sanity-utils"
 import { MotionDiv } from "../app/use-clients"
+import client from "../lib/sanity"
+import { homeQuery } from "../lib/queries"
 
 const list = {
   visible: {
@@ -21,7 +22,7 @@ const workItem = {
 export const revalidate = 60 // revalidate every hour
 
 export default async function FeaturedWorkList() {
-  const projects = await getProjects()
+  const projects = await client?.fetch(homeQuery)
 
   return (
     <MotionDiv

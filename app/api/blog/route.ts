@@ -7,10 +7,11 @@ import { serialize } from "next-mdx-remote/serialize"
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const slug = searchParams.get("slug")
-  console.log({ slug })
 
   //Find the absolute path of the json directory
   const postsDirectory = path.join(process.cwd(), "posts")
+  console.log("posts directory")
+  console.log({ postsDirectory })
 
   //Read the json data file data.json
   8

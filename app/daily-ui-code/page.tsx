@@ -1,10 +1,12 @@
 import Image from "next/image"
 import React, { Suspense } from "react"
 import UIList from "./ui-list"
-import { getDailyUIItems } from "../../lib/sanity-utils"
+import client from "../../lib/sanity"
+import { dailyUIQuery } from "../../lib/queries"
 
 export default async function DailyUIPage() {
-  const data = await getDailyUIItems()
+  const data = await client?.fetch(dailyUIQuery)
+
   return (
     <div className="mt-8 flex flex-col items-center">
       <h1 className="font-bolder mb-2 text-center">{data.title}</h1>
