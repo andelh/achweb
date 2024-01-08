@@ -1,0 +1,95 @@
+---
+title: How I start every new development project
+date: "April 11, 2022"
+description: Like any well architected building, it’s important to get your foundation right when undertaking a new project. I’ve found that getting these few key things right at the start sets you up best for future maintaining, refactoring and reusability — your future self with thank you!
+tags: ["react", "nextjs"]
+draft: false
+---
+
+Like any well architected building, it’s important to get your foundation right when undertaking a new project. I’ve found that getting these few key things right at the start sets you up best for future maintaining, refactoring and reusability — your future self with thank you!
+
+I’m a simple guy, and much of this mantra translates heavily into my system thinking when deciding on things like folder structure, typography and global color palette setup.
+
+Let’s walk through my typical project setup and breakdown of some of the key decisions that I make when getting started.
+
+## Split up your design into sections
+
+- Do this before you start developing so you have an idea of the hierarchy of everything
+- I like to do this by redrawing onto my sketchpad, but we can also draw red boxes around everything in some design software.
+
+Before I even get trigger happy with `npx-create-next-app`, I like to make sure that I _understand_ the actual design that I am about to undertake. This is usually done at the point where the product designer has handed over finished mobile and desktop mockups. I find that in breaking down the design using the box method, I get a better sense of hierarchy, component use (and which need to be prepped for reuse), and NPM package considerations.
+
+Here are some sketches from a recent website build I did:
+
+![IMG_3911.JPG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/05df8e15-5384-4386-8cd7-7325b709e33e/IMG_3911.jpg)
+
+![IMG_3912.JPG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c8d899b-468c-4a2b-bacd-495cc8489e09/IMG_3912.jpg)
+
+## Start a new NextJs project
+
+This part is pretty standard:
+
+**Step 1**
+
+Open the terminal and `npx create-next-app`
+
+**Step 2**
+
+<SyntaxHighlighter language="jsx">
+  {`
+    if (timeOfDay === "morning") {
+      return "Brew coffee ☕️"
+    } else {
+      return "Crack open a beer! 🍺"
+    }
+  `}
+</SyntaxHighlighter>
+
+## Setup styled-components
+
+- Why I like styled-components - declarative, dynamic styling with props, treats styles like components, very reusable
+  Rework 👇🏾
+  - We can use normal css syntax, instead of using css-in-js method. *In order to set background color, we write `background-color:red` in plain css instead of using css-in-js method(annoying) `backgroundColor="red"`.*
+  - If you are a fan of sass(scss) like me, we can use sass like syntax inside the component.
+  - Documentation is also pretty good.
+  - Output size is small.
+- Pro tips - use one styled component as the base for another
+- _how to setup styled-components in a NextJs app_
+  - install styled-components
+  - Create \_document.js
+  - Update next.config
+
+## Apply CSS reset
+
+- Reference Josh Comeau’s and his why
+- Link to his twitter and big him up tremendously
+
+## Typography and Colors
+
+- Typography very important, can make or break your design.
+- Setup typography in `global.css`
+- Here are a few pro tips:
+
+  - use rem.
+  - line height adjustment for readability
+  - import only required font weight
+
+    s
+
+- Create `colors.js` file with default export
+  - Don’t use descriptive color names. eg blue. Use primary instead. (why)
+
+## BONUS: Import reusable components
+
+- Talk about how repetitive things can get
+- ONce you’ve built it once, you shouldnt have to ever again
+- Talk about labyrinth
+- Share it as pro tip - make sure to say that it is a work in progress
+
+## Start building the nav and footer
+
+- Get your feet wet
+- The most global components. good to get them out the way so you have them on every page
+- Share some footers from lib
+
+Thanks for reading!
