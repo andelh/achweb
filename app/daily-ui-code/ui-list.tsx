@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { getDailyUIItems } from "../../lib/sanity-utils"
 import { MotionDiv } from "../use-clients"
+import client from "../../lib/sanity"
+import { dailyUIQuery } from "../../lib/queries"
 
 const list = {
   visible: {
@@ -27,7 +28,7 @@ type DailyUIItem = {
 }
 
 export default async function UIList() {
-  const data = await getDailyUIItems()
+  const data = await client?.fetch(dailyUIQuery)
   const items: DailyUIItem[] = data.challenges
 
   return (

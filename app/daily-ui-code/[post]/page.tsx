@@ -1,17 +1,18 @@
 import Image from "next/image"
 import Link from "next/link"
 import { BsArrowLeftShort, BsLink } from "react-icons/bs"
-import { getDailyUIItem, getDailyUIItems } from "../../../lib/sanity-utils"
 import { MotionButton, MotionDiv, MotionH1, MotionP } from "../../use-clients"
+import client from "../../../lib/sanity"
+import { dailyUIQuery } from "../../../lib/queries"
 
 export const revalidate = 600 // revalidate every hour
 
 export default async function PostPage({ params }) {
   const slug = params.post
-  const allData = await getDailyUIItems()
+  const allData = await client?.fetch(dailyUIQuery)
   const challenges = allData?.challenges ?? []
-  const data = await getDailyUIItem(slug)
   const index = challenges.findIndex(item => item.slug === slug) + 1
+  const data = challenges[index - 1]
 
   return (
     <>

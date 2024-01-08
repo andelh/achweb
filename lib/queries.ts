@@ -20,7 +20,7 @@ export const dailyUIQuery = `*\[_type == "dailyUI"\][0] {
     }
   }`
 
-export const dailyUIItemQuery = `*\[_type == "dailyUI" && slug ==$slug\][0] {
+export const dailyUIItemQuery = `*\[_type == "dailyUI" && slug == $slug\][0] {
     title,
     body,
     challenges[] {

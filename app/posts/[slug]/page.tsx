@@ -1,53 +1,98 @@
 import MyMDXRemote from "./mdx-remote"
 import Link from "next/link.js"
 import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
+// import fs from "fs"
+import path from "path"
+import matter from "gray-matter"
+import { promises as fs } from "fs"
+import { serialize } from "next-mdx-remote/serialize"
 
-export async function generateMetadata({ params }) {
-  // read route params
-  const slug = params.slug
-  const isLocal = process.env.NODE_ENV === "development"
+const getPost = async (slug: string) => {
+  const postsDirectory = path.join(process.cwd(), "posts")
 
-  // fetch data
-  const rawData = await fetch(
-    `http${isLocal ? "" : "s"}://${
-      process.env.NEXT_PUBLIC_VERCEL_URL ||
-      process.env.VERCEL_URL ||
-      "localhost:3000"
-    }/api/blog?slug=${slug}`,
-    {
-      next: {
-        revalidate: 300,
-      },
-    }
+  const markdownWithMeta = await fs.readFile(
+    postsDirectory + `/${slug}.mdx`,
+    "utf8"
   )
-  const data = await rawData.json()
-  const { frontMatter } = data
-  const { title, description } = frontMatter
+  const { data: frontMatter, content } = matter(markdownWithMeta)
+  const mdxSource = await serialize(content)
 
   return {
-    title,
-    description,
+    frontMatter,
+    slug,
+    mdxSource,
   }
+
+  // const files = fs.readdirSync(path.join("posts"))
+  // const posts = files
+  //   .map(filename => {
+  //     const markdownWithMeta = fs.readFileSync(
+  //       path.join("posts", filename),
+  //       "utf-8"
+  //     )
+  //     const { data: frontMatter } = matter(markdownWithMeta)
+  //     return {
+  //       frontMatter,
+  //       slug: filename.split(".")[0],
+  //       markdownWithMeta,
+  //     }
+  //   })
+  //   .filter(post => !post.frontMatter.draft)
+  //   const post = posts.find(post => post.slug === slug)
+  return frontMatter
 }
+
+// export async function generateMetadata({ params }) {
+//   // read route params
+//   const slug = params.slug
+//   const isLocal = process.env.NODE_ENV === "development"
+
+//   // fetch data
+
+//   const rawData = await fetch(
+//     `http${isLocal ? "" : "s"}://${
+//       process.env.NEXT_PUBLIC_VERCEL_URL ||
+//       process.env.VERCEL_URL ||
+//       "localhost:3000"
+//     }/api/blog?slug=${slug}`,
+//     {
+//       next: {
+//         revalidate: 300,
+//       },
+//     }
+//   )
+//   const data = await rawData.json()
+//   const { frontMatter } = data
+//   const { title, description } = frontMatter
+
+//   return {
+//     title,
+//     description,
+//   }
+// }
 
 export default async function PostPage({ params }) {
   const slug = params.slug
-  const isLocal = process.env.NODE_ENV === "development"
-  const rawData = await fetch(
-    `http${isLocal ? "" : "s"}://${
-      process.env.NEXT_PUBLIC_VERCEL_URL ||
-      process.env.VERCEL_URL ||
-      "localhost:3000"
-    }/api/blog?slug=${slug}`,
-    {
-      next: {
-        revalidate: 300,
-      },
-    }
-  )
-  const data = await rawData.json()
-  const { mdxSource, frontMatter } = data
+  // const isLocal = process.env.NODE_ENV === "development"
+  // const rawData = await fetch(
+  //   `http${isLocal ? "" : "s"}://${
+  //     process.env.NEXT_PUBLIC_VERCEL_URL ||
+  //     process.env.VERCEL_URL ||
+  //     "localhost:3000"
+  //   }/api/blog?slug=${slug}`,
+  //   {
+  //     next: {
+  //       revalidate: 300,
+  //     },
+  //   }
+  // )
+  // const data = await rawData.json()
+  // const { mdxSource, frontMatter } = data
+  const { mdxSource, frontMatter } = await getPost(slug)
   const { title } = frontMatter
+
+  console.log({ mdxSource, frontMatter })
+
   return (
     <>
       <BreadCrumbs title={title} />

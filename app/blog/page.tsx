@@ -25,6 +25,7 @@ const getPosts = async () => {
 
 export default async function IndexPage() {
   const posts = await getPosts()
+  console.log({ posts })
   return (
     <>
       <div className="relative mx-auto w-full pt-[50px]">
