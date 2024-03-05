@@ -7,7 +7,9 @@ const WorkItem = ({ project, variants }) => (
     className={`relative m-1 flex h-[100px] w-full flex-1 basis-[46%] items-center justify-center rounded-md border border-white border-opacity-10 shadow-sm md:h-[180px] md:basis-[30%] lg:h-[200px] lg:basis-[23%]`}
     style={{ backgroundColor: project.backgroundHex ?? "#000" }}
     target="_blank"
-    href={project.url}
+    href={
+      project.caseStudy ? `/portfolio/${project.slug.current}` : project.url
+    }
     variants={variants}
     whileHover={{ scale: 1.02 }}
     transition={{ ease: [0.33, 1, 0.68, 1] }}

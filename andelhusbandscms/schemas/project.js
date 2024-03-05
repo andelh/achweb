@@ -37,6 +37,11 @@ export default {
       type: "blockContent",
     },
     {
+      name: "caseStudy",
+      title: "Case Study",
+      type: "blockContent",
+    },
+    {
       name: "releaseDate",
       title: "Release date",
       type: "datetime",

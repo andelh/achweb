@@ -5,6 +5,19 @@ export const homeQuery = `*\[_type == "project"\] | order(releaseDate desc) {
     backgroundHex,
     overview,
     releaseDate,
+    caseStudy,
+    "poster": poster.asset->url
+  }`
+
+export const portfolioPostQuery = `*\[_type == "project" && slug.current == $slug\][0] {
+    title,
+    url,
+    slug,
+    caseStudy,
+    overview,
+    backgroundHex,
+    overview,
+    releaseDate,
     "poster": poster.asset->url
   }`
 
