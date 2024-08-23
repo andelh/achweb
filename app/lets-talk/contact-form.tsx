@@ -67,6 +67,7 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("+1")
   const [projectType, setProjectType] = useState("")
   const [projectDescription, setProjectDescription] = useState("")
+  const [canAfford, setCanAfford] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
   const sendEmail = async () => {
@@ -116,11 +117,13 @@ export default function ContactForm() {
 
   return (
     <>
-      <div>
+      <div className=" max-w-2xl">
         <div className="mb-[30px]">
-          <p className="text-md mb-[15px] font-bold">Your Name:</p>
+          <label className="text-md mb-[15px] block font-bold">
+            Your Name:
+          </label>
           <input
-            className="text-md w-full rounded-md border-none bg-[#1f1f1f] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
+            className="text-md w-full rounded-md border border-neutral-700 bg-[#1f1f1f] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
             onChange={e => setName(e.target.value)}
             value={name}
             name="name"
@@ -129,9 +132,11 @@ export default function ContactForm() {
           />
         </div>
         <div className="mb-[30px]">
-          <p className="text-md mb-[15px] font-bold">Your Email:</p>
+          <label className="text-md mb-[15px] block font-bold">
+            Your Email:
+          </label>
           <input
-            className="text-md w-full rounded-md border-none bg-[#1f1f1f] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
+            className="text-md w-full rounded-md border border-neutral-700 bg-[#1f1f1f] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
             value={email}
             onChange={e => setEmail(e.target.value)}
             name="email"
@@ -140,7 +145,9 @@ export default function ContactForm() {
           />
         </div>
         <div className="mb-[30px]">
-          <p className="text-md mb-[15px] font-bold">I'm looking for a:</p>
+          <label className="text-md mb-[15px] block font-bold">
+            I'm looking for a:
+          </label>
           <Select
             placeholder="Please select"
             styles={customStyles}
@@ -157,17 +164,47 @@ export default function ContactForm() {
 						  />
 					  </FormItem> */}
         <div className="mb-[30px]">
-          <p className="text-md mb-[15px] font-bold">
+          <label className="text-md mb-[15px] block font-bold">
             Describe your project as simply as possible:
-          </p>
+          </label>
           <textarea
-            className="text-md w-full rounded-md border-none bg-[#1d1d1d] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
+            className="text-md w-full rounded-md border border-neutral-700 bg-[#1d1d1d] p-[15px] font-medium leading-normal text-white focus:outline-none focus:ring-2 focus:ring-[#036CE3]"
             value={projectDescription}
             name="projectDescription"
             onChange={e => setProjectDescription(e.target.value)}
-            placeholder="Start typing here..."
+            placeholder="E.g., A mobile app that helps users track daily habits and set personal goals."
             rows={8}
           />
+        </div>
+        <div className="mb-[30px]">
+          <label className="text-md mb-[15px] block font-bold">
+            Custom projects start at $2,200USD and can go as high as $20,000USD.
+            Can you presently afford this level of investment?
+          </label>
+          <div className="flex items-center space-x-4 text-lg">
+            <label className="flex items-center">
+              <input
+                type="radio"
+                name="canAfford"
+                value="yes"
+                checked={canAfford === "yes"}
+                onChange={e => setCanAfford(e.target.value)}
+                className="text-md mr-2"
+              />
+              Yes
+            </label>
+            <label className="flex items-center">
+              <input
+                type="radio"
+                name="canAfford"
+                value="no"
+                checked={canAfford === "no"}
+                onChange={e => setCanAfford(e.target.value)}
+                className="mr-2"
+              />
+              No
+            </label>
+          </div>
         </div>
         <MainButton full title="Submit" clickHandler={() => handleSubmit()} />
       </div>

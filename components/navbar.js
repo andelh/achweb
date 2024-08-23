@@ -9,11 +9,9 @@ import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { MotionDiv, MotionSpan } from "../app/use-clients"
-import { useSplitter } from "splitter-gg/client"
 
 const Navbar = ({ isVariant = false }) => {
   const pathname = usePathname()
-  const { trackClick } = useSplitter()
 
   useEffect(() => {
     ;(async function () {
@@ -47,8 +45,8 @@ const Navbar = ({ isVariant = false }) => {
             />
           </MotionDiv>
         </Link>
-        <div className="grid cursor-pointer grid-cols-3 items-center justify-center gap-[1px] text-center text-white">
-          <Link href="/daily-ui-code">
+        <div className="grid cursor-pointer grid-cols-2 items-center justify-center gap-[1px] text-center text-white">
+          {/* <Link href="/daily-ui-code">
             <motion.span
               className="text-sm font-medium text-white xl:text-[17px]"
               style={{
@@ -60,7 +58,7 @@ const Navbar = ({ isVariant = false }) => {
             >
               #DailyUICode
             </motion.span>
-          </Link>
+          </Link> */}
           <Link href="/blog">
             <motion.span
               className="text-sm font-medium text-white xl:text-[17px]"
@@ -77,31 +75,11 @@ const Navbar = ({ isVariant = false }) => {
               Blog
             </motion.span>
           </Link>
-          {isVariant ? (
-            <motion.button
-              className="whitespace-nowrap rounded-full bg-primary px-3 py-2 text-sm font-medium text-white xl:text-[17px]"
-              data-cal-link="andelh/new-project-chat"
-              data-cal-config='{"layout":"month_view"}'
-              onClick={() => trackClick("booking-experiment")}
-              whileHover={{
-                color: "black",
-              }}
-            >
+          <Link href="/lets-talk">
+            <motion.button className="whitespace-nowrap rounded-full bg-primary px-3 py-2 text-sm font-medium text-white transition-all hover:scale-105 hover:bg-white hover:text-primary xl:text-[17px]">
               Book a chat
             </motion.button>
-          ) : (
-            <motion.button
-              className="whitespace-nowrap rounded-full border border-primary px-3 py-2 text-sm font-medium text-white xl:text-[17px]"
-              data-cal-link="andelh/new-project-chat"
-              data-cal-config='{"layout":"month_view"}'
-              onClick={() => trackClick("booking-experiment")}
-              whileHover={{
-                color: colors.primary,
-              }}
-            >
-              Book a call
-            </motion.button>
-          )}
+          </Link>
         </div>
       </div>
     </nav>

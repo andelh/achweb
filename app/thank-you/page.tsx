@@ -1,15 +1,9 @@
 "use client"
-import React, { useEffect } from "react"
+import React from "react"
 import Link from "next/link"
 import MainButton from "../../components/main-button"
-import { useSplitter } from "splitter-gg/client"
 
 export default function ThankYouPage() {
-  const { trackConversion } = useSplitter()
-
-  useEffect(() => {
-    trackConversion("booking-experiment")
-  }, [])
   return (
     <>
       <div className="min-h-screen max-w-[1100px] px-[30px] py-[100px] text-center">

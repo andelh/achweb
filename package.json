@@ -35,7 +35,6 @@
     "react-typed": "^1.2.0",
     "react-wrap-balancer": "^0.5.0",
     "reading-time": "^1.5.0",
-    "splitter-gg": "^0.1.1",
     "styled-components": "^5.3.3"
   },
   "keywords": [

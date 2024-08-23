@@ -24,7 +24,7 @@ export default function Footer() {
         <Link href="/lets-talk">
           <MainButton title="Contact me" />
         </Link>
-        <div className="mx-auto my-[20px] grid max-w-[300px] grid-cols-6 gap-4">
+        <div className="mx-auto my-[20px] grid max-w-[300px] grid-cols-5 gap-4">
           <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
@@ -55,7 +55,7 @@ export default function Footer() {
               <FaTwitter />
             </a>
           </div>
-          <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
+          {/* <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
               rel="noopener noreferrer"
@@ -64,7 +64,7 @@ export default function Footer() {
             >
               <FaWhatsappSquare />
             </a>
-          </div>
+          </div> */}
           <div className="inline text-[1.8rem] transition-all hover:text-[#0e99ee]">
             <a
               style={{ color: "inherit" }}
@@ -95,7 +95,7 @@ export default function Footer() {
             margin: "5px 0",
           }}
         >
-          © 2023 Andel Husbands. All Rights Reserved.
+          © {new Date().getFullYear()} Andel Husbands. All Rights Reserved.
         </p>
       </div>
     </footer>
