@@ -81,6 +81,7 @@ export default function ContactForm() {
         email,
         projectType,
         projectDescription,
+        canAfford,
       })
     } catch (err) {
       console.log("could not send slack message")
