@@ -207,13 +207,13 @@ export default function ContactForm() {
             </label>
           </div>
         </div>
+        {isLoading && (
+          <div className="relative mt-[20px] flex w-full items-center justify-center ">
+            <Loader type="Oval" color={colors.primary} height={40} width={40} />
+          </div>
+        )}
         <MainButton full title="Submit" clickHandler={() => handleSubmit()} />
       </div>
-      {isLoading && (
-        <div className="relative mt-[20px] flex w-full items-center justify-center ">
-          <Loader type="Oval" color={colors.primary} height={40} width={40} />
-        </div>
-      )}
     </>
   )
 }
