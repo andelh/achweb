@@ -1,44 +1,12 @@
 import React from "react"
-import WorkItem from "./work-item"
-import { MotionDiv } from "../app/use-clients"
 import client from "../lib/sanity"
 import { homeQuery } from "../lib/queries"
-import WorkItemAlt from "./work-item-alt"
-
-const list = {
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-  hidden: { opacity: 0 },
-}
-
-const workItem = {
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-  hidden: { opacity: 0, y: 30, transition: { duration: 0.7 } },
-}
+import FeaturedWorkClient from "./featured-work-client"
 
 export const revalidate = 60 // revalidate every hour
 
 export default async function FeaturedWorkList() {
   const projects = await client?.fetch(homeQuery)
 
-  return (
-    <MotionDiv
-      className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
-      layout
-      initial="hidden"
-      // viewport={{
-      //   amount: 0.3,
-      // }}
-      whileInView="visible"
-      variants={list}
-    >
-      {projects.map((item, index) => (
-        <WorkItemAlt key={index} project={item} variants={workItem} />
-      ))}
-    </MotionDiv>
-  )
+  return <FeaturedWorkClient projects={projects} />
 }

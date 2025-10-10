@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import Heading from "../components/home/heading"
 import FeaturedWork from "../components/home/featured-work"
 
@@ -8,7 +8,9 @@ export default async function IndexPage({}: Props) {
   return (
     <>
       <Heading />
-      <FeaturedWork />
+      <Suspense fallback={<div>Loading featured work...</div>}>
+        <FeaturedWork />
+      </Suspense>
     </>
   )
 }
