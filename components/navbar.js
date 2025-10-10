@@ -26,7 +26,7 @@ const Navbar = ({ isVariant = false }) => {
   }, [])
 
   return (
-    <nav className="fixed left-0 right-0 z-40 mx-auto w-full max-w-[1100px] bg-[#03040590] px-[5%] py-[30px] text-white shadow-md backdrop-blur-md xl:px-0">
+    <nav className="fixed left-0 right-0 z-40 mx-auto w-full max-w-[1100px] border-b border-white/10 bg-[#03040590] px-[5%] py-4 text-white shadow-md backdrop-blur-md xl:px-0">
       <div className="mx-auto flex w-full max-w-[1100px] flex-row items-center justify-between">
         <Link href="/">
           <MotionDiv
@@ -65,18 +65,18 @@ const Navbar = ({ isVariant = false }) => {
               style={{
                 color:
                   pathname.includes("/posts") || pathname === "/blog"
-                    ? colors.primary
+                    ? "#5972A1"
                     : "white",
               }}
               whileHover={{
-                color: colors.primary,
+                color: "#5972A1",
               }}
             >
               Blog
             </motion.span>
           </Link>
           <Link href="/lets-talk">
-            <motion.button className="whitespace-nowrap rounded-full bg-primary px-3 py-2 text-sm font-medium text-white transition-all hover:scale-105 hover:bg-white hover:text-primary xl:text-[17px]">
+            <motion.button className="whitespace-nowrap rounded-full bg-[#5972A1] px-3 py-2 text-sm font-medium text-white transition-all hover:scale-105 hover:bg-white hover:text-[#5972A1] xl:text-[17px]">
               Book a chat
             </motion.button>
           </Link>

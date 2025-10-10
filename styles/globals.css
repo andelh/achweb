@@ -1,9 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff00ff;
+  --color-secondary: #0084ff;
+  --font-family-inter: var(--font-inter);
+}
 
 /* Vorkurs */
 @font-face {
@@ -104,11 +107,12 @@
   font-display: swap;
 }
 
-html {
-  /* font-family: "Vorkurs", sans-serif; */
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
+@layer base {
+  html {
+    /* font-family: "Vorkurs", sans-serif; */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
 body {
   margin: 0;
   background-color: #080808;
@@ -740,8 +744,9 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
+  @media only screen and (max-width: 480px) {
+    html {
+      font-size: 100%;
+    }
   }
 }

@@ -3,6 +3,7 @@ import WorkItem from "./work-item"
 import { MotionDiv } from "../app/use-clients"
 import client from "../lib/sanity"
 import { homeQuery } from "../lib/queries"
+import WorkItemAlt from "./work-item-alt"
 
 const list = {
   visible: {
@@ -26,17 +27,17 @@ export default async function FeaturedWorkList() {
 
   return (
     <MotionDiv
-      className="flex w-full flex-row flex-wrap"
+      className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
       layout
       initial="hidden"
-      viewport={{
-        amount: 0.3,
-      }}
+      // viewport={{
+      //   amount: 0.3,
+      // }}
       whileInView="visible"
       variants={list}
     >
       {projects.map((item, index) => (
-        <WorkItem key={index} project={item} variants={workItem} />
+        <WorkItemAlt key={index} project={item} variants={workItem} />
       ))}
     </MotionDiv>
   )

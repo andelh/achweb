@@ -99,7 +99,7 @@ export default async function PostPage({ params }) {
       <MotionH1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="max-w-[21ch] text-[40px] md:text-[40px]"
+        className="max-w-[21ch] text-3xl md:text-[40px]"
       >
         {title}
       </MotionH1>
@@ -163,7 +163,7 @@ const BreadCrumbs = ({ title }) => {
                 clipRule="evenodd"
               ></path>
             </svg>
-            <span className="ml-1 max-w-[26ch] truncate text-ellipsis text-sm font-medium text-primary text-opacity-80 md:ml-2 md:max-w-none">
+            <span className="text-primary ml-1 max-w-[26ch] truncate text-ellipsis text-sm font-medium text-opacity-80 md:ml-2 md:max-w-none">
               {title}
             </span>
           </div>
