@@ -29,8 +29,8 @@ export default async function IndexPage() {
   const posts = await getPosts()
   return (
     <>
-      <div className="relative mx-auto w-full pt-[50px]">
-        <h1 className="mb-12 text-3xl md:text-5xl">
+      <div className="relative mx-auto w-full pt-[50px] font-sans">
+        <h1 className="mb-12 text-2xl md:text-5xl text-copy font-medium">
           Writing on software, startups and life.
         </h1>
         {/* <div className="relative grid  grid-cols-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[300px_1fr]"> */}

@@ -1,8 +1,14 @@
-import "../styles/globals.css"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
-import { inter } from "../styles/fonts"
 import { Analytics } from "@vercel/analytics/react"
+import { Outfit } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
+import "./globals.css"
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+})
 
 export const metadata = {
   title:
@@ -20,31 +26,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en">
       <head>
-        <link
-          rel="preload"
-          href="/fonts/Vorkurs/ii-vorkurs-light.woff"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Vorkurs/ii-vorkurs-medium.woff"
-          as="font"
-          crossOrigin=""
-        />
         {/* Add favicon */}
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body>
-        <Navbar />
-        <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white xl:px-0">
-          {children}
-        </main>
-        <Analytics />
-        <Footer />
-      </body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body className={`${outfit.variable} antialiased`}>
+          <Navbar />
+          <main className="mx-auto max-w-[1100px] px-[5%] pb-[5%] pt-[100px] text-white xl:px-0">
+            {children}
+          </main>
+          <Analytics />
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   )
 }
