@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
-import { MotionDiv } from "../app/use-clients"
-import WorkItemAlt from "./work-item-alt"
+import { MotionDiv } from "../use-clients"
+import WorkItemAlt from "../../components/work-item-alt"
 
 const list = {
   visible: {

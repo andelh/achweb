@@ -3,9 +3,9 @@ import React from "react"
 
 //NPM
 import TextLoop from "react-text-loop"
-import MainButton from "../main-button"
+import MainButton from "../../components/main-button"
 import Link from "next/link"
-import { MotionDiv } from "../../app/use-clients"
+import { MotionDiv } from "../use-clients"
 
 export default function Heading() {
   return (

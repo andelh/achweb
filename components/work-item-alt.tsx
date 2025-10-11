@@ -1,6 +1,5 @@
 import Image from "next/image"
 import React from "react"
-import { MotionA } from "../app/use-clients"
 import BlockContent from "@sanity/block-content-to-react"
 import { FaLink } from "react-icons/fa"
 
@@ -15,7 +14,6 @@ export default function WorkItemAlt({ project, variants }) {
         className="size-12 mb-3 rounded-lg "
         style={{
           objectFit: "contain",
-          // backgroundColor: project.backgroundHex ?? "#000",
         }}
       />
       <p className="text-md mb-1 font-semibold">{project.title}</p>
@@ -70,25 +68,3 @@ export default function WorkItemAlt({ project, variants }) {
     </div>
   )
 }
-
-// const WorkItemAlt = ({ project, variants }) => (
-//   <MotionA
-//     className={`relative m-1 flex h-[100px] w-full flex-1 basis-[46%] items-center justify-center rounded-md border border-white border-opacity-10 shadow-sm md:h-[180px] md:basis-[30%] lg:h-[200px] lg:basis-[23%]`}
-//     style={{ backgroundColor: project.backgroundHex ?? "#000" }}
-//     target="_blank"
-//     href={project.url}
-//     variants={variants}
-//     whileHover={{ scale: 1.02 }}
-//     transition={{ ease: [0.33, 1, 0.68, 1] }}
-//     whileTap={{ scale: 0.95 }}
-//   >
-//     <div className="absolute m-0 h-full w-1/2 max-w-[120px]">
-//       <Image
-//         style={{ objectFit: "contain" }}
-//         fill
-//         alt="project-image"
-//         src={project.poster}
-//       />
-//     </div>
-//   </MotionA>
-// )
