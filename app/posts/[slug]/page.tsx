@@ -123,7 +123,7 @@ const BreadCrumbs = ({ title }) => {
         duration: 0.6,
         ease: [0.6, 0.01, -0.05, 0.9],
       }}
-      className="mb-16 flex w-fit items-center rounded-lg border shadow-sm bg-bg-medium px-5 py-3 text-gray-700"
+      className="mb-16 flex w-fit items-center rounded-lg border shadow-sm bg-bg-light px-5 py-3 text-gray-700"
       aria-label="Breadcrumb"
     >
       <ol className="m-0 inline-flex items-center space-x-1 md:space-x-3">

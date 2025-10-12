@@ -5,12 +5,7 @@ import { Link } from "lucide-react"
 
 export default function WorkItemAlt({ project, variants }) {
   return (
-    <div
-      style={{
-        boxShadow: "var(--shadow-sm)",
-      }}
-      className="bg-bg-light rounded-md p-4 py-6 flex flex-col justify-between items-start"
-    >
+    <div className="bg-bg-light border border-bg-medium rounded-md p-4 py-6 flex flex-col justify-between items-start">
       <div>
         <Image
           width={50}
@@ -56,7 +51,7 @@ export default function WorkItemAlt({ project, variants }) {
                   }
 
                   return (
-                    <p className="mb-4 text-md font-medium text-text-muted">
+                    <p className="mb-4 text-md font-normal text-text-muted">
                       {props.children}
                     </p>
                   )

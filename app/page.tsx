@@ -14,7 +14,7 @@ export default async function IndexPage({}: Props) {
     <div className="font-sans">
       <Heading />
       <div className="mb-10">
-        <h2 className="text-2xl font-semibold text-text mb-2">
+        <h2 className="text-2xl font-semibold text-copy mb-2">
           See My Featured Work
         </h2>
         <p className="text-text-muted mb-8 text-lg">

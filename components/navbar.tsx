@@ -11,9 +11,11 @@ import Image from "next/image"
 import { MotionDiv, MotionSpan } from "../app/use-clients"
 import { Button } from "./ui/button"
 import ModeToggle from "./mode-toggle"
+import { useTheme } from "next-themes"
 
 const Navbar = ({ isVariant = false }) => {
   const pathname = usePathname()
+  const { theme } = useTheme()
 
   useEffect(() => {
     ;(async function () {
@@ -28,7 +30,7 @@ const Navbar = ({ isVariant = false }) => {
   }, [])
 
   return (
-    <nav className="fixed left-0 right-0 z-40 mx-auto w-full max-w-[1100px] border-b border-white/10 dark:bg-[#03040590] bg-bg-light/20 px-[5%] py-4 text-white backdrop-blur-md xl:px-0">
+    <nav className="fixed left-0 right-0 z-30  w-full  font-sans  dark:bg-[#00000090] bg-bg-light/40 px-[5%] py-4 text-copy backdrop-blur-lg xl:px-4">
       <div className="mx-auto flex w-full max-w-[1100px] flex-row items-center justify-between">
         <Link href="/">
           <MotionDiv
@@ -39,16 +41,16 @@ const Navbar = ({ isVariant = false }) => {
             className="min-w-[50px]"
           >
             <Image
-              style={{ margin: 0 }}
+              // style={{ margin: 0 }}
               src="/ah-logo.png"
               alt="logo"
-              className="invert dark:invert-0"
               width={40}
               height={45}
+              style={{ filter: theme === "dark" ? "invert(0)" : "invert(1)" }}
             />
           </MotionDiv>
         </Link>
-        <div className="grid cursor-pointer grid-cols-3 items-center justify-center gap-2 text-center text-text">
+        <div className="flex cursor-pointer flex-row items-center justify-center gap-4 text-center text-text">
           <Link href="/blog">
             <motion.span
               className="text-sm font-medium text-text xl:text-[17px]"
@@ -68,8 +70,8 @@ const Navbar = ({ isVariant = false }) => {
           <Button asChild>
             <Link href="/lets-talk">Let's Talk</Link>
           </Button>
+          <ModeToggle />
         </div>
-        <ModeToggle />
       </div>
     </nav>
   )
