@@ -6,26 +6,28 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaGithub,
-  FaWhatsappSquare,
   FaRegEnvelope,
 } from "react-icons/fa"
 
 //NPM
-import MainButton from "./main-button"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "./ui/button"
 
 export default function Footer() {
   const pathname = usePathname()
-  if (pathname === "/lets-talk") return null
+  const hideCTA = pathname === "/thank-you" || pathname === "/lets-talk"
   return (
     <footer className="w-full p-[30px] text-center text-copy font-sans">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-lg mb-4">Let's work together</h1>
-        <Button size="lg" asChild className="mb-4">
-          <Link href="/lets-talk">Contact me</Link>
-        </Button>
+        {!hideCTA && (
+          <>
+            <h1 className="text-lg mb-4">Let's work together</h1>
+            <Button size="lg" asChild className="mb-4">
+              <Link href="/lets-talk">Contact me</Link>
+            </Button>
+          </>
+        )}
         <div className="mx-auto text-[1.4rem] text-text-muted my-[20px] grid max-w-[300px] grid-cols-6 gap-4">
           <div className="inline transition-all hover:text-[#0e99ee]">
             <a
