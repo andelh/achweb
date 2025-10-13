@@ -37,7 +37,7 @@ export default async function PostPage({ params }) {
             duration: 0.8,
             ease: [0.6, 0.01, -0.05, 0.9],
           }}
-          className="font-bolder mb-8 text-center"
+          className="font-bold text-2xl mb-8 text-center"
         >
           {data?.title}
         </MotionH1>

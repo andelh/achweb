@@ -6,17 +6,17 @@ export const metadata = {
 
 export default function LetsTalkPage() {
   return (
-    <>
+    <div className="font-sans pt-10">
       <div className="mb-[40px]">
-        <h1 className="text-[48px] md:text-[9vmax] xl:text-[10.5vmin]">
+        <h1 className="mb-12 text-2xl md:text-5xl text-copy font-medium">
           Let's Talk
         </h1>
-        <p className="max-w-[50ch] text-lg leading-tight opacity-90">
+        <p className="text-text-muted mb-8 text-lg">
           Tell me a bit about your project so we can get the ball rolling and
           build something great together!
         </p>
       </div>
       <ContactForm />
-    </>
+    </div>
   )
 }

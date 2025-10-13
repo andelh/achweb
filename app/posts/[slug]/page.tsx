@@ -91,27 +91,25 @@ export default async function PostPage({ params }) {
   const { mdxSource, frontMatter } = await getPost(slug)
   const { title } = frontMatter
 
-  console.log({ mdxSource, frontMatter })
-
   return (
-    <>
+    <div className="text-copy font-sans">
       <BreadCrumbs title={title} />
       <MotionH1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="max-w-[21ch] text-[40px] md:text-[40px]"
+        className="text-copy max-w-[21ch] text-3xl md:text-[40px] font-medium mb-8"
       >
         {title}
       </MotionH1>
       <MotionDiv
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="mb-16 max-w-[690px]"
+        className="mb-16 max-w-[690px] font-sans"
       >
         <MyMDXRemote {...mdxSource} />
       </MotionDiv>
       <BreadCrumbs title={title} />
-    </>
+    </div>
   )
 }
 
@@ -125,7 +123,7 @@ const BreadCrumbs = ({ title }) => {
         duration: 0.6,
         ease: [0.6, 0.01, -0.05, 0.9],
       }}
-      className="mb-16 flex w-fit items-center rounded-lg border border-slate-800 bg-stone-950 px-5 py-3 text-gray-700"
+      className="mb-16 flex w-fit items-center rounded-lg border shadow-sm bg-bg-light px-5 py-3 text-gray-700"
       aria-label="Breadcrumb"
     >
       <ol className="m-0 inline-flex items-center space-x-1 md:space-x-3">
@@ -163,7 +161,7 @@ const BreadCrumbs = ({ title }) => {
                 clipRule="evenodd"
               ></path>
             </svg>
-            <span className="ml-1 max-w-[26ch] truncate text-ellipsis text-sm font-medium text-primary text-opacity-80 md:ml-2 md:max-w-none">
+            <span className="text-primary ml-1 max-w-[26ch] truncate text-ellipsis text-sm font-medium text-opacity-80 md:ml-2 md:max-w-none">
               {title}
             </span>
           </div>

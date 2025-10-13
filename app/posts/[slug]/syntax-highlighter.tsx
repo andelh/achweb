@@ -51,6 +51,7 @@ const duotoneSea = {
     color: "#57718e",
     padding: "1em",
     margin: ".5em 0",
+    marginBottom: "1em",
     overflow: "auto",
   },
   'pre > code[class*="language-"]': {

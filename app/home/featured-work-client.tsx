@@ -1,8 +1,7 @@
+"use client"
 import React from "react"
-import WorkItem from "./work-item"
-import { MotionDiv } from "../app/use-clients"
-import client from "../lib/sanity"
-import { homeQuery } from "../lib/queries"
+import { MotionDiv } from "../use-clients"
+import WorkItemAlt from "../../components/work-item-alt"
 
 const list = {
   visible: {
@@ -19,24 +18,21 @@ const workItem = {
   hidden: { opacity: 0, y: 30, transition: { duration: 0.7 } },
 }
 
-export const revalidate = 60 // revalidate every hour
+interface FeaturedWorkClientProps {
+  projects: any[]
+}
 
-export default async function FeaturedWorkList() {
-  const projects = await client?.fetch(homeQuery)
-
+export default function FeaturedWorkClient({ projects }: FeaturedWorkClientProps) {
   return (
     <MotionDiv
-      className="flex w-full flex-row flex-wrap"
+      className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
       layout
       initial="hidden"
-      viewport={{
-        amount: 0.3,
-      }}
       whileInView="visible"
       variants={list}
     >
       {projects.map((item, index) => (
-        <WorkItem key={index} project={item} variants={workItem} />
+        <WorkItemAlt key={index} project={item} variants={workItem} />
       ))}
     </MotionDiv>
   )
