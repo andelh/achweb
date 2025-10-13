@@ -1,16 +1,11 @@
 "use client"
-import Loader from "react-loader-spinner"
-import MainButton from "../../components/main-button"
-import { colors } from "../../styles/colors"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import emailjs from "emailjs-com"
 import axios from "axios"
 import { Label } from "@/components/ui/label"
 import {
   Field,
   FieldDescription,
-  FieldError,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
@@ -50,8 +45,6 @@ export default function ContactForm() {
   const sendEmail = async () => {
     //Start loading
     setIsLoading(true)
-
-    console.log(name, email, projectType, projectDescription, canAfford)
 
     // Send a slack message
     try {
@@ -95,6 +88,8 @@ export default function ContactForm() {
             <Field>
               <FieldLabel htmlFor="email">Your Email:</FieldLabel>
               <Input
+                type="email"
+                id="email"
                 onChange={e => setEmail(e.target.value)}
                 value={email}
                 name="email"
@@ -119,7 +114,7 @@ export default function ContactForm() {
                   <SelectGroup>
                     <SelectLabel>Services</SelectLabel>
                     {services.map(service => (
-                      <SelectItem value={service.value}>
+                      <SelectItem key={service.value} value={service.value}>
                         {service.label}
                       </SelectItem>
                     ))}
@@ -132,6 +127,7 @@ export default function ContactForm() {
                 Describe your project as simply as possible:
               </FieldLabel>
               <Textarea
+                id="projectDescription"
                 onChange={e => setProjectDescription(e.target.value)}
                 value={projectDescription}
                 name="projectDescription"

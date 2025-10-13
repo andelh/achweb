@@ -1,8 +1,6 @@
 "use client"
 import React from "react"
 
-//NPM
-import TextLoop from "react-text-loop"
 import Link from "next/link"
 import { MotionDiv } from "../use-clients"
 import { Button } from "@/components/ui/button"
