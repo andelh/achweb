@@ -7,10 +7,12 @@ export const metadata = {
 export default function SignUpDailyUI() {
   return (
     <>
-      <h1 className="font-bolder mb-2 text-center">#1 Sign Up</h1>
+      <h1 className="font-sans text-copy font-semibold text-4xl mb-2 text-center">
+        #1 Sign Up
+      </h1>
       <div className="mb-0 flex flex-row items-center justify-center gap-3">
         <Image src="/youtube.svg" alt="youtube-icon" width={26} height={22} />
-        <p className="text-sm">
+        <p className="text-sm text-copy">
           Watch on{" "}
           <span className="font-bold text-red-600 underline underline-offset-4">
             YouTube
@@ -18,12 +20,12 @@ export default function SignUpDailyUI() {
         </p>
       </div>
       <div
-        className={`bg-background flex min-h-screen flex-col items-center justify-between p-24 font-inter text-black`}
+        className={`bg-background flex min-h-screen flex-col items-center justify-between p-24`}
       >
-        <div className="mx-auto grid h-full w-full max-w-5xl grid-cols-2 bg-white">
+        <div className="mx-auto grid h-full w-full max-w-5xl grid-cols-2 ">
           <div className="px-20 py-20">
             <div id="buttons" className="mb-20 flex flex-row gap-8">
-              <button className="bg-accent rounded-full px-8 py-3 text-sm font-medium text-white">
+              <button className="bg-accent rounded-full px-8 py-3 text-sm font-medium ">
                 Sign up
               </button>
               <button className="text-light text-sm font-medium">
@@ -69,7 +71,7 @@ export default function SignUpDailyUI() {
                 <input type="radio" />
                 <label className="text-xs font-medium ">Terms of Service</label>
               </div>
-              <button className="mb-8 rounded-full bg-primary px-8 py-4 text-xs font-semibold uppercase text-white">
+              <button className="mb-8 rounded-full bg-primary px-8 py-4 text-xs font-semibold uppercase">
                 Sign Up
               </button>
               <button className="text-dark text-left text-xs font-medium underline">

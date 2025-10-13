@@ -9,9 +9,13 @@ export default async function DailyUIPage() {
 
   return (
     <div className="mt-8 flex flex-col items-center">
-      <h1 className="font-bolder mb-2 text-center">{data.title}</h1>
-      <p className="text-md max-w-lg text-center">{data.body}</p>
-      <div className="mb-10 flex flex-row items-center justify-center gap-3">
+      <h1 className="font-semibold text-copy text-4xl mb-2 text-center">
+        {data.title}
+      </h1>
+      <p className="text-md text-text-muted mb-8 max-w-lg text-center">
+        {data.body}
+      </p>
+      <div className="text-copy mb-10 flex flex-row items-center justify-center gap-3">
         <Image
           src="/youtube.svg"
           alt="youtube-icon"
@@ -27,7 +31,6 @@ export default async function DailyUIPage() {
         </a>
       </div>
       <Suspense fallback={<Loading />}>
-        {/* @ts-expect-error Server Component */}
         <UIList />
       </Suspense>
     </div>
