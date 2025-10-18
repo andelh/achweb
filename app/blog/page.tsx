@@ -22,6 +22,11 @@ const getPosts = async () => {
       }
     })
     .filter(post => !post.frontMatter.draft)
+    .sort((a, b) => {
+      const dateA = new Date(a.frontMatter.date)
+      const dateB = new Date(b.frontMatter.date)
+      return dateB.getTime() - dateA.getTime() // Most recent first
+    })
   return posts
 }
 

@@ -5,6 +5,7 @@
 
 @theme inline {
   --color-primary: oklch(0.7 0.3225 243);
+  --color-link: var(--primary-link);
   --color-secondary: #0084ff;
   --font-family-inter: var(--font-inter);
   --font-sans: var(--font-outfit);
@@ -66,6 +67,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
+  --primary-link: oklch(0.6 0.25 63);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -99,12 +101,9 @@
   --shadow-lg: inset 0 1px 2px #ffffff70, 0 4px 6px #00000030,
     0 6px 10px #00000015;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 
+@media (prefers-color-scheme: dark) {
+  
 } */
 
 .dark {
@@ -117,6 +116,7 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
+  --primary-link: oklch(0.8 0.25 63);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);

@@ -105,7 +105,7 @@ const BreadCrumbs = ({ title }) => {
         <li className="m-0 inline-flex items-center">
           <Link
             href="/blog"
-            className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+            className="inline-flex items-center text-sm font-medium text-text-muted/75 hover:text-link dark:text-text-muted/75 dark:hover:text-link"
           >
             <svg
               aria-hidden="true"
@@ -116,7 +116,7 @@ const BreadCrumbs = ({ title }) => {
             >
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
             </svg>
-            <span className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+            <span className="inline-flex items-center text-sm font-medium text-text-muted/75 hover:text-link dark:text-text-muted/75 dark:hover:text-link">
               Blog
             </span>
           </Link>

@@ -62,7 +62,7 @@ const components = {
     </li>
   ),
   a: ({ className, ...props }) => (
-    <a {...props} className={cn("text-primary underline", className)}>
+    <a {...props} className={cn("text-link no-underline hover:underline", className)}>
       {props.children}
     </a>
   ),
