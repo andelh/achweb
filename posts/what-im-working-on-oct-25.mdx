@@ -6,37 +6,60 @@ tags: ["saas", "nextjs", "convex", "caribbean", "taack", "dollah"]
 draft: false
 ---
 
-I've been heads down building lately. Not _only_ for clients, but for something more personal, tools that solve real problems for myself and the people I know.
+I've been heads down building lately. Like, _burnout-level-going-to-bed-at-2am_ heads down. Not really in a client work sense. It's fueled by something more personal. I’m building tools that solve real problems for myself and the people I know.
 
-Four SaaS apps: **Taack**, **Dollah**, **Gazette**, and **The WiFy Plugin**. All built with the same stack: [Next.js](https://nextjs.org), [Convex](https://convex.dev), and [Clerk](https://clerk.com). Honestly? It's all I need these days.
+Four Software as a Service (SaaS) apps: **Taack**, **Dollah**, **Gazette**, and **The WiFy Plugin**. All built with the same stack: [Next.js](https://nextjs.org/), [Convex](https://convex.dev/), and [Clerk](https://clerk.com/). It's all I need these days for peak productivity as a solo dev. Most notably, Convex has been game-changing in allowing me to ship faster and I will fan-boy for them any day.
 
-The goal isn't just passive income (though that's a nice plus). It's about making a tangible difference in the lives of people in Trinidad & Tobago and beyond. Here's what's been cooking:
+There’s a real mental aspect to it too. It’s helping me to break past my [upper limits](https://medium.com/@lspencerhunt/uncovering-your-upper-limit-problem-lessons-from-the-big-leap-682ed5e82285). I’ve set both monetary and mission-focused goals for each product. In the SaaS world that manifests itself as MRR (monthly recurring revenue and MAU (monthly active users).
+
+Ultimately, it's about making a tangible difference in the lives of people in Trinidad & Tobago and beyond. Here's what's been cooking:
+
+### My Full Stack
+
+- [Cursor](https://cursor.com) (IDE)
+- [Claude Code](https://www.claude.com/product/claude-code) / [Codex](https://openai.com/codex/) (Coding Agents)
+- [Next.js](https://nextjs.org) (Frontend Framework)
+- [Clerk](https://clerk.com) (Authentication, but I’m considering [better-auth](https://www.better-auth.com))
+- [Convex](https://www.convex.dev) (DB, Cron, Scheduled Functions, Storage — GOATED)
+- [Tailwind CSS](https://tailwindcss.com) / [shadcn](https://ui.shadcn.com) (Styling / UI)
+- [PostHog](https://posthog.com) (Analytics, Session Replay, A/B Testing)
+- [Resend](https://resend.com) (Emails)
+
+This is the stack I’m most productive with, and I don’t think I’ll be shifting it any time soon.
+
+---
 
 ## Dollah
 
 **Goal: 100 monthly users | Current: 6/100**
 
-[Dollah](https://dollah.app) is an automatic spending tracker that's actually made for the Caribbean. Without Open Banking in the region, developers have no way of accessing transaction data securely from banks. Instead, Dollah reads your transaction alert emails from Republic Bank and automatically parses and categorizes everything. Groceries, gas, food—it's all there, color-coded and ready to go.
+[Dollah](https://dollah.app/) is an automatic spending tracker built specifically for the Caribbean. I originally just wanted a simple way to keep tabs on my spending from my Republic Bank account, but without [Open Banking](https://stripe.com/resources/more/open-banking-explained) in the region, there’s no secure way for developers to access transaction data directly.
 
-The app is in early access right now, and I'm focused on perfecting the Republic Bank experience before rolling out support for other banks. It's been interesting seeing how people react when they realize their spending habits are way different than they thought.
+So, Dollah takes a different route. Instead of linking to your bank, it quietly works at the inbox level. When a transaction alert email comes in say, from Republic Bank, it detects, parses, and categorizes the data for you. Over time, you get a clear, holistic view of how you actually spend.
+
+![dollah.png](/posts/dollah.png)
+
+The app’s in early access right now, and I’m working on adding support for more banks like Scotiabank and First Citizens. For now, access is limited to about a hundred people while I complete a few verification steps with Google. A mobile app is definitely on the horizon too. It’s been interesting to see how people react when they realize their spending habits are nothing like what they imagined.
 
 ## Taack
 
-**Goal: $1,000,000 in revenue in the next year**
+**Current Goal: $1,000,000 in revenue in the next year**
 
-Yeah, I said it. [Taack](https://taack.app) is the event ticketing platform Trinidad and Tobago deserves. Clean event pages, local payments (finally!), fast payouts, and analytics that actually help you understand your audience.
+[Taack](https://taack.app/) is the event and ticketing platform the region truly deserves. It’s built for more than just parties and fetes. Taack supports all types of events: yoga retreats, workshops, housewarmings, corporate team-builders and more. It’s modern, secure and snappy. I like to think of it as a boost to both fun and efficiency in entertainment tech.
 
-The platform handles everything from yoga retreats to full-scale productions. Fees are transparent—7% on paid tickets, $1.80 TTD flat per order, and free events stay free. Promoters get paid within 3 days after their event wraps. No surprises, no delays.
+This one’s special to me. It’s not my first rodeo in the event space, but it feels like the culmination of a decade of lessons, experiments, and late nights finally taking shape. Seeing it come to life has felt unreal in the best way.
 
-I'm betting big on this one. If we can become the go-to platform for local events, that million-dollar goal isn't as crazy as it sounds.
+I'm betting big on this. Taack’s already proven itself at scale, selling [over 1,200 tickets for a club event](https://taack.app/events/drakenight) in Jamaica. If we can become the go-to platform for local events, whether niche or massive, that million-dollar goal isn't as crazy as it sounds.
 
 ## The WiFy Plugin
 
 **Goal: 500 subscribers**
 
-[The WiFy Plugin](https://thewifyplugin.com) bridges a massive gap in the Caribbean e-commerce world. It's a Shopify app that integrates WiPay so store owners can accept local payments in JMD, TTD, BBD, and USD—without the usual headaches.
+I’ve been quietly working on this one for a while. True to form, it started as a client solution that grew into an online product. 
 
-Setup takes 2 days, funds go straight to your WiPay account, and there are no hidden service charges. We're already at 306+ happy customers, and the feedback has been solid. The Caribbean Shopify community is growing, and I want this plugin to be the obvious choice for anyone serious about selling online.
+[The WiFy Plugin](https://thewifyplugin.com/) bridges a huge gap in Caribbean e-commerce. It's a Shopify tool that integrates directly with WiPay, so store owners can accept local payments in JMD, TTD, BBD, and USD without the usual setup headaches.
+
+I’ve seen Shopify’s rise firsthand through the kinds of client requests I get. This plugin is all about giving people more freedom and flexibility in how they accept payments online.
 
 ## Gazette
 
@@ -48,15 +71,9 @@ I'm still building out features, but the vision is simple: become the homepage f
 
 ---
 
-## Why This Stack?
-
-Next.js for the frontend and routing, Convex for real-time backend magic, and Clerk for auth that just works. It's fast, it's reliable, and I can spin up new features without overthinking infrastructure. When you're building four apps at once, simplicity matters.
-
----
-
 ## What's Next?
 
-I'm not chasing hockey-stick growth or VC funding. I'm building tools that serve real people, measure success in active users and recurring revenue, and—hopefully—give me the freedom to keep creating.
+I'm not chasing overnight growth or VC funding. I am purposefully bootstrapped. I'm building tools that serve real people, measure success in active users and recurring revenue, and—hopefully—give me the freedom to keep creating.
 
-If any of these resonate with you, or you know someone back home who could use them, send them my way. Let's build something that lasts.
+If any of these resonate with you, or you know someone who could use them, send them my way or share a link! Let's build something that lasts.
 
