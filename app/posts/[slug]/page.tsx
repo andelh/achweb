@@ -26,24 +26,9 @@ const getPost = async (slug: string) => {
 export async function generateMetadata({ params }) {
   // read route params
   const slug = params.slug
-  const isLocal = process.env.NODE_ENV === "development"
 
-  // fetch data
-
-  const rawData = await fetch(
-    `http${isLocal ? "" : "s"}://${
-      process.env.NEXT_PUBLIC_VERCEL_URL ||
-      process.env.VERCEL_URL ||
-      "localhost:3000"
-    }/api/blog?slug=${slug}`,
-    {
-      next: {
-        revalidate: 300,
-      },
-    }
-  )
-  const data = await rawData.json()
-  const { frontMatter } = data
+  // fetch post data directly
+  const { frontMatter } = await getPost(slug)
   const { title, description } = frontMatter
 
   return {
