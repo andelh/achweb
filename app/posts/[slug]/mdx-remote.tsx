@@ -2,6 +2,7 @@
 import { MDXRemote } from "next-mdx-remote"
 import MySyntaxHighlighter from "./syntax-highlighter"
 import { cn } from "../../../lib/utils"
+import Image from "next/image"
 
 const components = {
   h1: ({ className, ...props }) => (
@@ -84,6 +85,11 @@ const components = {
     <h6 {...props} className={cn("mb-4 mt-16 text-[19px]  ", className)}>
       {props.children}
     </h6>
+  ),
+  img: props => (
+    <div className="relative w-full aspect-[1200/630] mb-4 overflow-hidden">
+      <Image {...props} className="object-contain rounded-lg"  alt={props.alt} placeholder="blur" blurDataURL={props.src}  fill />
+    </div>
   ),
   blockquote: props => (
     <blockquote className="ml-4 border-l-2 border-dashed border-secondary pl-4 italic text-secondary opacity-90 md:ml-5 md:pl-6 [&>p]:text-[17px] [&>p]:font-normal">
