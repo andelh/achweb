@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { Separator } from "@/components/ui/separator"
 
 export default function PostItem({ post }) {
   return (
@@ -15,19 +16,20 @@ export default function PostItem({ post }) {
           </small>
         </p>
         <h3
-          className={`card-title text-balance mb-2 text-2xl font-semibold leading-tight text-copy`}
+          className={`card-title text-balance mb-2 text-2xl font-semibold leading-tight text-copy/85`}
         >
           {post.frontMatter.title}
         </h3>
-        <p className="md:text-balance md:text-md mb-4 text-[17px] font-medium leading-[1.3] text-text-muted">
+        <p className="md:text-balance md:text-md mb-4 text-[17px] font-medium leading-[1.3] text-text-muted/75">
           {post.frontMatter.description}
         </p>
         <Link legacyBehavior href={"/posts/" + post.slug}>
-          <a className="text-primary text-[16px] font-semibold uppercase">
+          <a className="text-link text-[16px] font-semibold uppercase">
             Read more
           </a>
         </Link>
       </motion.div>
+      <Separator />
     </Link>
   )
 }

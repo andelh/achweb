@@ -1,7 +1,6 @@
 import MyMDXRemote from "./mdx-remote"
 import Link from "next/link.js"
 import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
-// import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { promises as fs } from "fs"
@@ -22,72 +21,33 @@ const getPost = async (slug: string) => {
     slug,
     mdxSource,
   }
-
-  // const files = fs.readdirSync(path.join("posts"))
-  // const posts = files
-  //   .map(filename => {
-  //     const markdownWithMeta = fs.readFileSync(
-  //       path.join("posts", filename),
-  //       "utf-8"
-  //     )
-  //     const { data: frontMatter } = matter(markdownWithMeta)
-  //     return {
-  //       frontMatter,
-  //       slug: filename.split(".")[0],
-  //       markdownWithMeta,
-  //     }
-  //   })
-  //   .filter(post => !post.frontMatter.draft)
-  //   const post = posts.find(post => post.slug === slug)
-  return frontMatter
 }
 
-// export async function generateMetadata({ params }) {
-//   // read route params
-//   const slug = params.slug
-//   const isLocal = process.env.NODE_ENV === "development"
+export async function generateMetadata({ params }) {
+  // read route params
+  const slug = params.slug
 
-//   // fetch data
+  // fetch post data directly
+  const { frontMatter } = await getPost(slug)
+  const { title, description } = frontMatter
 
-//   const rawData = await fetch(
-//     `http${isLocal ? "" : "s"}://${
-//       process.env.NEXT_PUBLIC_VERCEL_URL ||
-//       process.env.VERCEL_URL ||
-//       "localhost:3000"
-//     }/api/blog?slug=${slug}`,
-//     {
-//       next: {
-//         revalidate: 300,
-//       },
-//     }
-//   )
-//   const data = await rawData.json()
-//   const { frontMatter } = data
-//   const { title, description } = frontMatter
-
-//   return {
-//     title,
-//     description,
-//   }
-// }
+  return {
+    title: title + " | Andel Husbands Blog",
+    description,
+    openGraph: {
+      images: "/og-image.png",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title + " | Andel Husbands Blog",
+      description,
+      images: "/og-image.png",
+    },
+  }
+}
 
 export default async function PostPage({ params }) {
   const slug = params.slug
-  // const isLocal = process.env.NODE_ENV === "development"
-  // const rawData = await fetch(
-  //   `http${isLocal ? "" : "s"}://${
-  //     process.env.NEXT_PUBLIC_VERCEL_URL ||
-  //     process.env.VERCEL_URL ||
-  //     "localhost:3000"
-  //   }/api/blog?slug=${slug}`,
-  //   {
-  //     next: {
-  //       revalidate: 300,
-  //     },
-  //   }
-  // )
-  // const data = await rawData.json()
-  // const { mdxSource, frontMatter } = data
   const { mdxSource, frontMatter } = await getPost(slug)
   const { title } = frontMatter
 
@@ -130,7 +90,7 @@ const BreadCrumbs = ({ title }) => {
         <li className="m-0 inline-flex items-center">
           <Link
             href="/blog"
-            className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+            className="inline-flex items-center text-sm font-medium text-text-muted/75 hover:text-link dark:text-text-muted/75 dark:hover:text-link"
           >
             <svg
               aria-hidden="true"
@@ -141,7 +101,7 @@ const BreadCrumbs = ({ title }) => {
             >
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
             </svg>
-            <span className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+            <span className="inline-flex items-center text-sm font-medium text-text-muted/75 hover:text-link dark:text-text-muted/75 dark:hover:text-link">
               Blog
             </span>
           </Link>

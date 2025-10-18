@@ -70,7 +70,7 @@ export default function WorkItemAlt({ project, variants }) {
         <span className="mr-1 inline-flex items-center justify-center bg-bg-light rounded-full p-2">
           <Link size={12} className="inline-block" />
         </span>{" "}
-        {project.url}
+        {project.url.replace("https://", "").replace("www.", "").replace("/", "")}
       </a>
     </div>
   )
