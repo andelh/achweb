@@ -3,6 +3,9 @@ import { MDXRemote } from "next-mdx-remote"
 import MySyntaxHighlighter from "./syntax-highlighter"
 import { cn } from "../../../lib/utils"
 import Image from "next/image"
+import AnimatedMetric from "../../../components/blog/AnimatedMetric"
+import MetricsGrid from "../../../components/blog/MetricsGrid"
+import HeroMetric from "../../../components/blog/HeroMetric"
 
 const components = {
   h1: ({ className, ...props }) => (
@@ -105,6 +108,9 @@ export default function MyMDXRemote(props) {
       components={{
         // Button,
         SyntaxHighlighter: MySyntaxHighlighter,
+        AnimatedMetric,
+        MetricsGrid,
+        HeroMetric,
         ...components,
       }}
     >
