@@ -1,5 +1,5 @@
 "use client"
-import { NumberFlowGroup } from '@number-flow/react'
+import NumberFlow from '@number-flow/react'
 import { useEffect, useState } from 'react'
 
 interface HeroMetricProps {
@@ -34,21 +34,15 @@ export default function HeroMetric({
           <span className="inline-block rounded-full bg-white/80 dark:bg-black/40 px-6 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-6 tracking-wide uppercase">
             {label}
           </span>
-          <NumberFlowGroup>
-            <div className="text-7xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 mb-4">
-              {prefix}
-              <span
-                className="inline-block tabular-nums"
-                style={{
-                  '--number-flow-char-height': '0.85em',
-                  '--number-flow-mask-height': '0.25em',
-                } as React.CSSProperties}
-              >
-                {isVisible ? value.toLocaleString() : '0'}
-              </span>
-              {suffix}
-            </div>
-          </NumberFlowGroup>
+          <div className="text-7xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 mb-4 tabular-nums">
+            {prefix}
+            <NumberFlow
+              value={isVisible ? value : 0}
+              format={{ notation: 'standard' }}
+              transformTiming={{ duration: 1000, easing: 'ease-out' }}
+            />
+            {suffix}
+          </div>
           {subtitle && (
             <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 font-medium max-w-2xl">
               {subtitle}

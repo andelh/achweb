@@ -1,5 +1,5 @@
 "use client"
-import { NumberFlowGroup } from '@number-flow/react'
+import NumberFlow from '@number-flow/react'
 import { useEffect, useState } from 'react'
 
 interface AnimatedMetricProps {
@@ -36,21 +36,15 @@ export default function AnimatedMetric({
         <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3 tracking-wide uppercase">
           {label}
         </span>
-        <NumberFlowGroup>
-          <div className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-neutral-50 mb-2">
-            {prefix}
-            <span
-              className="inline-block tabular-nums tracking-tight"
-              style={{
-                '--number-flow-char-height': '0.85em',
-                '--number-flow-mask-height': '0.25em',
-              } as React.CSSProperties}
-            >
-              {isVisible ? value.toLocaleString() : '0'}
-            </span>
-            {suffix}
-          </div>
-        </NumberFlowGroup>
+        <div className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-neutral-50 mb-2 tabular-nums">
+          {prefix}
+          <NumberFlow
+            value={isVisible ? value : 0}
+            format={{ notation: 'standard' }}
+            transformTiming={{ duration: 800, easing: 'ease-out' }}
+          />
+          {suffix}
+        </div>
         {trend && trendValue && (
           <div className={`flex items-center gap-2 mt-2 ${trend === 'up' ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
             <svg
