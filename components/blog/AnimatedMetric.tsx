@@ -31,13 +31,13 @@ export default function AnimatedMetric({
   }, [delay])
 
   return (
-    <div className="relative mb-8 rounded-2xl border border-stone-200 dark:border-stone-800 bg-gradient-to-br from-stone-50 to-stone-100 dark:from-stone-900 dark:to-stone-950 p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+    <div className="relative mb-8 rounded-xl border border-neutral-200 dark:border-neutral-800 p-8 transition-all duration-300">
       <div className="flex flex-col items-start">
-        <span className="text-sm font-medium text-stone-600 dark:text-stone-400 mb-3 tracking-wide uppercase">
+        <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-3 tracking-wide uppercase">
           {label}
         </span>
         <NumberFlowGroup>
-          <div className="text-5xl md:text-6xl font-bold text-stone-900 dark:text-stone-100 mb-2">
+          <div className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-neutral-50 mb-2">
             {prefix}
             <span
               className="inline-block tabular-nums tracking-tight"

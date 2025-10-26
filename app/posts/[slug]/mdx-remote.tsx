@@ -14,14 +14,14 @@ const components = {
     </h1>
   ),
   h2: ({ className, ...props }) => (
-    <h2 {...props} className={cn("mb-4 mt-16 text-4xl ", className)}>
+    <h2 {...props} className={cn("mb-4 mt-16 text-[27px] ", className)}>
       {props.children}
     </h2>
   ),
   h3: ({ className, ...props }) => (
     <h3
       {...props}
-      className={cn("mb-4 mt-16 text-3xl  [&>code]:text-[24px]", className)}
+      className={cn("mb-4 mt-16 text-[22px]  [&>code]:text-[18px]", className)}
     >
       {props.children}
     </h3>

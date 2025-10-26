@@ -28,10 +28,10 @@ export default function HeroMetric({
 
   return (
     <div className="not-prose my-16">
-      <div className="relative overflow-hidden rounded-3xl border border-stone-200 dark:border-stone-800 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950 dark:via-purple-950 dark:to-pink-950 p-12 md:p-16 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950 dark:via-purple-950 dark:to-pink-950 p-12 md:p-16 shadow-sm">
         <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-400/[0.05] bg-[size:20px_20px]" />
         <div className="relative flex flex-col items-center justify-center text-center">
-          <span className="inline-block rounded-full bg-white/80 dark:bg-black/40 px-6 py-2 text-sm font-medium text-stone-700 dark:text-stone-300 mb-6 tracking-wide uppercase shadow-sm">
+          <span className="inline-block rounded-full bg-white/80 dark:bg-black/40 px-6 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-300 mb-6 tracking-wide uppercase">
             {label}
           </span>
           <NumberFlowGroup>
@@ -50,7 +50,7 @@ export default function HeroMetric({
             </div>
           </NumberFlowGroup>
           {subtitle && (
-            <p className="text-xl md:text-2xl text-stone-600 dark:text-stone-400 font-medium max-w-2xl">
+            <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 font-medium max-w-2xl">
               {subtitle}
             </p>
           )}
