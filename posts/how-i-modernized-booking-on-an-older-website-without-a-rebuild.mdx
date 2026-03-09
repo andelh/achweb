@@ -1,0 +1,117 @@
+---
+title: How I Modernized Booking on an Older Website Without a Rebuild
+date: "March 9, 2026"
+description: The old booking button opened an email draft. I replaced that with a Cal.com booking flow, payment handoff, and the operational logic the business actually needed.
+tags: ["case-study", "web-development", "booking", "payments", "cal.com"]
+draft: false
+---
+
+One thing I keep seeing is people deciding a website needs to be rebuilt the second the business wants something more sophisticated.
+
+Sometimes that is true. Sometimes the site really is the problem.
+
+But a lot of the time it is not. A lot of the time the real issue is that the website can attract attention, but it cannot carry someone through the part where they are ready to act.
+
+That was the situation here.
+
+The [Ocean Echo Adventures](https://oceanechoadventures.com/) site was not broken in the way people usually mean when they say a site is old. It still explained the experience well. It still made the business feel real. It still did the brand job.
+
+The weak spot showed up when someone clicked "Book now."
+
+Instead of moving into an actual booking flow, the site opened an email prompt.
+
+That might be fine when volume is low and everything is being handled manually. It starts to fall apart once the business needs cleaner operations, better visibility, and a booking process that does not depend on someone chasing email threads all day.
+
+## The website was old, but that was not the real issue
+
+I kept coming back to that while working on it.
+
+The problem was not really age. The problem was the lack of a transaction layer.
+
+That is a more useful way to frame it because it changes what you build.
+
+If you think the problem is "old website," you start pricing out a redesign, thinking about new page sections, fresh visuals, and a whole new front end.
+
+If you think the problem is "this business has no proper booking and payment flow," you start in a very different place.
+
+You think about availability. Approval states. Deposits. Pricing logic. What staff need to manage. What the customer should see next. What happens after someone books. What should happen before they pay.
+
+That is where the real work was.
+
+## I did not want to rebuild the parts that were already working
+
+I could have rebuilt the entire website. There is always a version of a project where that sounds cleaner.
+
+But that would have meant changing far more than the actual bottleneck.
+
+Once you go that route, you are not just solving booking. You are also taking on content migration, design revisions, SEO risk, redirects, deployment details, and every small decision that comes along for the ride.
+
+That is a lot of surface area when the main thing the business needs is a better engine underneath the site it already has.
+
+So I left the public site in place and treated it as the marketing layer.
+
+Then I replaced the part that mattered most.
+
+Instead of a "Book now" button opening an email client, it now opens a [Cal.com](https://cal.com/) embed. That change alone already makes the experience feel more real. The customer is actually booking, not drafting a message and hoping the back-and-forth goes smoothly.
+
+Then I pushed it further.
+
+After the booking is created, the flow moves into payment. That part was important because I did not want the booking experience and the payment experience to live as two disconnected steps the team had to stitch together manually afterward.
+
+## The visible change was simple. The business requirements were not.
+
+From the outside, the upgrade sounds straightforward.
+
+Email prompt out. Booking embed in. Payment flow after.
+
+But that was not the actual brief.
+
+The business did not just want a way for anyone to click a button and pay. They needed control over who was allowed to move forward.
+
+Because this is a horse-riding business, the booking flow has real-world constraints attached to it. Age matters. Weight matters. Some bookings need a closer look before they can be confirmed. They wanted a system that reflected that reality instead of pretending every booking should be treated the same.
+
+So the flow had to work in a specific order.
+
+First, someone submits their booking request.
+
+Then the team reviews it and makes sure everything checks out.
+
+Only after they approve it does that person move on to payment and become a confirmed booking.
+
+That approval step was not a nice extra. It was one of the main requirements.
+
+Once that became clear, the work stopped being about embedding a booking widget and started being about building the right booking state around it.
+
+The system needed to support requests, approvals, rejections, payments, and completed bookings in a way the business could trust.
+
+That is the difference between adding a booking feature and building something the business can actually run on.
+
+## What I actually built into it
+
+The final system ended up doing a lot more than swapping one CTA behavior for another.
+
+It introduced a proper booking flow with [Cal.com](https://cal.com/) as the entry point, then extended that with custom logic for payment handling and the parts of the process that generic tools do not fully cover on their own.
+
+That included deposit payments, booking approvals, payment-gated next steps, pricing controls, and admin functionality so the business could adjust pricing without needing me every time something changed.
+
+That last point matters more than people think.
+
+If a system only works when the developer is standing next to it, the system is still fragile.
+
+The business needs room to manage normal changes on its own.
+
+## What I took from this project
+
+This project pushed me further toward something I already believed: rebuilding should not be the default answer.
+
+Sometimes the right move is to leave the front end alone, keep the trust and familiarity it already has, and build better systems around the part that is actually slowing the business down.
+
+That was the better move here.
+
+The old site still does its job.
+
+It just no longer hands people off to an email draft and hopes for the best.
+
+Now it moves them into a real booking flow, then into payment, with actual logic underneath it.
+
+That is a much better outcome than a shiny rebuild with the same operational gap hiding underneath.
