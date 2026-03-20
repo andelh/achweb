@@ -82,6 +82,7 @@ export default function ContactForm() {
                 value={name}
                 name="name"
                 required
+                autoFocus
                 placeholder="John Doe"
               />
             </Field>
@@ -102,7 +103,7 @@ export default function ContactForm() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="projectType">I'm looking for a:</FieldLabel>
-              <Select onValueChange={value => setProjectType(value)}>
+              <Select onValueChange={value => setProjectType(value)} required>
                 <SelectTrigger
                   className="w-[180px]"
                   id="projectType"
@@ -155,8 +156,8 @@ export default function ContactForm() {
                   <Label htmlFor="yes">Yes</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="no" id="no" />
-                  <Label htmlFor="no">No</Label>
+                  <RadioGroupItem value="planning" id="no" />
+                  <Label htmlFor="no">Not yet, but I want to plan ahead</Label>
                 </div>
               </RadioGroup>
               <FieldDescription>
