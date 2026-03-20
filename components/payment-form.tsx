@@ -4,14 +4,17 @@ import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 
 interface PaymentFormProps {
+  sessionType: string
   amount: number
   sessionLabel: string
   bookingRef?: string
 }
 
 export default function PaymentForm({
+  sessionType,
   amount,
   sessionLabel,
+  bookingRef,
 }: PaymentFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [redirectData, setRedirectData] = useState<string | null>(null)
@@ -26,7 +29,7 @@ export default function PaymentForm({
       const res = await fetch("/api/create-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount }),
+        body: JSON.stringify({ sessionType, bookingRef }),
       })
 
       if (!res.ok) {

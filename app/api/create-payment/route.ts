@@ -1,9 +1,19 @@
 import { NextResponse } from "next/server"
 import { randomUUID } from "crypto"
 
+const SESSION_PRICES: Record<string, number> = {
+  "30min": 350,
+  "60min": 600,
+}
+
 export async function POST(request: Request) {
   try {
-    const { amount, bookingRef } = await request.json()
+    const { sessionType, bookingRef } = await request.json()
+
+    const amount = SESSION_PRICES[sessionType]
+    if (!amount) {
+      return NextResponse.json({ error: "Invalid session type" }, { status: 400 })
+    }
 
     const powerTranzId = process.env.SPI_MERCHANT_ID
     const powerTranzPassword = process.env.SPI_SHARED_SECRET
@@ -28,7 +38,9 @@ export async function POST(request: Request) {
     }
 
     const transactionId = randomUUID()
-    const orderId = `ORD-${transactionId.slice(0, 8).toUpperCase()}`
+    const orderId = bookingRef
+      ? `ORD-${transactionId.slice(0, 8).toUpperCase()}-${bookingRef.slice(0, 8)}`
+      : `ORD-${transactionId.slice(0, 8).toUpperCase()}`
 
     const salePayload = {
       TransactionIdentifier: transactionId,

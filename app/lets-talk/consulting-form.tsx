@@ -155,8 +155,9 @@ export default function ConsultingForm() {
             ← Back
           </button>
           <PaymentForm
-            amount={selectedSession.price}
+            sessionType={selectedSession.value}
             sessionLabel={selectedSession.label}
+            amount={selectedSession.price}
             bookingRef={bookingRef}
           />
         </>
