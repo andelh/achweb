@@ -26,16 +26,16 @@ export default function LetsTalkPage() {
             onClick={() => setActiveForm("project")}
             className="group text-left p-6 rounded-[0.625rem] border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground hover:cursor-pointer transition-all"
           >
-            <span className="text-xs font-medium uppercase tracking-wider text-text-muted mb-2 block">
+            <span className="text-xs font-medium uppercase tracking-wide text-text-muted mb-2 block">
               Build something
             </span>
-            <h2 className="text-xl text-copy font-medium mb-2">
+            <h2 className="text-xl text-copy font-medium mb-1 leading-tighter">
               Start a project
             </h2>
-            <p className="text-text-muted text-sm mb-4">
-            You have a website, app, or product you want to build.
+            <p className="text-text-muted text-base mb-4">
+              You have a website, app, or product you want to build.
             </p>
-            <span className="text-primary text-sm font-medium group-hover:underline">
+            <span className="text-primary text-base font-medium group-hover:underline">
               Tell me about your project →
             </span>
           </button>
@@ -45,15 +45,15 @@ export default function LetsTalkPage() {
             className="group text-left p-6 rounded-[0.625rem] border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground hover:cursor-pointer transition-all"
           >
             <span className="text-xs font-medium uppercase tracking-wider text-text-muted mb-2 block">
-              Get consulting
+              Get unstuck
             </span>
-            <h2 className="text-xl text-copy font-medium mb-2">Book a session</h2>
-            <p className="text-text-muted text-sm mb-4">
-              You want expert eyes on a problem, a tech decision, or a strategy.
-              Paid, focused, and built around you.
+            <h2 className="text-xl text-copy font-medium mb-2">Book a consulting session</h2>
+            <p className="text-text-muted text-base mb-4">
+              Expert eyes on a problem, a tech decision, or a strategy.
+              Focused, 1-on-1, and built around your situation.
             </p>
-            <span className="text-primary text-sm font-medium group-hover:underline">
-              Book a session →
+            <span className="text-primary text-base font-medium group-hover:underline">
+              See session options →
             </span>
           </button>
         </div>
@@ -80,7 +80,7 @@ export default function LetsTalkPage() {
           >
             ← Back to options
           </button>
-          <h2 className="text-xl text-copy font-medium mb-6">Book a Consult</h2>
+          <h2 className="text-xl text-copy font-medium mb-6">Book a Consulting Session</h2>
           <ConsultingForm />
         </div>
       )}

@@ -82,6 +82,7 @@ export default function ContactForm() {
                 value={name}
                 name="name"
                 required
+                autoFocus
                 placeholder="John Doe"
               />
             </Field>
