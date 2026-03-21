@@ -24,24 +24,41 @@ const getPost = async (slug: string) => {
 }
 
 export async function generateMetadata({ params }) {
-  // read route params
   const slug = params.slug
-
-  // fetch post data directly
   const { frontMatter } = await getPost(slug)
-  const { title, description } = frontMatter
+  const { title, description, date, tags } = frontMatter
+
+  const canonicalUrl = `https://andelhusbands.xyz/posts/${slug}`
+  const publishedTime = date ? new Date(date).toISOString() : undefined
 
   return {
-    title: title + " | Andel Husbands Blog",
+    title,
     description,
+    keywords: tags,
     openGraph: {
-      images: "/og-image.png",
+      type: "article",
+      title,
+      description,
+      url: canonicalUrl,
+      publishedTime,
+      authors: ["Andel Husbands"],
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: title + " | Andel Husbands Blog",
+      title,
       description,
       images: "/og-image.png",
+    },
+    alternates: {
+      canonical: canonicalUrl,
     },
   }
 }
@@ -49,10 +66,41 @@ export async function generateMetadata({ params }) {
 export default async function PostPage({ params }) {
   const slug = params.slug
   const { mdxSource, frontMatter } = await getPost(slug)
-  const { title } = frontMatter
+  const { title, description, date } = frontMatter
+
+  const canonicalUrl = `https://andelhusbands.xyz/posts/${slug}`
+  const publishedTime = date ? new Date(date).toISOString() : undefined
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    url: canonicalUrl,
+    datePublished: publishedTime,
+    dateModified: publishedTime,
+    author: {
+      "@type": "Person",
+      name: "Andel Husbands",
+      url: "https://andelhusbands.xyz",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Andel Husbands",
+      url: "https://andelhusbands.xyz",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+  }
 
   return (
     <div className="text-copy font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BreadCrumbs title={title} />
       <MotionH1
         initial={{ opacity: 0 }}
