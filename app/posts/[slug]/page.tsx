@@ -29,7 +29,11 @@ export async function generateMetadata({ params }) {
   const { title, description, date, tags } = frontMatter
 
   const canonicalUrl = `https://andelhusbands.xyz/posts/${slug}`
-  const publishedTime = date ? new Date(date).toISOString() : undefined
+  const parsedDate = date ? new Date(date) : null
+  const publishedTime =
+    parsedDate && !isNaN(parsedDate.getTime())
+      ? parsedDate.toISOString()
+      : undefined
 
   return {
     title,
@@ -69,7 +73,11 @@ export default async function PostPage({ params }) {
   const { title, description, date } = frontMatter
 
   const canonicalUrl = `https://andelhusbands.xyz/posts/${slug}`
-  const publishedTime = date ? new Date(date).toISOString() : undefined
+  const parsedDate = date ? new Date(date) : null
+  const publishedTime =
+    parsedDate && !isNaN(parsedDate.getTime())
+      ? parsedDate.toISOString()
+      : undefined
 
   const jsonLd = {
     "@context": "https://schema.org",
