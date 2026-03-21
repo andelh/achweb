@@ -49,7 +49,7 @@ const mdxComponents = {
   ),
   code: (props: any) => (
     <code className="mx-1 my-0 rounded-sm bg-stone-200 px-1 py-1 text-[16px]">
-      {props.code}
+      {props.children}
     </code>
   ),
   ul: ({ className, ...props }: any) => (
@@ -192,7 +192,11 @@ export default async function PostPage({ params }) {
         className="mb-16 max-w-[690px] font-sans"
       >
         {/* @ts-expect-error Server Component */}
-        <MDXRemote source={content} components={mdxComponents} />
+        <MDXRemote
+          source={content}
+          components={mdxComponents}
+          options={{ blockJS: false }}
+        />
       </MotionDiv>
       <BreadCrumbs title={title} />
     </div>
