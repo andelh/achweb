@@ -1,26 +1,95 @@
-import MyMDXRemote from "./mdx-remote"
 import Link from "next/link.js"
 import { MotionDiv, MotionH1, MotionNav } from "../../use-clients"
 import path from "path"
 import matter from "gray-matter"
 import { promises as fs } from "fs"
-import { serialize } from "next-mdx-remote/serialize"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import MySyntaxHighlighter from "./syntax-highlighter"
+import Image from "next/image"
+import { cn } from "../../../lib/utils"
 
 const getPost = async (slug: string) => {
   const postsDirectory = path.join(process.cwd(), "posts")
-
   const markdownWithMeta = await fs.readFile(
     postsDirectory + `/${slug}.mdx`,
     "utf8"
   )
   const { data: frontMatter, content } = matter(markdownWithMeta)
-  const mdxSource = await serialize(content)
+  return { frontMatter, slug, content }
+}
 
-  return {
-    frontMatter,
-    slug,
-    mdxSource,
-  }
+const mdxComponents = {
+  SyntaxHighlighter: MySyntaxHighlighter,
+  h1: ({ className, ...props }: any) => (
+    <h1 {...props} className={cn("mb-4 mt-16 text-[48px]", className)} />
+  ),
+  h2: ({ className, ...props }: any) => (
+    <h2 {...props} className={cn("mb-4 mt-16 text-4xl", className)} />
+  ),
+  h3: ({ className, ...props }: any) => (
+    <h3 {...props} className={cn("mb-4 mt-16 text-3xl [&>code]:text-[24px]", className)} />
+  ),
+  h4: ({ className, ...props }: any) => (
+    <h4 {...props} className={cn("mb-4 mt-16 text-[24px]", className)} />
+  ),
+  h5: ({ className, ...props }: any) => (
+    <h5 {...props} className={cn("mb-4 mt-16 text-[20px]", className)} />
+  ),
+  h6: ({ className, ...props }: any) => (
+    <h6 {...props} className={cn("mb-4 mt-16 text-[19px]", className)} />
+  ),
+  p: ({ className, ...props }: any) => (
+    <p
+      {...props}
+      className={cn(
+        "mb-6 text-[18px] font-normal leading-normal text-copy opacity-95 md:text-[17px] md:text-[20px] [&>code]:text-[17px] [&>em]:italic [&>em]:leading-normal [&>strong]:font-semibold",
+        className
+      )}
+    />
+  ),
+  code: (props: any) => (
+    <code className="mx-1 my-0 rounded-sm bg-stone-200 px-1 py-1 text-[16px]">
+      {props.code}
+    </code>
+  ),
+  ul: ({ className, ...props }: any) => (
+    <ul {...props} className={cn("ml-10 list-disc", className)} />
+  ),
+  ol: ({ className, ...props }: any) => (
+    <ol {...props} className={cn("ml-10 list-decimal", className)} />
+  ),
+  li: ({ className, ...props }: any) => (
+    <li
+      {...props}
+      className={cn(
+        "mb-2 text-[17px] font-normal leading-normal text-copy opacity-90 md:text-[20px]",
+        className
+      )}
+    />
+  ),
+  a: ({ className, ...props }: any) => (
+    <a {...props} className={cn("text-link no-underline hover:underline", className)} />
+  ),
+  strong: ({ className, ...props }: any) => (
+    <strong {...props} className={cn("font-medium", className)} />
+  ),
+  img: (props: any) => (
+    <div className="relative w-full aspect-[1200/630] mb-4 overflow-hidden">
+      <Image
+        {...props}
+        className="object-contain rounded-lg"
+        alt={props.alt ?? ""}
+        placeholder="blur"
+        blurDataURL={props.src}
+        fill
+      />
+    </div>
+  ),
+  blockquote: (props: any) => (
+    <blockquote className="ml-4 border-l-2 border-dashed border-secondary pl-4 italic text-secondary opacity-90 md:ml-5 md:pl-6 [&>p]:text-[17px] [&>p]:font-normal">
+      {props.children}
+    </blockquote>
+  ),
 }
 
 export async function generateMetadata({ params }) {
@@ -69,7 +138,7 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const slug = params.slug
-  const { mdxSource, frontMatter } = await getPost(slug)
+  const { content, frontMatter } = await getPost(slug)
   const { title, description, date } = frontMatter
 
   const canonicalUrl = `https://andelhusbands.xyz/posts/${slug}`
@@ -122,7 +191,8 @@ export default async function PostPage({ params }) {
         animate={{ opacity: 1 }}
         className="mb-16 max-w-[690px] font-sans"
       >
-        <MyMDXRemote {...mdxSource} />
+        {/* @ts-expect-error Server Component */}
+        <MDXRemote source={content} components={mdxComponents} />
       </MotionDiv>
       <BreadCrumbs title={title} />
     </div>
