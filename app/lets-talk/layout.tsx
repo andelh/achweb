@@ -1,9 +1,12 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Let's Talk | Andel Husbands",
+  title: "Hire a Web Developer in Trinidad — Let's Talk",
   description:
-    "Book a consulting session or start a project conversation with Andel Husbands, web and app developer based in Trinidad and Tobago.",
+    "Looking for a web or app developer in Trinidad and Tobago? Get in touch with Andel Husbands for a free consultation on your next project.",
+  alternates: {
+    canonical: "https://andelhusbands.xyz/lets-talk",
+  },
 }
 
 export default function LetsTalkLayout({

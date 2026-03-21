@@ -4,16 +4,7 @@ import path from "path"
 import matter from "gray-matter"
 import client from "../lib/sanity"
 import { dailyUIQuery } from "../lib/queries"
-
-function getBaseUrl(): string {
-  const explicit = process.env.NEXT_PUBLIC_SITE_URL
-  if (explicit) return explicit.replace(/\/$/, "")
-
-  const vercel = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL
-  if (vercel) return `https://${vercel.replace(/\/$/, "")}`
-
-  return "http://localhost:3000"
-}
+import { getBaseUrl } from "../lib/url"
 
 async function getBlogPostUrls(baseUrl: string) {
   try {
@@ -48,7 +39,7 @@ async function getBlogPostUrls(baseUrl: string) {
         url: `${baseUrl}/posts/${slug}`,
         lastModified,
         changeFrequency: "monthly",
-        priority: 0.6,
+        priority: 0.7,
       })
     }
 
@@ -85,7 +76,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/blog`,
@@ -110,12 +101,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/thank-you`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.1,
     },
   ]
 
