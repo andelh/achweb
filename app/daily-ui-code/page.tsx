@@ -3,6 +3,22 @@ import React, { Suspense } from "react"
 import UIList from "./ui-list"
 import client from "../../lib/sanity"
 import { dailyUIQuery } from "../../lib/queries"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Daily UI Code Challenges",
+  description:
+    "A series of daily UI coding challenges — each one rebuilt in React and documented with code. Practical front-end exercises from a developer in Trinidad and Tobago.",
+  openGraph: {
+    title: "Daily UI Code Challenges | Andel Husbands",
+    description:
+      "Daily UI coding challenges rebuilt in React with source code.",
+    url: "https://andelhusbands.xyz/daily-ui-code",
+  },
+  alternates: {
+    canonical: "https://andelhusbands.xyz/daily-ui-code",
+  },
+}
 
 export default async function DailyUIPage() {
   const data = await client?.fetch(dailyUIQuery)

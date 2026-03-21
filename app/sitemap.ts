@@ -48,7 +48,7 @@ async function getBlogPostUrls(baseUrl: string) {
         url: `${baseUrl}/posts/${slug}`,
         lastModified,
         changeFrequency: "monthly",
-        priority: 0.6,
+        priority: 0.7,
       })
     }
 
@@ -85,7 +85,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/blog`,

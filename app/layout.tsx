@@ -11,12 +11,48 @@ const outfit = Outfit({
 })
 
 export const metadata = {
-  title:
-    "Andel Husbands | Web and App Developer | Based in Trinidad and Tobago",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://andelhusbands.xyz"
+  ),
+  title: {
+    default:
+      "Andel Husbands | Web & App Developer in Trinidad and Tobago",
+    template: "%s | Andel Husbands",
+  },
   description:
-    "I'm a passionate web and software developer based in vibrant Trinidad and Tobago, and I'm here to turn your ideas into reality. With a strong desire to elevate the quality of products born from our home soil, I bring creativity, expertise, and a personal touch to every project. Let's connect and embark on a journey to create something truly remarkable.",
+    "Freelance web and mobile app developer based in Trinidad and Tobago. I help startups and creative businesses build fast, polished products — from full-stack web apps to React Native mobile apps.",
+  keywords: [
+    "web developer Trinidad",
+    "app developer Trinidad and Tobago",
+    "freelance developer Trinidad",
+    "React developer Trinidad",
+    "Next.js developer Trinidad",
+    "mobile app developer Trinidad",
+    "software developer Caribbean",
+    "full-stack developer Trinidad",
+    "Andel Husbands",
+  ],
   openGraph: {
-    images: "/og-image.png",
+    type: "website",
+    locale: "en_TT",
+    url: "https://andelhusbands.xyz",
+    siteName: "Andel Husbands",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Andel Husbands — Web & App Developer in Trinidad and Tobago",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@AndelHusbands",
+    creator: "@AndelHusbands",
+  },
+  alternates: {
+    canonical: "https://andelhusbands.xyz",
   },
 }
 
@@ -30,6 +66,33 @@ export default function RootLayout({
       <head>
         {/* Add favicon */}
         <link rel="icon" href="/favicon.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Andel Husbands",
+              url: "https://andelhusbands.xyz",
+              email: "hey@andelhusbands.xyz",
+              jobTitle: "Freelance Web & Mobile App Developer",
+              description:
+                "Freelance web and mobile app developer based in Trinidad and Tobago, building fast and polished digital products for startups and creative businesses.",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "TT",
+                addressRegion: "Trinidad and Tobago",
+              },
+              sameAs: [
+                "https://twitter.com/AndelHusbands",
+                "https://www.linkedin.com/in/andel-husbands-013198120",
+                "https://www.github.com/andelh",
+                "https://www.instagram.com/andelhusbands_/",
+                "https://www.facebook.com/andel.husbands",
+              ],
+            }),
+          }}
+        />
       </head>
       <ThemeProvider
         attribute="class"

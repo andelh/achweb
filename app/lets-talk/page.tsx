@@ -1,7 +1,12 @@
 import ContactForm from "./contact-form"
 
 export const metadata = {
-  title: "Contact me - Get a free quote | Andel Husbands",
+  title: "Hire a Web Developer in Trinidad — Let's Talk",
+  description:
+    "Looking for a web or app developer in Trinidad and Tobago? Get in touch with Andel Husbands for a free consultation on your next project.",
+  alternates: {
+    canonical: "https://andelhusbands.xyz/lets-talk",
+  },
 }
 
 export default function LetsTalkPage() {

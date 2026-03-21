@@ -4,6 +4,22 @@ import path from "path"
 import matter from "gray-matter"
 import readingTime from "reading-time"
 import PostItem from "./PostItem"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Writing on web development, mobile apps, and building software products. Practical posts on React, Next.js, and the developer experience from a builder in Trinidad and Tobago.",
+  openGraph: {
+    title: "Blog | Andel Husbands",
+    description:
+      "Writing on web development, mobile apps, and building software products.",
+    url: "https://andelhusbands.xyz/blog",
+  },
+  alternates: {
+    canonical: "https://andelhusbands.xyz/blog",
+  },
+}
 
 const getPosts = async () => {
   const files = fs.readdirSync(path.join("posts"))
