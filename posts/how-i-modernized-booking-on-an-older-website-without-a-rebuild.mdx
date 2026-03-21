@@ -1,117 +1,80 @@
 ---
-title: How I Modernized Booking on an Older Website Without a Rebuild
-date: "March 9, 2026"
-description: The old booking button opened an email draft. I replaced that with a Cal.com booking flow, payment handoff, and the operational logic the business actually needed.
+title: I Built This Site in 2019. Here's What I Did Instead of Rebuilding It.
+date: "March 19, 2026"
+description: When Ocean Echo Adventures needed booking and payments, the obvious answer was a full rebuild. I kept the 2019 site as-is and layered on Cal.com, Convex, and Resend — mostly free tools — to build the engine the business actually needed.
 tags: ["case-study", "web-development", "booking", "payments", "cal.com"]
-draft: false
+draft: true
 ---
 
-One thing I keep seeing is people deciding a website needs to be rebuilt the second the business wants something more sophisticated.
+I built [Ocean Echo Adventures](https://oceanechoadventures.com/) back in 2019. Standard project — client needed a website, I built one, they got a site that explained their horse-riding business and made it feel real.
 
-Sometimes that is true. Sometimes the site really is the problem.
+Five years later, they came back.
 
-But a lot of the time it is not. A lot of the time the real issue is that the website can attract attention, but it cannot carry someone through the part where they are ready to act.
+The site was still working fine. Still ranking. Still doing the job it was built to do. The problem wasn't the website — it was what happened after someone read it and decided they wanted to book. Clicking "Book now" opened an email draft. The booking process was just emailing the business and hoping the back-and-forth went smoothly.
 
-That was the situation here.
+When volume is low, that works. Once the business needs to track bookings, manage capacity, collect deposits, and send confirmations, it falls apart.
 
-The [Ocean Echo Adventures](https://oceanechoadventures.com/) site was not broken in the way people usually mean when they say a site is old. It still explained the experience well. It still made the business feel real. It still did the brand job.
+The obvious move at this point is a full rebuild. New stack, new design, clean slate. Completely justifiable.
 
-The weak spot showed up when someone clicked "Book now."
+I didn't do that.
 
-Instead of moving into an actual booking flow, the site opened an email prompt.
+## What I actually wanted to avoid
 
-That might be fine when volume is low and everything is being handled manually. It starts to fall apart once the business needs cleaner operations, better visibility, and a booking process that does not depend on someone chasing email threads all day.
+Rebuilding the site would have meant touching a lot of things that weren't broken.
 
-## The website was old, but that was not the real issue
+SEO built up over five years. Content people were actually finding. A layout the client understood and knew how to work with. You rebuild all that and you're introducing risk across every layer — rankings, redirects, client retraining — to solve a problem that was really just about adding a transaction layer underneath the existing site.
 
-I kept coming back to that while working on it.
+So I treated the existing site as fixed and figured out what I could build around it.
 
-The problem was not really age. The problem was the lack of a transaction layer.
+## The stack I landed on
 
-That is a more useful way to frame it because it changes what you build.
+I wanted to use tools with free tiers where I could, because the business is small and baking in ongoing SaaS costs across five different services didn't make sense. Here's what I ended up with:
 
-If you think the problem is "old website," you start pricing out a redesign, thinking about new page sections, fresh visuals, and a whole new front end.
+**[Cal.com](https://cal.com/)** for scheduling. Free tier, open source, and it has an API that lets you do things beyond what the UI exposes — which matters more than it sounds.
 
-If you think the problem is "this business has no proper booking and payment flow," you start in a very different place.
+**[Convex](https://convex.dev/)** as the backend database. Real-time, serverless, free tier generous enough for this volume. It became the source of truth for booking state, payment records, slot capacity — everything the Cal.com webhooks feed into.
 
-You think about availability. Approval states. Deposits. Pricing logic. What staff need to manage. What the customer should see next. What happens after someone books. What should happen before they pay.
+**[Resend](https://resend.com/)** for transactional email. Free tier covers the volume. Clean API.
 
-That is where the real work was.
+**Fiserv** for payments. This one's not free — it's the payment gateway the business was already set up with, and it's not especially developer-friendly. But it's what they had, so I made it work.
 
-## I did not want to rebuild the parts that were already working
+The public Ocean Echo site stayed exactly as it was. What I built was a separate Next.js app — a booking engine — that the "Book now" button on the existing site now links into.
 
-I could have rebuilt the entire website. There is always a version of a project where that sounds cleaner.
+## Where it got more complicated than expected
 
-But that would have meant changing far more than the actual bottleneck.
+The initial brief sounded simple: replace the email button with a real booking flow, add payment.
 
-Once you go that route, you are not just solving booking. You are also taking on content migration, design revisions, SEO risk, redirects, deployment details, and every small decision that comes along for the ride.
+Then the actual requirements came out.
 
-That is a lot of surface area when the main thing the business needs is a better engine underneath the site it already has.
+Ocean Echo is a horse-riding business. Not every person who tries to book should automatically get a payment link. Age and weight matter for the rides. Some bookings need a manual review before they're confirmed. The business wanted control over who moved forward.
 
-So I left the public site in place and treated it as the marketing layer.
+So the flow became:
 
-Then I replaced the part that mattered most.
+1. Someone requests a booking through the Cal.com embed
+2. The Cal.com webhook fires, I store a pending approval in Convex
+3. The team reviews it and either approves or rejects
+4. On approval, the booking gets confirmed in Cal.com via API and the customer gets a payment link
+5. Payment goes through Fiserv — fine, not great, but it works
+6. Paid booking updates the Convex record and sends the confirmation email
 
-Instead of a "Book now" button opening an email client, it now opens a [Cal.com](https://cal.com/) embed. That change alone already makes the experience feel more real. The customer is actually booking, not drafting a message and hoping the back-and-forth goes smoothly.
+That approval step changed the whole shape of the project. It's the difference between embedding a widget and building a state machine.
 
-Then I pushed it further.
+A few other things that ended up being real work:
 
-After the booking is created, the flow moves into payment. That part was important because I did not want the booking experience and the payment experience to live as two disconnected steps the team had to stitch together manually afterward.
+**Capacity management.** The ride slots hold a maximum of 6 people. I track counts in Convex and when a timeslot fills up, I block the surrounding availability in Cal.com so nobody can squeeze in. For group bookings with multiple attendees, I use Cal.com's slot reservation API to hold consecutive windows so the whole group lands in the right place.
 
-## The visible change was simple. The business requirements were not.
+**Payment expiration.** If someone gets a payment link and doesn't pay within 6 hours, the booking gets cancelled, the Cal.com event is deleted, the reserved slots are released, and Convex marks the payment as expired. This runs on a cron job every 15 minutes. It sounds like a small detail until you forget to build it.
 
-From the outside, the upgrade sounds straightforward.
+**Admin pricing controls.** Pricing lives in the database, not the code. Six ride types, each with their own price per person, a surcharge for private rides, a configurable deposit percentage, and an admin page the client can use to change any of it without touching a line of code. If the client has to email you every time the pricing changes, you haven't finished the job.
 
-Email prompt out. Booking embed in. Payment flow after.
+## What they ended up with
 
-But that was not the actual brief.
+The 2019 site is still running, unchanged.
 
-The business did not just want a way for anyone to click a button and pay. They needed control over who was allowed to move forward.
+The booking engine sits next to it. Someone clicks "Book now," goes through Cal.com, gets reviewed by the team, pays a deposit through Fiserv, gets a confirmation email, and shows up. The team has a dashboard to approve or reject requests, see who's paid, adjust pricing, and manage capacity.
 
-Because this is a horse-riding business, the booking flow has real-world constraints attached to it. Age matters. Weight matters. Some bookings need a closer look before they can be confirmed. They wanted a system that reflected that reality instead of pretending every booking should be treated the same.
+Running cost: Cal.com free tier, Convex free tier, Resend free tier, and Fiserv processing fees per transaction.
 
-So the flow had to work in a specific order.
+I don't know if this approach works every time. Sometimes a site does need to be rebuilt — the tech is unmaintainable, the design is actively hurting conversion, something structural is wrong. But that wasn't the case here. The site was fine. The business needed a booking engine.
 
-First, someone submits their booking request.
-
-Then the team reviews it and makes sure everything checks out.
-
-Only after they approve it does that person move on to payment and become a confirmed booking.
-
-That approval step was not a nice extra. It was one of the main requirements.
-
-Once that became clear, the work stopped being about embedding a booking widget and started being about building the right booking state around it.
-
-The system needed to support requests, approvals, rejections, payments, and completed bookings in a way the business could trust.
-
-That is the difference between adding a booking feature and building something the business can actually run on.
-
-## What I actually built into it
-
-The final system ended up doing a lot more than swapping one CTA behavior for another.
-
-It introduced a proper booking flow with [Cal.com](https://cal.com/) as the entry point, then extended that with custom logic for payment handling and the parts of the process that generic tools do not fully cover on their own.
-
-That included deposit payments, booking approvals, payment-gated next steps, pricing controls, and admin functionality so the business could adjust pricing without needing me every time something changed.
-
-That last point matters more than people think.
-
-If a system only works when the developer is standing next to it, the system is still fragile.
-
-The business needs room to manage normal changes on its own.
-
-## What I took from this project
-
-This project pushed me further toward something I already believed: rebuilding should not be the default answer.
-
-Sometimes the right move is to leave the front end alone, keep the trust and familiarity it already has, and build better systems around the part that is actually slowing the business down.
-
-That was the better move here.
-
-The old site still does its job.
-
-It just no longer hands people off to an email draft and hopes for the best.
-
-Now it moves them into a real booking flow, then into payment, with actual logic underneath it.
-
-That is a much better outcome than a shiny rebuild with the same operational gap hiding underneath.
+So that's what I built.
